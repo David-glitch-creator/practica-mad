@@ -34,7 +34,6 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
     {
 #>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
     public <#=code.Escape(entity)#>()
     {
 <#
@@ -96,20 +95,35 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
 <#
         foreach (var navigationProperty in navigationProperties)
         {
-            if (navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
-            {
 #>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-<#
-            }
-#>
+    
+    /// <summary>
+    /// Relationship Name (Foreign Key in ER-Model): <#=code.Escape(navigationProperty.RelationshipType.Name)#>
+    /// </summary>
     <#=codeStringGenerator.NavigationProperty(navigationProperty)#>
 <#
         }
     }
+
+	
+	#region Customized Methods Section 
+
+	GenerateGetHashCodeMethod(entity, simpleProperties);
+
+	GenerateEqualsMethod(entity, simpleProperties);
+
+	GenerateEqualsOperatorMethod(entity, simpleProperties);
+
+    GenerateNotEqualsOperatorMethod(entity, simpleProperties);
+
+	GenerateToStringMethod(entity, simpleProperties);
+
+	#endregion
+
 #>
 }
 <#
+
     EndNamespace(code);
 }
 
@@ -173,6 +187,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
 <#
         }
     }
+
 #>
 }
 <#
@@ -426,8 +441,9 @@ public class CodeStringGenerator
             ? string.Format(
                 CultureInfo.InvariantCulture,
                 "{0}using System;{1}" +
-                "{2}",
+                "{2}" + "{3}",
                 inHeader ? Environment.NewLine : "",
+				includeCollections ? (Environment.NewLine + "using System.Text;") : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
                 inHeader ? "" : Environment.NewLine)
             : "";
@@ -729,5 +745,150 @@ public static void ArgumentNotNull<T>(T arg, string name) where T : class
     {
         throw new ArgumentNullException(name);
     }
+}
+
+
+
+void GenerateGetHashCodeMethod(EntityType entity, IEnumerable<EdmProperty> properties)
+{
+    var ef = new MetadataTools(this);
+#>
+
+	/// <summary>
+	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
+	/// like a hash table. It uses the Josh Bloch implementation from "Effective Java"
+    /// Primary key of entity is not included in the hash calculation to avoid errors
+	/// with Entity Framework creation of key values.
+	/// </summary>
+	/// <returns>
+	/// Returns a hash code for this instance.
+	/// </returns>
+	public override int GetHashCode()
+	{
+	    unchecked
+	    {
+			int multiplier = 31;
+			int hash = GetType().GetHashCode();
+
+<#+
+
+	foreach (var p in properties)
+    {	
+		if (ef.IsKey(p)) continue;
+		
+		bool isNullable = p.TypeUsage.ToString().Equals("Edm.String") || p.Nullable;
+		
+		if (!isNullable)
+		{
+#>
+			hash = hash * multiplier + <#= p.Name #>.GetHashCode();
+<#+
+		}
+		else
+		{
+#>
+			hash = hash * multiplier + (<#= p.Name #> == null ? 0 : <#= p.Name #>.GetHashCode());
+<#+
+		}
+	}
+#>
+
+			return hash;
+	    }
+
+	}
+<#+
+}
+
+void GenerateToStringMethod(EntityType entity, IEnumerable<EdmProperty> properties) 
+{
+
+var code = new CodeGenerationTools(this);
+
+#>
+    /// <summary>
+    /// Returns a <see cref="T:System.String"></see> that represents the 
+    /// current <see cref="T:System.Object"></see>.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="T:System.String"></see> that represents the current 
+    /// <see cref="T:System.Object"></see>.
+    /// </returns>
+	public override String ToString()
+	{
+	    StringBuilder str<#=code.Escape(entity)#> = new StringBuilder();
+
+		str<#=code.Escape(entity)#>.Append("[ ");
+<#+      
+	foreach (var p in properties)   {	#>       str<#=code.Escape(entity)#>.Append(" <#= p.Name #> = " + <#= p.Name #> + " | " );       
+<#+ }   #>
+        str<#=code.Escape(entity)#>.Append("] ");    
+
+		return str<#=code.Escape(entity)#>.ToString();
+    }
+
+
+<#+ 
+}
+
+
+void GenerateEqualsMethod(EntityType entity, IEnumerable<EdmProperty> properties) 
+{
+    var code = new CodeGenerationTools(this);
+
+#>
+    
+    /// <summary>
+    /// Compare this object against another instance using a value approach (field-by-field) 
+    /// </summary>
+    /// <remarks>See http://www.loganfranken.com/blog/687/overriding-equals-in-c-part-1/ for detailed info </remarks>
+	public override bool Equals(object obj)
+	{
+
+        if (ReferenceEquals(null, obj)) return false;        // Is Null?
+        if (ReferenceEquals(this, obj)) return true;         // Is same object?
+        if (obj.GetType() != this.GetType()) return false;   // Is same type? 
+
+        <#=code.Escape(entity)#> target = obj as <#=code.Escape(entity)#>;
+
+		return true
+<#+      
+	foreach (var p in properties)   {	#>           &&  (this.<#= p.Name #> == target.<#= p.Name #> )       
+<#+ }   #>           ;
+
+    }
+
+<#+ 
+}
+
+void GenerateEqualsOperatorMethod(EntityType entity, IEnumerable<EdmProperty> properties) 
+{
+    var code = new CodeGenerationTools(this);
+
+#>
+
+	public static bool operator ==(<#=code.Escape(entity)#>  objA, <#=code.Escape(entity)#>  objB)
+    {
+        // Check if the objets are the same <#=code.Escape(entity)#> entity
+        if(Object.ReferenceEquals(objA, objB))
+            return true;
+  
+        return objA.Equals(objB);
+}
+
+<#+ 
+}  
+	void GenerateNotEqualsOperatorMethod(EntityType entity, IEnumerable<EdmProperty> properties) 
+{
+    var code = new CodeGenerationTools(this);
+#>
+
+	public static bool operator !=(<#=code.Escape(entity)#>  objA, <#=code.Escape(entity)#>  objB)
+    {
+        return !(objA == objB);
+    }
+
+
+<#+ 
 }
 #>
