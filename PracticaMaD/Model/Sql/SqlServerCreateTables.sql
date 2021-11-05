@@ -18,7 +18,21 @@
  * not be done).                                                            
  */
  
- USE photogram /* TODO PENSAR SI EL PROYECTO SE VA LLAMAR PRACTICAMAD O PHOTOGRAM (PHOTOGRAM MEJOR NO?) */
+ USE photogram
+
+ /* Drop Table Comment if already exists */
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Follow]') 
+AND type in ('U')) DROP TABLE [Follow]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Likes]') 
+AND type in ('U')) DROP TABLE [Likes]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Comment]') 
+AND type in ('U')) DROP TABLE [Comment]
+GO
 
 /* Drop Table ImageEntity if already exists */
 
@@ -80,11 +94,10 @@ PRINT N'Table Category created.'
 GO
 
 /*  ImageEntity */
-/* TODO REVISAR COMO LLAMAR A LAS IMAGENES */
 CREATE TABLE ImageEntity (
 	imageId BIGINT IDENTITY(1,1) UNIQUE NOT NULL,
 	title VARCHAR(30) UNIQUE NOT NULL,
-	fechaSubida DATETIME NOT NULL,
+	uploadDate DATETIME NOT NULL,
 	aperture VARCHAR(30),
 	exposureTime VARCHAR(30),
 	iso VARCHAR(30),
@@ -102,6 +115,59 @@ CREATE TABLE ImageEntity (
 )
 
 PRINT N'Table ImageEntity created.'
+GO
+
+/*  Comment */
+CREATE TABLE Comment (
+	commentId BIGINT IDENTITY(1,1) UNIQUE NOT NULL,
+	author BIGINT NOT NULL,
+	imageId BIGINT NOT NULL,
+	commentText VARCHAR(60) NOT NULL,
+	
+	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId),
+	
+	CONSTRAINT [FK_CommentAuthor] FOREIGN KEY (author)
+		REFERENCES UserProfile(userId) ON DELETE CASCADE,
+		
+	CONSTRAINT [FK_CommentedImage] FOREIGN KEY (imageId)
+		REFERENCES ImageEntity (imageId) /*ON DELETE CASCADE*/
+)
+
+PRINT N'Table Comment created.'
+GO
+
+/*  Likes */
+CREATE TABLE Likes (
+	imageId BIGINT NOT NULL,
+	userId BIGINT NOT NULL,
+
+	CONSTRAINT [PK_Likes] PRIMARY KEY (imageId, userId),
+		
+	CONSTRAINT [FK_LikedImage] FOREIGN KEY (imageId)
+		REFERENCES ImageEntity (imageId) ON DELETE CASCADE,
+	
+	CONSTRAINT [FK_UserWhoLikes] FOREIGN KEY (userId)
+		REFERENCES UserProfile(userId) /*ON DELETE CASCADE*/,
+)
+
+PRINT N'Table Likes created.'
+GO
+
+/*  Follow */
+CREATE TABLE Follow (
+	followedUserId BIGINT NOT NULL,
+	followerUserId BIGINT NOT NULL,
+
+	CONSTRAINT [PK_Follow] PRIMARY KEY (followedUserId, followerUserId),
+		
+	CONSTRAINT [FK_FollowedUser] FOREIGN KEY (followedUserId)
+		REFERENCES UserProfile (userId) ON DELETE CASCADE,
+	
+	CONSTRAINT [FK_FollowerUser] FOREIGN KEY (followerUserId)
+		REFERENCES UserProfile (userId) /*ON DELETE CASCADE*/,
+)
+
+PRINT N'Table Follow created.'
 GO
 
 

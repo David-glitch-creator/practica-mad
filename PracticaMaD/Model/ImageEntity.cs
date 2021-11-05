@@ -14,9 +14,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     public partial class ImageEntity
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ImageEntity()
+        {
+            this.Comment = new HashSet<Comment>();
+            this.UserProfile1 = new HashSet<UserProfile>();
+        }
+    
         public long imageId { get; set; }
         public string title { get; set; }
-        public System.DateTime fechaSubida { get; set; }
+        public System.DateTime uploadDate { get; set; }
         public string aperture { get; set; }
         public string exposureTime { get; set; }
         public string iso { get; set; }
@@ -25,6 +32,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public long categoryId { get; set; }
     
         public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comment { get; set; }
         public virtual UserProfile UserProfile { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserProfile> UserProfile1 { get; set; }
     }
 }
