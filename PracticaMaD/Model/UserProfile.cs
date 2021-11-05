@@ -25,12 +25,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         }
     
         public long userId { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
+        public string loginName { get; set; }
+        public string enPassword { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
-        public string language { get; set; }
+        public string lang { get; set; }
         public string country { get; set; }
     
         
@@ -75,12 +75,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int multiplier = 31;
     			int hash = GetType().GetHashCode();
     
-    			hash = hash * multiplier + (login == null ? 0 : login.GetHashCode());
-    			hash = hash * multiplier + (password == null ? 0 : password.GetHashCode());
+    			hash = hash * multiplier + (loginName == null ? 0 : loginName.GetHashCode());
+    			hash = hash * multiplier + (enPassword == null ? 0 : enPassword.GetHashCode());
     			hash = hash * multiplier + (firstName == null ? 0 : firstName.GetHashCode());
     			hash = hash * multiplier + (lastName == null ? 0 : lastName.GetHashCode());
     			hash = hash * multiplier + (email == null ? 0 : email.GetHashCode());
-    			hash = hash * multiplier + (language == null ? 0 : language.GetHashCode());
+    			hash = hash * multiplier + (lang == null ? 0 : lang.GetHashCode());
     			hash = hash * multiplier + (country == null ? 0 : country.GetHashCode());
     
     			return hash;
@@ -103,12 +103,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		return true
                &&  (this.userId == target.userId )       
-               &&  (this.login == target.login )       
-               &&  (this.password == target.password )       
+               &&  (this.loginName == target.loginName )       
+               &&  (this.enPassword == target.enPassword )       
                &&  (this.firstName == target.firstName )       
                &&  (this.lastName == target.lastName )       
                &&  (this.email == target.email )       
-               &&  (this.language == target.language )       
+               &&  (this.lang == target.lang )       
                &&  (this.country == target.country )       
                ;
     
@@ -145,12 +145,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		strUserProfile.Append("[ ");
            strUserProfile.Append(" userId = " + userId + " | " );       
-           strUserProfile.Append(" login = " + login + " | " );       
-           strUserProfile.Append(" password = " + password + " | " );       
+           strUserProfile.Append(" loginName = " + loginName + " | " );       
+           strUserProfile.Append(" enPassword = " + enPassword + " | " );       
            strUserProfile.Append(" firstName = " + firstName + " | " );       
            strUserProfile.Append(" lastName = " + lastName + " | " );       
            strUserProfile.Append(" email = " + email + " | " );       
-           strUserProfile.Append(" language = " + language + " | " );       
+           strUserProfile.Append(" lang = " + lang + " | " );       
            strUserProfile.Append(" country = " + country + " | " );       
             strUserProfile.Append("] ");    
     

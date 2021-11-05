@@ -21,7 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         }
     
         public long categoryId { get; set; }
-        public string name { get; set; }
+        public string categoryName { get; set; }
     
         
         /// <summary>
@@ -45,7 +45,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int multiplier = 31;
     			int hash = GetType().GetHashCode();
     
-    			hash = hash * multiplier + (name == null ? 0 : name.GetHashCode());
+    			hash = hash * multiplier + (categoryName == null ? 0 : categoryName.GetHashCode());
     
     			return hash;
     	    }
@@ -67,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		return true
                &&  (this.categoryId == target.categoryId )       
-               &&  (this.name == target.name )       
+               &&  (this.categoryName == target.categoryName )       
                ;
     
         }
@@ -103,7 +103,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		strCategory.Append("[ ");
            strCategory.Append(" categoryId = " + categoryId + " | " );       
-           strCategory.Append(" name = " + name + " | " );       
+           strCategory.Append(" categoryName = " + categoryName + " | " );       
             strCategory.Append("] ");    
     
     		return strCategory.ToString();

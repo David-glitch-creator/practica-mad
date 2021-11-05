@@ -10,7 +10,7 @@
             <PropertyRef Name="categoryId" />
           </Key>
           <Property Name="categoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="categoryName" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -56,12 +56,12 @@
             <PropertyRef Name="userId" />
           </Key>
           <Property Name="userId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="login" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="loginName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="enPassword" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="firstName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="lastName" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="language" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="lang" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="country" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <Association Name="FK_CommentAuthor">
@@ -220,7 +220,7 @@
             <PropertyRef Name="categoryId" />
           </Key>
           <Property Name="categoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="categoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ImageEntity" Relationship="Self.FK_ImageCategory" FromRole="Category" ToRole="ImageEntity" />
         </EntityType>
         <EntityType Name="Comment">
@@ -257,12 +257,12 @@
             <PropertyRef Name="userId" />
           </Key>
           <Property Name="userId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loginName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="enPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="firstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="language" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lang" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="country" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_CommentAuthor" FromRole="UserProfile" ToRole="Comment" />
           <NavigationProperty Name="ImageEntity" Relationship="Self.FK_ImageAuthor" FromRole="UserProfile" ToRole="ImageEntity" />
@@ -372,7 +372,7 @@
             <EntityTypeMapping TypeName="photogramModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -405,12 +405,12 @@
             <EntityTypeMapping TypeName="photogramModel.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
                 <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="login" ColumnName="login" />
-                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="loginName" ColumnName="loginName" />
+                <ScalarProperty Name="enPassword" ColumnName="enPassword" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="lang" ColumnName="lang" />
                 <ScalarProperty Name="country" ColumnName="country" />
               </MappingFragment>
             </EntityTypeMapping>
