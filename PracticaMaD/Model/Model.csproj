@@ -70,6 +70,8 @@
     <Compile Include="ImageEntity.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImageEntityDao\IImageEntityDao.cs" />
+    <Compile Include="ImageEntityDao\ImageEntityDaoEntityFramework.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

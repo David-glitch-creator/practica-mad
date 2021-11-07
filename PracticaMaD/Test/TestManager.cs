@@ -1,4 +1,6 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
+using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
 //using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Ninject;
 using System.Configuration;
@@ -20,6 +22,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             kernel.Bind<IUserProfileDao>().
                 To<UserProfileDaoEntityFramework>();
+
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
+
+            kernel.Bind<IImageEntityDao>().
+                To<ImageEntityDaoEntityFramework>();
 
             //kernel.Bind<IUserService>().
             //    To<UserService>();
