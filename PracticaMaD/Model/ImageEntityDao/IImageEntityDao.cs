@@ -12,5 +12,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
     {
         List<ImageEntity> FindByAuthor(long userId);
 
+        List<ImageEntity> FindByCategory(long categoryId);
+
+        List<ImageEntity> FindAll();
+
     }
 }

@@ -29,6 +29,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<IImageEntityDao>().
                 To<ImageEntityDaoEntityFramework>();
 
+            kernel.Bind<ICommentDao>().
+                To<CommentDaoEntityFramework>();
+
             //kernel.Bind<IUserService>().
             //    To<UserService>();
 

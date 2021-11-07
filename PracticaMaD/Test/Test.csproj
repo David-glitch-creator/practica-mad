@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryDaoTest.cs" />
+    <Compile Include="CommentDaoTest.cs" />
     <Compile Include="IGenericDaoTest.cs" />
     <Compile Include="ImageEntityDaoTest.cs" />
     <Compile Include="TestManager.cs" />

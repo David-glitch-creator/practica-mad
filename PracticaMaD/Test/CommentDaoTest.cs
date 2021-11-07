@@ -16,15 +16,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
     /// Descripción resumida de UserProfileDaoTest
     /// </summary>
     [TestClass]
-    public class ImageEntityDaoTest
+    public class CommentDaoTest
     {
         private static IKernel kernel;
         private static IUserProfileDao userProfileDao;
         private static ICategoryDao categoryDao;
         private static IImageEntityDao imageEntityDao;
+        private static ICommentDao commentDao;
         private static UserProfile userProfile;
+        private static UserProfile userProfile2;
         private static Category category;
         private static ImageEntity imageEntity;
+        private static Comment comment;
+        private static Comment comment2;
 
         // Variables used in several tests are initialized here
         private const String loginName = "loginNameTest";
@@ -36,6 +40,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const String country = "ES";
         private const long NON_EXISTENT_USER_ID = -1;
 
+        private const String loginName2 = "loginNameTest2";
+        private const String clearPassword2 = "password2";
+        private const String firstName2 = "name2";
+        private const String lastName2 = "lastName2";
+        private const String email2 = "user2@udc.es";
+        private const String language2 = "es";
+        private const String country2 = "ES";
+
         private const String categoryName = "Categoria1";
 
         private const String title = "foto";
@@ -45,6 +57,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const String iso = "ISO 100/21";
         private const String whiteBalance = "4";
         private Byte[] imageFile = File.ReadAllBytes(@"..\\..\\..\\foto.jpg");
+
+        private const String commentText = "Buena foto, bro";
+        private const String commentText2 = "Gracias, bro";
 
         private TransactionScope transaction;
 
@@ -76,6 +91,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             userProfileDao = kernel.Get<IUserProfileDao>();
             categoryDao = kernel.Get<ICategoryDao>();
             imageEntityDao = kernel.Get<IImageEntityDao>();
+            commentDao = kernel.Get<ICommentDao>();
         }
 
         // Use ClassCleanup para ejecutar el código una vez ejecutadas todas las pruebas en una clase
@@ -103,6 +119,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             userProfileDao.Create(userProfile);
 
 
+            userProfile2 = new UserProfile();
+            userProfile2.loginName = loginName2;
+            userProfile2.enPassword = clearPassword2;
+            userProfile2.firstName = firstName2;
+            userProfile2.lastName = lastName2;
+            userProfile2.email = email2;
+            userProfile2.lang = language2;
+            userProfile2.country = country2;
+
+            userProfileDao.Create(userProfile2);
+
+
             category = new Category();
             category.categoryName = categoryName;
 
@@ -121,7 +149,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             imageEntity.categoryId = category.categoryId;
 
             imageEntityDao.Create(imageEntity);
-    }
+
+
+            comment = new Comment();
+            comment.author = userProfile.userId;
+            comment.imageId = imageEntity.imageId;
+            comment.commentText = commentText;
+
+            commentDao.Create(comment);
+
+
+            comment2 = new Comment();
+            comment2.author = userProfile2.userId;
+            comment2.imageId = imageEntity.imageId;
+            comment2.commentText = commentText;
+
+            commentDao.Create(comment2);
+
+
+        }
 
         // Use TestCleanup para ejecutar el código una vez ejecutadas todas las pruebas
         [TestCleanup()]
@@ -133,27 +179,33 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         #endregion
 
         [TestMethod()]
+        public void DAO_FindByImageTest()
+        {
+            try
+            {
+                List<Comment> expected = new List<Comment>();
+                expected.Add(comment);
+                expected.Add(comment2);
+
+                List<Comment> actual = commentDao.FindByImage(imageEntity.imageId);
+
+                for (int i = 0; i < expected.Count; i++)
+                {
+                    Assert.AreEqual(expected[i], actual[i], "Comment found does not correspond with the original one.");
+                }
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+        }
+
+        [TestMethod()]
         public void DAO_FindByAuthorTest()
         {
-            ImageEntity actual = imageEntityDao.FindByAuthor(userProfile.userId)[0];
+            Comment actual = commentDao.FindByAuthor(userProfile2.userId)[0];
 
-            Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
-        }
-
-        [TestMethod()]
-        public void DAO_FindByCategoryTest()
-        {
-            ImageEntity actual = imageEntityDao.FindByCategory(category.categoryId)[0];
-
-            Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
-        }
-
-        [TestMethod()]
-        public void DAO_FindAllTest()
-        {
-            ImageEntity actual = imageEntityDao.FindAll()[0];
-
-            Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
+            Assert.AreEqual(comment2, actual, "Expected image not equal to actual image");
         }
     }
 }
