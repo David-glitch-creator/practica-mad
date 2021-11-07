@@ -16,5 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
         List<ImageEntity> FindAll();
 
+        List<ImageEntity> FindByKeywords(String keywords);
+
     }
 }

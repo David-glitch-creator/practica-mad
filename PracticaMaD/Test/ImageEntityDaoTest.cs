@@ -155,5 +155,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
+
+        [TestMethod()]
+        public void DAO_FindByKeywordsTest()
+        {
+            ImageEntity actual = imageEntityDao.FindByKeywords(imageEntity.title)[0];
+
+            Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
+        }
     }
 }
