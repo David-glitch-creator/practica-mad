@@ -1,7 +1,7 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
 using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
-//using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
@@ -32,8 +32,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ICommentDao>().
                 To<CommentDaoEntityFramework>();
 
-            //kernel.Bind<IUserService>().
-            //    To<UserService>();
+            kernel.Bind<IUserService>().
+                To<UserService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["photogramEntities"].ConnectionString;
