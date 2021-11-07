@@ -28,7 +28,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
         /// <param name="login"></param>
         /// <returns></returns>
         /// <exception cref="InstanceNotFoundException"></exception>
-        public UserProfile FindByLogin(string login)
+        public UserProfile FindByLoginName(string loginName)
         {
             UserProfile userProfile = null;
 
@@ -36,13 +36,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
             var result =
                 (from u in userProfiles
-                 where u.loginName == login
+                 where u.loginName == loginName
                  select u);
 
             userProfile = result.FirstOrDefault();
 
             if (userProfile == null)
-                throw new InstanceNotFoundException(login,
+                throw new InstanceNotFoundException(loginName,
                     typeof(UserProfile).FullName);
 
             return userProfile;

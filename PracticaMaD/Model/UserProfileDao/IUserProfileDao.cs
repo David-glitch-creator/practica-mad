@@ -16,7 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
         /// <param name="login">loginName</param>
         /// <returns>The UserProfile</returns>
         /// <exception cref="InstanceNotFoundException"/>
-        UserProfile FindByLogin(String login);
+        UserProfile FindByLoginName(String loginName);
 
         /// <summary>
         /// Finds a UserProfile by email

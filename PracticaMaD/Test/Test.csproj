@@ -68,6 +68,7 @@
     <Compile Include="TestManager.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfileDaoTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
