@@ -135,7 +135,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindByAuthorTest()
         {
-            
+            ImageEntity actual = imageEntityDao.FindByAuthor(userProfile.userId)[0];
+
+            Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
     }
 }
