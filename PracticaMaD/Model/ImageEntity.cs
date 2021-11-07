@@ -30,6 +30,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public string whiteBalance { get; set; }
         public long author { get; set; }
         public long categoryId { get; set; }
+        public byte[] imageFile { get; set; }
     
         
         /// <summary>
@@ -76,6 +77,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + (whiteBalance == null ? 0 : whiteBalance.GetHashCode());
     			hash = hash * multiplier + author.GetHashCode();
     			hash = hash * multiplier + categoryId.GetHashCode();
+    			hash = hash * multiplier + imageFile.GetHashCode();
     
     			return hash;
     	    }
@@ -105,6 +107,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.whiteBalance == target.whiteBalance )       
                &&  (this.author == target.author )       
                &&  (this.categoryId == target.categoryId )       
+               &&  (this.imageFile == target.imageFile )       
                ;
     
         }
@@ -148,6 +151,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strImageEntity.Append(" whiteBalance = " + whiteBalance + " | " );       
            strImageEntity.Append(" author = " + author + " | " );       
            strImageEntity.Append(" categoryId = " + categoryId + " | " );       
+           strImageEntity.Append(" imageFile = " + imageFile + " | " );       
             strImageEntity.Append("] ");    
     
     		return strImageEntity.ToString();

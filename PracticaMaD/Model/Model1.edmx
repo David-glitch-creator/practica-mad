@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="photogramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="photogramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -40,6 +40,7 @@
           <Property Name="exposureTime" Type="varchar" MaxLength="30" />
           <Property Name="iso" Type="varchar" MaxLength="30" />
           <Property Name="whiteBalance" Type="varchar" MaxLength="30" />
+          <Property Name="imageFile" Type="varbinary(max)" Nullable="false" />
           <Property Name="author" Type="bigint" Nullable="false" />
           <Property Name="categoryId" Type="bigint" Nullable="false" />
         </EntityType>
@@ -210,8 +211,7 @@
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="photogramModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -251,6 +251,7 @@
           <NavigationProperty Name="Comment" Relationship="Self.FK_CommentedImage" FromRole="ImageEntity" ToRole="Comment" />
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_ImageAuthor" FromRole="ImageEntity" ToRole="UserProfile" />
           <NavigationProperty Name="UserProfile1" Relationship="Self.Likes" FromRole="ImageEntity" ToRole="UserProfile" />
+          <Property Name="imageFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -389,6 +390,7 @@
           <EntitySetMapping Name="ImageEntity">
             <EntityTypeMapping TypeName="photogramModel.ImageEntity">
               <MappingFragment StoreEntitySet="ImageEntity">
+                <ScalarProperty Name="imageFile" ColumnName="imageFile" />
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="uploadDate" ColumnName="uploadDate" />

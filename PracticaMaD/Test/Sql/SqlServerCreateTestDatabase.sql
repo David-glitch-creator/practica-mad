@@ -126,6 +126,7 @@ CREATE TABLE ImageEntity (
 	exposureTime VARCHAR(30),
 	iso VARCHAR(30),
 	whiteBalance VARCHAR(30),
+	imageFile VARBINARY(MAX) NOT NULL,
 	author BIGINT NOT NULL,
 	categoryId BIGINT NOT NULL,
 	
