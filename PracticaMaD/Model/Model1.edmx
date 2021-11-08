@@ -46,6 +46,14 @@
           <Property Name="author" Type="bigint" Nullable="false" />
           <Property Name="categoryId" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="ImageTag">
+          <Key>
+            <PropertyRef Name="tagId" />
+            <PropertyRef Name="imageId" />
+          </Key>
+          <Property Name="tagId" Type="bigint" Nullable="false" />
+          <Property Name="imageId" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="Likes">
           <Key>
             <PropertyRef Name="imageId" />
@@ -53,6 +61,14 @@
           </Key>
           <Property Name="imageId" Type="bigint" Nullable="false" />
           <Property Name="userId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tagName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="taggedImagesNumber" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -147,6 +163,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ImageTagId">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="ImageTag" Type="Self.ImageTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="tagId" />
+            </Principal>
+            <Dependent Role="ImageTag">
+              <PropertyRef Name="tagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LikedImage">
           <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -157,6 +185,18 @@
               <PropertyRef Name="imageId" />
             </Principal>
             <Dependent Role="Likes">
+              <PropertyRef Name="imageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagImageId">
+          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1" />
+          <End Role="ImageTag" Type="Self.ImageTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageEntity">
+              <PropertyRef Name="imageId" />
+            </Principal>
+            <Dependent Role="ImageTag">
               <PropertyRef Name="imageId" />
             </Dependent>
           </ReferentialConstraint>
@@ -178,7 +218,9 @@
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImageEntity" EntityType="Self.ImageEntity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageTag" EntityType="Self.ImageTag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CommentAuthor" Association="Self.FK_CommentAuthor">
             <End Role="UserProfile" EntitySet="UserProfile" />
@@ -204,9 +246,17 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="ImageEntity" EntitySet="ImageEntity" />
           </AssociationSet>
+          <AssociationSet Name="FK_ImageTagId" Association="Self.FK_ImageTagId">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="ImageTag" EntitySet="ImageTag" />
+          </AssociationSet>
           <AssociationSet Name="FK_LikedImage" Association="Self.FK_LikedImage">
             <End Role="ImageEntity" EntitySet="ImageEntity" />
             <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagImageId" Association="Self.FK_TagImageId">
+            <End Role="ImageEntity" EntitySet="ImageEntity" />
+            <End Role="ImageTag" EntitySet="ImageTag" />
           </AssociationSet>
           <AssociationSet Name="FK_UserWhoLikes" Association="Self.FK_UserWhoLikes">
             <End Role="UserProfile" EntitySet="UserProfile" />
@@ -256,6 +306,7 @@
           <NavigationProperty Name="UserProfile1" Relationship="Self.Likes" FromRole="ImageEntity" ToRole="UserProfile" />
           <Property Name="imageFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="imageDescription" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tag" Relationship="photogramModel.ImageTag" FromRole="ImageEntity" ToRole="Tag" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -366,7 +417,25 @@
             <End Role="ImageEntity" EntitySet="ImageEntity" />
             <End Role="UserProfile" EntitySet="UserProfile" />
           </AssociationSet>
+          <EntitySet Name="Tag" EntityType="photogramModel.Tag" />
+          <AssociationSet Name="ImageTag" Association="photogramModel.ImageTag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="ImageEntity" EntitySet="ImageEntity" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tagName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="taggedImagesNumber" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ImageEntity" Relationship="photogramModel.ImageTag" FromRole="Tag" ToRole="ImageEntity" />
+        </EntityType>
+        <Association Name="ImageTag">
+          <End Type="photogramModel.Tag" Role="Tag" Multiplicity="*" />
+          <End Type="photogramModel.ImageEntity" Role="ImageEntity" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -437,6 +506,23 @@
             </EndProperty>
             <EndProperty Name="UserProfile">
               <ScalarProperty Name="userId" ColumnName="userId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="photogramModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="taggedImagesNumber" ColumnName="taggedImagesNumber" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ImageTag" TypeName="photogramModel.ImageTag" StoreEntitySet="ImageTag">
+            <EndProperty Name="ImageEntity">
+              <ScalarProperty Name="imageId" ColumnName="imageId" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="tagId" ColumnName="tagId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

@@ -29,5 +29,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public virtual DbSet<Comment> Comment { get; set; }
         public virtual DbSet<ImageEntity> ImageEntity { get; set; }
         public virtual DbSet<UserProfile> UserProfile { get; set; }
+        public virtual DbSet<Tag> Tag { get; set; }
     }
 }

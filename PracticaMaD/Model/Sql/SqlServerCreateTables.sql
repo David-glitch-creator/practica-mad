@@ -22,6 +22,14 @@
 
  /* Drop Table Comment if already exists */
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[ImageTag]') 
+AND type in ('U')) DROP TABLE [ImageTag]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') 
+AND type in ('U')) DROP TABLE [Tag]
+GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Follow]') 
 AND type in ('U')) DROP TABLE [Follow]
 GO
@@ -171,6 +179,35 @@ CREATE TABLE Follow (
 )
 
 PRINT N'Table Follow created.'
+GO
+
+/*  Tag */
+CREATE TABLE Tag (
+	tagId BIGINT IDENTITY(1,1) UNIQUE NOT NULL,
+	tagName VARCHAR(30) NOT NULL,
+	taggedImagesNumber BIGINT NOT NULL,
+
+	CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
+)
+
+PRINT N'Table Tag created.'
+GO
+
+/*  ImageTag */
+CREATE TABLE ImageTag (
+	tagId BIGINT NOT NULL,
+	imageId BIGINT NOT NULL,
+
+	CONSTRAINT [PK_ImageTag] PRIMARY KEY (tagId, imageId),
+
+	CONSTRAINT [FK_ImageTagId] FOREIGN KEY (tagId)
+		REFERENCES Tag (tagId),
+	
+	CONSTRAINT [FK_TagImageId] FOREIGN KEY (imageId)
+		REFERENCES ImageEntity (imageId),
+)
+
+PRINT N'Table ImageTag created.'
 GO
 
 

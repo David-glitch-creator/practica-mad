@@ -19,6 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         {
             this.Comment = new HashSet<Comment>();
             this.UserProfile1 = new HashSet<UserProfile>();
+            this.Tag = new HashSet<Tag>();
         }
     
         public long imageId { get; set; }
@@ -53,6 +54,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): Likes
         /// </summary>
         public virtual ICollection<UserProfile> UserProfile1 { get; set; }
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): ImageTag
+        /// </summary>
+        public virtual ICollection<Tag> Tag { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 

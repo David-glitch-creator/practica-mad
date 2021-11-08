@@ -15,6 +15,8 @@
         <AssociationConnector Association="photogramModel.FK_ImageAuthor" ManuallyRouted="false" />
         <AssociationConnector Association="photogramModel.Follow" ManuallyRouted="false" />
         <AssociationConnector Association="photogramModel.Likes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="photogramModel.Tag" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="photogramModel.ImageTag" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
