@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
+namespace Es.Udc.DotNet.PracticaMaD.Model.CommentDao
 {
     public interface ICommentDao : IGenericDao<Comment, Int64>
     {

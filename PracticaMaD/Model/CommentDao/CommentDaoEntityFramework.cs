@@ -8,7 +8,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
 
-namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
+namespace Es.Udc.DotNet.PracticaMaD.Model.CommentDao
 {
     public class CommentDaoEntityFramework : 
         GenericDaoEntityFramework<Comment, Int64>, ICommentDao
