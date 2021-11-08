@@ -71,6 +71,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
             return result;
         }
 
+        public List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords)
+        {
+            DbSet<ImageEntity> images = Context.Set<ImageEntity>();
+
+            var result =
+                (from c in images
+                 where c.categoryId == categoryId && c.title.Contains(keywords)
+                 select c).ToList();
+
+            return result;
+        }
+
         #endregion IImageEntityDao Members
     }
 }
