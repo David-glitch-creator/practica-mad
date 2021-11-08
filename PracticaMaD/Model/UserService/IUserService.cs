@@ -6,6 +6,7 @@ using System;
 using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService.Exceptions;
+using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 {
@@ -74,5 +75,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         /// <param name="loginName"> User loginName. </param>
         /// <returns> Boolean to indicate if the loginName exists </returns>
         bool UserExists(string loginName);
+
+        void FollowUser(long followedUserId, long followerId);
+
+        List<UserProfile> ViewFollowedUsers(long userId);
+
+        List<UserProfile> GetFollowers(long userId);
     }
 }

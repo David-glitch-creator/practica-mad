@@ -7,6 +7,8 @@ using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 {
@@ -143,6 +145,39 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             }
 
             return true;
+        }
+
+        public void FollowUser(long followedUserId, long followerId)
+        {
+            UserProfile followedProfile = UserProfileDao.Find(followedUserId);
+            UserProfile followerProfile = UserProfileDao.Find(followerId);
+
+            if (!followerProfile.UserProfile1.Contains(followedProfile))
+            {
+                followerProfile.UserProfile1.Add(followedProfile);
+            }
+
+            if (!followedProfile.UserProfile2.Contains(followerProfile))
+            {
+                followedProfile.UserProfile2.Add(followerProfile);
+            }
+
+            UserProfileDao.Update(followerProfile);
+            UserProfileDao.Update(followedProfile);
+        }
+
+        public List<UserProfile> ViewFollowedUsers(long userId)
+        {
+            UserProfile userProfile = UserProfileDao.Find(userId);
+
+            return userProfile.UserProfile1.ToList();
+        }
+
+        public List<UserProfile> GetFollowers(long userId)
+        {
+            UserProfile userProfile = UserProfileDao.Find(userId);
+
+            return userProfile.UserProfile2.ToList();
         }
 
         #endregion IUserService Members
