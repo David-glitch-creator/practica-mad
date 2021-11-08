@@ -56,17 +56,49 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
         public long LikeImage(long userId, long imageId)
         {
-            throw new System.NotImplementedException();
+            UserProfile userProfile = UserProfileDao.Find(userId);
+            ImageEntity image = ImageEntityDao.Find(imageId);
+
+            if (!userProfile.ImageEntity1.Contains(image)) {
+                userProfile.ImageEntity1.Add(image);
+            }
+
+            if(!image.UserProfile1.Contains(userProfile))
+            {
+                image.UserProfile1.Add(userProfile);
+            }
+
+            UserProfileDao.Update(userProfile);
+            ImageEntityDao.Update(image);
+
+            return image.imageId;
         }
 
         public long DislikeImage(long userId, long imageId)
         {
-            throw new System.NotImplementedException();
+            UserProfile userProfile = UserProfileDao.Find(userId);
+            ImageEntity image = ImageEntityDao.Find(imageId);
+
+            if (userProfile.ImageEntity1.Contains(image)) {
+                userProfile.ImageEntity1.Remove(image);
+            }
+
+            if (image.UserProfile1.Contains(userProfile))
+            {
+                image.UserProfile1.Remove(userProfile);
+            }
+
+            UserProfileDao.Update(userProfile);
+            ImageEntityDao.Update(image);
+
+            return image.imageId;
         }
 
         public int GetNumberOfLikes(long imageId)
         {
-            throw new System.NotImplementedException();
+            ImageEntity image = ImageEntityDao.Find(imageId);
+
+            return image.UserProfile1.Count;
         }
     }
 }
