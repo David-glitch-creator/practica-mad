@@ -10,9 +10,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 {
     public class ImageService : IImageService
     {
-
+        [Inject]
         public IUserProfileDao UserProfileDao { private get; set ; }
+        [Inject]
         public ICategoryDao CategoryDao { private get; set ; }
+        [Inject]
         public IImageEntityDao ImageEntityDao { private get; set ; }
         
         public long UploadImage(long userProfileId, string title,
@@ -28,7 +30,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             image.whiteBalance = details.WhiteBalance;
             image.author = userProfileId;
             image.categoryId = categoryId;
-            image.imageFile = File.ReadAllBytes(imageFile);
+            image.imageFile = File.ReadAllBytes(@imageFile);
 
             ImageEntityDao.Create(image);
 
