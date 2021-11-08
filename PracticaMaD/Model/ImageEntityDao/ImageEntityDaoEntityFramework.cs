@@ -65,7 +65,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
             var result =
                 (from c in images
-                 where c.title.Contains(keywords)
+                 where c.title.Contains(keywords) || c.imageDescription.Contains(keywords)
                  select c).ToList();
 
             return result;
@@ -77,7 +77,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
             var result =
                 (from c in images
-                 where c.categoryId == categoryId && c.title.Contains(keywords)
+                 where c.categoryId == categoryId && (c.title.Contains(keywords) || c.imageDescription.Contains(keywords))
                  select c).ToList();
 
             return result;

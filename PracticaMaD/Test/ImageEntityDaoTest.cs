@@ -39,6 +39,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const String categoryName = "Categoria1";
 
         private const String title = "foto";
+        private const String imageDescription = "foto que saqué en Pontevedra";
         private DateTime uploadDate = DateTime.Now;
         private const String aperture = "2.00";
         private const String exposureTime = "1/659 s";
@@ -111,6 +112,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             imageEntity = new ImageEntity();
             imageEntity.title = title;
+            imageEntity.imageDescription = imageDescription;
             imageEntity.uploadDate = uploadDate;
             imageEntity.aperture = aperture;
             imageEntity.exposureTime = exposureTime;

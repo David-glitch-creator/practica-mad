@@ -121,6 +121,7 @@ GO
 CREATE TABLE ImageEntity (
 	imageId BIGINT IDENTITY(1,1) UNIQUE NOT NULL,
 	title VARCHAR(30) UNIQUE NOT NULL,
+	imageDescription VARCHAR(60) NOT NULL,
 	uploadDate DATETIME NOT NULL,
 	aperture VARCHAR(30),
 	exposureTime VARCHAR(30),
@@ -148,6 +149,7 @@ CREATE TABLE Comment (
 	author BIGINT NOT NULL,
 	imageId BIGINT NOT NULL,
 	commentText VARCHAR(60) NOT NULL,
+	postedDate DATETIME NOT NULL,
 	
 	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId),
 	

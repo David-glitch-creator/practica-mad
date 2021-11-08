@@ -52,6 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const String categoryName = "Categoria1";
 
         private const String title = "foto";
+        private const String imageDescription = "foto que saqué en Pontevedra";
         private DateTime uploadDate = DateTime.Now;
         private const String aperture = "2.00";
         private const String exposureTime = "1/659 s";
@@ -60,7 +61,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private Byte[] imageFile = File.ReadAllBytes(@"..\\..\\..\\foto.jpg");
 
         private const String commentText = "Buena foto, bro";
+        private DateTime postedDate1 = DateTime.Now.AddMinutes(20);
         private const String commentText2 = "Gracias, bro";
+        private DateTime postedDate2 = DateTime.Now.AddMinutes(30);
 
         private TransactionScope transaction;
 
@@ -140,6 +143,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             imageEntity = new ImageEntity();
             imageEntity.title = title;
+            imageEntity.imageDescription = imageDescription;
             imageEntity.uploadDate = uploadDate;
             imageEntity.aperture = aperture;
             imageEntity.exposureTime = exposureTime;
@@ -156,6 +160,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             comment.author = userProfile.userId;
             comment.imageId = imageEntity.imageId;
             comment.commentText = commentText;
+            comment.postedDate = postedDate1;
 
             commentDao.Create(comment);
 
@@ -163,7 +168,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             comment2 = new Comment();
             comment2.author = userProfile2.userId;
             comment2.imageId = imageEntity.imageId;
-            comment2.commentText = commentText;
+            comment2.commentText = commentText2;
+            comment2.postedDate = postedDate2;
 
             commentDao.Create(comment2);
 
@@ -185,8 +191,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             try
             {
                 List<Comment> expected = new List<Comment>();
-                expected.Add(comment);
                 expected.Add(comment2);
+                expected.Add(comment);
 
                 List<Comment> actual = commentDao.FindByImage(imageEntity.imageId);
 
@@ -206,7 +212,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         {
             Comment actual = commentDao.FindByAuthor(userProfile2.userId)[0];
 
-            Assert.AreEqual(comment2, actual, "Expected image not equal to actual image");
+            Assert.AreEqual(comment2, actual, "Comment found does not correspond with the original one.");
         }
     }
 }

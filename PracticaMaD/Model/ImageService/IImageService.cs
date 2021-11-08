@@ -23,7 +23,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         [Inject]
         IImageEntityDao ImageEntityDao { set; }
 
-        long UploadImage(long userProfileId, string title,
+        long UploadImage(long userProfileId, string title, string imageDescription,
             ExifDetails details, long categoryId, string imageFile);
 
         void DeleteImage(long imageId);

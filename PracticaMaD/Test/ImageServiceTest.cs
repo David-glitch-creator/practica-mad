@@ -41,6 +41,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const String categoryName = "Categoria1";
 
         private const String title = "foto";
+        private const String imageDescription = "foto que saqué en Pontevedra";
         private DateTime uploadDate = DateTime.Now;
         private const String aperture = "2.00";
         private const String exposureTime = "1/659 s";
@@ -65,7 +66,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     userService.RegisterUser(loginName, clearPassword,
                         new UserProfileDetails(firstName, lastName, email, language, country));
 
-                var imageId = imageService.UploadImage(userId, title, 
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance), 
                     category.categoryId, imageFile);
 
@@ -97,7 +98,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     userService.RegisterUser(loginName, clearPassword,
                         new UserProfileDetails(firstName, lastName, email, language, country));
 
-                var imageId = imageService.UploadImage(userId, title,
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 
@@ -123,13 +124,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     userService.RegisterUser(loginName, clearPassword,
                         new UserProfileDetails(firstName, lastName, email, language, country));
 
-                var imageId = imageService.UploadImage(userId, title,
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 
                 var image = imageEntityDao.Find(imageId);
 
-                var imageId2 = imageService.UploadImage(userId, "foto con más palabras",
+                var imageId2 = imageService.UploadImage(userId, "photo", imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 

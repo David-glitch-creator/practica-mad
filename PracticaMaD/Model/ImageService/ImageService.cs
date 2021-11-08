@@ -17,12 +17,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         [Inject]
         public IImageEntityDao ImageEntityDao { private get; set ; }
         
-        public long UploadImage(long userProfileId, string title,
+        public long UploadImage(long userProfileId, string title, string imageDescription,
             ExifDetails details, long categoryId, string imageFile)
         {
             ImageEntity image = new ImageEntity();
 
             image.title = title;
+            image.imageDescription = imageDescription;
             image.uploadDate = DateTime.Now;
             image.aperture = details.Aperture;
             image.exposureTime = details.ExposureTime;

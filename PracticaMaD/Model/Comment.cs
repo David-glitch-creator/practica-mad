@@ -19,6 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public long author { get; set; }
         public long imageId { get; set; }
         public string commentText { get; set; }
+        public System.DateTime postedDate { get; set; }
     
         
         /// <summary>
@@ -50,6 +51,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + author.GetHashCode();
     			hash = hash * multiplier + imageId.GetHashCode();
     			hash = hash * multiplier + (commentText == null ? 0 : commentText.GetHashCode());
+    			hash = hash * multiplier + postedDate.GetHashCode();
     
     			return hash;
     	    }
@@ -74,6 +76,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.author == target.author )       
                &&  (this.imageId == target.imageId )       
                &&  (this.commentText == target.commentText )       
+               &&  (this.postedDate == target.postedDate )       
                ;
     
         }
@@ -112,6 +115,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strComment.Append(" author = " + author + " | " );       
            strComment.Append(" imageId = " + imageId + " | " );       
            strComment.Append(" commentText = " + commentText + " | " );       
+           strComment.Append(" postedDate = " + postedDate + " | " );       
             strComment.Append("] ");    
     
     		return strComment.ToString();

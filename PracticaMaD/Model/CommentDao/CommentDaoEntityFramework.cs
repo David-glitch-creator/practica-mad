@@ -30,7 +30,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentDao
             var result =
                 (from c in comments
                  where c.imageId == imageId
-                 select c).ToList();
+                 select c).OrderByDescending(c=>c.postedDate).ToList();
 
             return result;
         }
@@ -42,7 +42,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentDao
             var result =
                 (from c in comments
                  where c.author == userId
-                 select c).ToList();
+                 select c).OrderByDescending(c => c.postedDate).ToList();
 
             return result;
         }

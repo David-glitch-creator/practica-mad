@@ -20,6 +20,7 @@
           <Property Name="author" Type="bigint" Nullable="false" />
           <Property Name="imageId" Type="bigint" Nullable="false" />
           <Property Name="commentText" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="postedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Follow">
           <Key>
@@ -35,6 +36,7 @@
           </Key>
           <Property Name="imageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="imageDescription" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="uploadDate" Type="datetime" Nullable="false" />
           <Property Name="aperture" Type="varchar" MaxLength="30" />
           <Property Name="exposureTime" Type="varchar" MaxLength="30" />
@@ -233,6 +235,7 @@
           <Property Name="commentText" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_CommentAuthor" FromRole="Comment" ToRole="UserProfile" />
           <NavigationProperty Name="ImageEntity" Relationship="Self.FK_CommentedImage" FromRole="Comment" ToRole="ImageEntity" />
+          <Property Name="postedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="ImageEntity">
           <Key>
@@ -252,6 +255,7 @@
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_ImageAuthor" FromRole="ImageEntity" ToRole="UserProfile" />
           <NavigationProperty Name="UserProfile1" Relationship="Self.Likes" FromRole="ImageEntity" ToRole="UserProfile" />
           <Property Name="imageFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="imageDescription" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -380,6 +384,7 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="photogramModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="postedDate" ColumnName="postedDate" />
                 <ScalarProperty Name="commentId" ColumnName="commentId" />
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
@@ -390,6 +395,7 @@
           <EntitySetMapping Name="ImageEntity">
             <EntityTypeMapping TypeName="photogramModel.ImageEntity">
               <MappingFragment StoreEntitySet="ImageEntity">
+                <ScalarProperty Name="imageDescription" ColumnName="imageDescription" />
                 <ScalarProperty Name="imageFile" ColumnName="imageFile" />
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="title" ColumnName="title" />

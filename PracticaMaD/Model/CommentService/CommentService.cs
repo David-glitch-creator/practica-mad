@@ -1,4 +1,5 @@
 using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
+using System;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
@@ -14,6 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
             comment.author = userId;
             comment.imageId = imageId;
             comment.commentText = commentText;
+            comment.postedDate = DateTime.Now;
 
             CommentDao.Create(comment);
 
