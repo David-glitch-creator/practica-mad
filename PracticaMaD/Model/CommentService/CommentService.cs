@@ -47,5 +47,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
         {
             return CommentDao.FindByAuthor(userId);
         }
+
+        public bool HasComments(long imageId)
+        {
+            List<Comment> result = CommentDao.FindByImage(imageId);
+            return result.Count > 0;
+        }
     }
 }

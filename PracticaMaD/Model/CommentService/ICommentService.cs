@@ -16,5 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
         List<Comment> GetCommentsByImage(long imageId);
 
         List<Comment> GetCommentsByAuthor(long userId);
+
+        bool HasComments(long imageId);
     }
 }
