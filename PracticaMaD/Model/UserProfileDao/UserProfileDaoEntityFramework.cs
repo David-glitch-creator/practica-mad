@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 {
@@ -72,6 +73,36 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
                     typeof(UserProfile).FullName);
 
             return userProfile; ;
+        }
+
+        public void Follow(UserProfile followedUser, UserProfile follower)
+        {
+            if (!follower.UserProfile1.Contains(followedUser))
+            {
+                follower.UserProfile1.Add(followedUser);
+            }  //TODO: meter excepcion aqui ???
+
+            Update(follower);
+        }
+
+        public void Unfollow(UserProfile followedUser, UserProfile follower)
+        {
+            if (follower.UserProfile1.Contains(followedUser))
+            {
+                follower.UserProfile1.Remove(followedUser);
+            }  //TODO: meter excepcion aqui ???
+
+            Update(follower);
+        }
+
+        public List<UserProfile> GetFollowed(UserProfile user)
+        {
+            return user.UserProfile1.ToList();
+        }
+
+        public List<UserProfile> GetFollowers(UserProfile user)
+        {
+            return user.UserProfile2.ToList();
         }
 
         #endregion IUserProfileDao Members

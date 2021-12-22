@@ -27,6 +27,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const string email = "user@udc.es";
         private const string language = "es";
         private const string country = "ES";
+
+        private const string loginName2 = "loginNameTest2";
+        private const string email2 = "user2@udc.es";
+
         private const long NON_EXISTENT_USER_ID = -1;
         private static IKernel kernel;
         private static IUserService userService;
@@ -344,6 +348,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 bool userExists = userService.UserExists(invalidLoginName);
 
                 Assert.IsFalse(userExists);
+
+                // transaction.Complete() is not called, so Rollback is executed.
+            }
+        }
+
+        [TestMethod]
+        public void FollowUser()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+                var user2Id = userService.RegisterUser(loginName2, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email2, language, country));
+
+                userService.FollowUser(user2Id, userId);
+
+                Assert.AreEqual(userId, userService.GetFollowers(user2Id)[0].userId);
+                Assert.AreEqual(user2Id, userService.ViewFollowedUsers(userId)[0].userId);
+
+                userService.UnfollowUser(user2Id, userId);
+
+                Assert.IsTrue(userService.GetFollowers(user2Id).Count == 0);
+                Assert.IsTrue(userService.ViewFollowedUsers(userId).Count == 0);
 
                 // transaction.Complete() is not called, so Rollback is executed.
             }

@@ -149,35 +149,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         public void FollowUser(long followedUserId, long followerId)
         {
-            UserProfile followedProfile = UserProfileDao.Find(followedUserId);
-            UserProfile followerProfile = UserProfileDao.Find(followerId);
+            UserProfile followedUser = UserProfileDao.Find(followedUserId);
+            UserProfile follower = UserProfileDao.Find(followerId);
 
-            if (!followerProfile.UserProfile1.Contains(followedProfile))
-            {
-                followerProfile.UserProfile1.Add(followedProfile);
-            }
+            UserProfileDao.Follow(followedUser, follower);
+        }
 
-            if (!followedProfile.UserProfile2.Contains(followerProfile))
-            {
-                followedProfile.UserProfile2.Add(followerProfile);
-            }
+        public void UnfollowUser(long followedUserId, long followerId)
+        {
+            UserProfile followedUser = UserProfileDao.Find(followedUserId);
+            UserProfile follower = UserProfileDao.Find(followerId);
 
-            UserProfileDao.Update(followerProfile);
-            UserProfileDao.Update(followedProfile);
+            UserProfileDao.Unfollow(followedUser, follower);
         }
 
         public List<UserProfile> ViewFollowedUsers(long userId)
         {
             UserProfile userProfile = UserProfileDao.Find(userId);
 
-            return userProfile.UserProfile1.ToList();
+            return UserProfileDao.GetFollowed(userProfile);
         }
 
         public List<UserProfile> GetFollowers(long userId)
         {
             UserProfile userProfile = UserProfileDao.Find(userId);
 
-            return userProfile.UserProfile2.ToList();
+            return UserProfileDao.GetFollowers(userProfile);
         }
 
         #endregion IUserService Members
