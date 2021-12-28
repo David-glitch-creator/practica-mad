@@ -80,7 +80,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
             if (!follower.UserProfile1.Contains(followedUser))
             {
                 follower.UserProfile1.Add(followedUser);
-            }  //TODO: meter excepcion aqui ???
+            }
 
             Update(follower);
         }
@@ -90,7 +90,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
             if (follower.UserProfile1.Contains(followedUser))
             {
                 follower.UserProfile1.Remove(followedUser);
-            }  //TODO: meter excepcion aqui ???
+            }
 
             Update(follower);
         }
