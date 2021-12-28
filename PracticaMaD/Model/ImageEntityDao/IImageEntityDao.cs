@@ -20,5 +20,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
         List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords);
 
+        long Like(UserProfile user, ImageEntity image);
+
+        long Dislike(UserProfile user, ImageEntity image);
+
+        int GetNumberOfLikes(ImageEntity image);
+
     }
 }

@@ -42,6 +42,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             ImageEntityDao.Remove(imageId);
         }
 
+        public List<ImageEntity> GetImagesByUser(long userId)
+        {
+            return ImageEntityDao.FindByAuthor(userId);
+        }
+
         public List<ImageEntity> SearchImages(string keywords)
         {
             return ImageEntityDao.FindByKeywords(keywords);
@@ -62,19 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             UserProfile userProfile = UserProfileDao.Find(userId);
             ImageEntity image = ImageEntityDao.Find(imageId);
 
-            if (!userProfile.ImageEntity1.Contains(image)) {
-                userProfile.ImageEntity1.Add(image);
-            }
-
-            if(!image.UserProfile1.Contains(userProfile))
-            {
-                image.UserProfile1.Add(userProfile);
-            }
-
-            UserProfileDao.Update(userProfile);
-            ImageEntityDao.Update(image);
-
-            return image.imageId;
+            return ImageEntityDao.Like(userProfile, image);
         }
 
         public long DislikeImage(long userId, long imageId)
@@ -82,26 +75,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             UserProfile userProfile = UserProfileDao.Find(userId);
             ImageEntity image = ImageEntityDao.Find(imageId);
 
-            if (userProfile.ImageEntity1.Contains(image)) {
-                userProfile.ImageEntity1.Remove(image);
-            }
-
-            if (image.UserProfile1.Contains(userProfile))
-            {
-                image.UserProfile1.Remove(userProfile);
-            }
-
-            UserProfileDao.Update(userProfile);
-            ImageEntityDao.Update(image);
-
-            return image.imageId;
+            return ImageEntityDao.Dislike(userProfile, image);
         }
 
         public int GetNumberOfLikes(long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
 
-            return image.UserProfile1.Count;
+            return ImageEntityDao.GetNumberOfLikes(image);
         }
     }
 }

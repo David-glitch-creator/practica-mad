@@ -66,6 +66,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     userService.RegisterUser(loginName, clearPassword,
                         new UserProfileDetails(firstName, lastName, email, language, country));
 
+                uploadDate = DateTime.Now;
+
                 var imageId = imageService.UploadImage(userId, title, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance), 
                     category.categoryId, imageFile);
@@ -74,12 +76,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 // Check data
                 Assert.AreEqual(imageId, image.imageId);
-                Assert.AreEqual(uploadDate, image.uploadDate);
+                Assert.IsTrue(Math.Abs((uploadDate - image.uploadDate).TotalSeconds) < 1);
                 Assert.AreEqual(aperture, image.aperture);
                 Assert.AreEqual(exposureTime, image.exposureTime);
                 Assert.AreEqual(iso, image.iso);
                 Assert.AreEqual(whiteBalance, image.whiteBalance);
-                Assert.AreEqual(File.ReadAllBytes(@imageFile), image.imageFile);
+
+                byte[] expected = File.ReadAllBytes(@imageFile);
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    Assert.AreEqual(expected[i], image.imageFile[i]);
+                }
 
             }
         }

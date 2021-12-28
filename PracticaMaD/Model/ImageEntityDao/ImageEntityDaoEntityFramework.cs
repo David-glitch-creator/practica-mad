@@ -83,6 +83,36 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
             return result;
         }
 
+
+        public long Like(UserProfile user, ImageEntity image)
+        {
+            if (!image.UserProfile1.Contains(user))
+            {
+                image.UserProfile1.Add(user);
+            }
+
+            Update(image);
+
+            return image.imageId;
+        }
+
+        public long Dislike(UserProfile user, ImageEntity image)
+        {
+            if (image.UserProfile1.Contains(user))
+            {
+                image.UserProfile1.Remove(user);
+            }
+
+            Update(image);
+
+            return image.imageId;
+        }
+
+        public int GetNumberOfLikes(ImageEntity image)
+        {
+            return image.UserProfile1.Count;
+        }
+
         #endregion IImageEntityDao Members
     }
 }
