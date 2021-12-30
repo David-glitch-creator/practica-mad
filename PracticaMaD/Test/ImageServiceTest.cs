@@ -25,6 +25,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private static ICategoryDao categoryDao;
         private static IImageEntityDao imageEntityDao;
         private static Category category;
+        private static Category category2;
         private static IUserService userService;
         private static IImageService imageService;
 
@@ -39,8 +40,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const long NON_EXISTENT_USER_ID = -1;
 
         private const String categoryName = "Categoria1";
+        private const String category2Name = "Categoria2";
 
         private const String title = "foto";
+        private const String title2 = "photo";
         private const String imageDescription = "foto que saqué en Pontevedra";
         private DateTime uploadDate = DateTime.Now;
         private const String aperture = "2.00";
@@ -76,11 +79,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 // Check data
                 Assert.AreEqual(imageId, image.imageId);
+                Assert.AreEqual(title, image.title);
+                Assert.AreEqual(imageDescription, image.imageDescription);
                 Assert.IsTrue(Math.Abs((uploadDate - image.uploadDate).TotalSeconds) < 1);
                 Assert.AreEqual(aperture, image.aperture);
                 Assert.AreEqual(exposureTime, image.exposureTime);
                 Assert.AreEqual(iso, image.iso);
                 Assert.AreEqual(whiteBalance, image.whiteBalance);
+                Assert.AreEqual(userId, image.author);
 
                 byte[] expected = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expected.Length; i++)
@@ -131,29 +137,185 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     userService.RegisterUser(loginName, clearPassword,
                         new UserProfileDetails(firstName, lastName, email, language, country));
 
+                uploadDate = DateTime.Now;
+
                 var imageId = imageService.UploadImage(userId, title, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 
-                var image = imageEntityDao.Find(imageId);
+                DateTime uploadDate2 = DateTime.Now;
 
-                var imageId2 = imageService.UploadImage(userId, "photo", imageDescription,
+                var imageId2 = imageService.UploadImage(userId, title2, imageDescription,
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 
-                var image2 = imageEntityDao.Find(imageId);
-
-                List<ImageEntity> expected = new List<ImageEntity>();
-                expected.Add(image);
-                expected.Add(image2);
-
                 List<ImageEntity> actual = imageService.SearchImages("foto");
 
-                for(int i = 0; i<expected.Count; i++)
+                Assert.IsTrue(actual.Count == 2);
+
+                // Check data
+                Assert.AreEqual(imageId, actual[0].imageId);
+                Assert.AreEqual(title, actual[0].title);
+                Assert.AreEqual(imageDescription, actual[0].imageDescription);
+                Assert.IsTrue(Math.Abs((uploadDate - actual[0].uploadDate).TotalSeconds) < 1);
+                Assert.AreEqual(aperture, actual[0].aperture);
+                Assert.AreEqual(exposureTime, actual[0].exposureTime);
+                Assert.AreEqual(iso, actual[0].iso);
+                Assert.AreEqual(whiteBalance, actual[0].whiteBalance);
+                Assert.AreEqual(userId, actual[0].author);
+
+                byte[] expectedImage = File.ReadAllBytes(@imageFile);
+                for (int i = 0; i < expectedImage.Length; i++)
                 {
-                    Assert.AreEqual(expected[i], actual[i]);
+                    Assert.AreEqual(expectedImage[i], actual[0].imageFile[i]);
                 }
 
+                // Check data
+                Assert.AreEqual(imageId2, actual[1].imageId);
+                Assert.AreEqual(title2, actual[1].title);
+                Assert.AreEqual(imageDescription, actual[1].imageDescription);
+                Assert.IsTrue(Math.Abs((uploadDate2 - actual[1].uploadDate).TotalSeconds) < 1);
+                Assert.AreEqual(aperture, actual[1].aperture);
+                Assert.AreEqual(exposureTime, actual[1].exposureTime);
+                Assert.AreEqual(iso, actual[1].iso);
+                Assert.AreEqual(whiteBalance, actual[1].whiteBalance);
+                Assert.AreEqual(userId, actual[1].author);
+
+                for (int i = 0; i < expectedImage.Length; i++)
+                {
+                    Assert.AreEqual(expectedImage[i], actual[1].imageFile[i]);
+                }
+
+            }
+        }
+
+        [TestMethod]
+        public void SearchImagesByKeywordsAndCategoryTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                category = new Category();
+                category.categoryName = categoryName;
+                categoryDao.Create(category);
+
+                category2 = new Category();
+                category2.categoryName = category2Name;
+                categoryDao.Create(category2);
+
+                var userId =
+                    userService.RegisterUser(loginName, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email, language, country));
+
+                uploadDate = DateTime.Now;
+
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
+                    new ExifDetails(aperture, exposureTime, iso, whiteBalance),
+                    category.categoryId, imageFile);
+
+                var imageId2 = imageService.UploadImage(userId, title2, imageDescription,
+                    new ExifDetails(aperture, exposureTime, iso, whiteBalance),
+                    category2.categoryId, imageFile);
+
+                List<ImageEntity> actual = imageService.SearchImages("foto", category.categoryId);
+
+                Assert.IsTrue(actual.Count == 1);
+
+                // Check data
+                Assert.AreEqual(imageId, actual[0].imageId);
+                Assert.AreEqual(title, actual[0].title);
+                Assert.AreEqual(imageDescription, actual[0].imageDescription);
+                Assert.IsTrue(Math.Abs((uploadDate - actual[0].uploadDate).TotalSeconds) < 1);
+                Assert.AreEqual(aperture, actual[0].aperture);
+                Assert.AreEqual(exposureTime, actual[0].exposureTime);
+                Assert.AreEqual(iso, actual[0].iso);
+                Assert.AreEqual(whiteBalance, actual[0].whiteBalance);
+                Assert.AreEqual(userId, actual[0].author);
+
+                byte[] expectedImage = File.ReadAllBytes(@imageFile);
+                for (int i = 0; i < expectedImage.Length; i++)
+                {
+                    Assert.AreEqual(expectedImage[i], actual[0].imageFile[i]);
+                }
+
+            }
+        }
+
+        [TestMethod]
+        public void SearchImagesByCategoryTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                category = new Category();
+                category.categoryName = categoryName;
+                categoryDao.Create(category);
+
+                category2 = new Category();
+                category2.categoryName = category2Name;
+                categoryDao.Create(category2);
+
+                var userId =
+                    userService.RegisterUser(loginName, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email, language, country));
+
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
+                    new ExifDetails(aperture, exposureTime, iso, whiteBalance),
+                    category.categoryId, imageFile);
+
+                uploadDate = DateTime.Now;
+
+                var imageId2 = imageService.UploadImage(userId, title2, imageDescription,
+                    new ExifDetails(aperture, exposureTime, iso, whiteBalance),
+                    category2.categoryId, imageFile);
+
+                List<ImageEntity> actual = imageService.SearchImages(category2.categoryId);
+
+                Assert.IsTrue(actual.Count == 1);
+
+                // Check data
+                Assert.AreEqual(imageId2, actual[0].imageId);
+                Assert.AreEqual(title2, actual[0].title);
+                Assert.AreEqual(imageDescription, actual[0].imageDescription);
+                Assert.IsTrue(Math.Abs((uploadDate - actual[0].uploadDate).TotalSeconds) < 1);
+                Assert.AreEqual(aperture, actual[0].aperture);
+                Assert.AreEqual(exposureTime, actual[0].exposureTime);
+                Assert.AreEqual(iso, actual[0].iso);
+                Assert.AreEqual(whiteBalance, actual[0].whiteBalance);
+                Assert.AreEqual(userId, actual[0].author);
+
+                byte[] expectedImage = File.ReadAllBytes(@imageFile);
+                for (int i = 0; i < expectedImage.Length; i++)
+                {
+                    Assert.AreEqual(expectedImage[i], actual[0].imageFile[i]);
+                }
+
+            }
+        }
+
+        [TestMethod]
+        public void LikeImage()
+        {
+            using (var scope = new TransactionScope())
+            {
+                category = new Category();
+                category.categoryName = categoryName;
+                categoryDao.Create(category);
+
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+                var imageId = imageService.UploadImage(userId, title, imageDescription,
+                    new ExifDetails(aperture, exposureTime, iso, whiteBalance),
+                    category.categoryId, imageFile);
+
+                Assert.IsTrue(imageService.GetNumberOfLikes(imageId) == 0);
+
+                imageService.LikeImage(userId, imageId);
+
+                Assert.IsTrue(imageService.GetNumberOfLikes(imageId) == 1);
+
+                imageService.DislikeImage(userId, imageId);
+
+                Assert.IsTrue(imageService.GetNumberOfLikes(imageId) == 0);
             }
         }
 
