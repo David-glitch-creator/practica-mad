@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
@@ -39,6 +40,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             kernel.Bind<IImageService>().
                 To<ImageService>();
+
+            kernel.Bind<ICommentService>().
+                To<CommentService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["photogramEntities"].ConnectionString;

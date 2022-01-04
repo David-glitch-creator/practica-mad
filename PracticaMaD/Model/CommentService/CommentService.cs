@@ -1,4 +1,5 @@
 using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
+using Ninject;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +7,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
 {
     public class CommentService : ICommentService
     {
+        [Inject]
         public ICommentDao CommentDao { private get; set; }
 
         public long CommentImage(long userId, long imageId, string commentText)
