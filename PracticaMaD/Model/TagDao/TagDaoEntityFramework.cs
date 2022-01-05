@@ -40,5 +40,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
 
             return result;
         }
+
+        public void TagImage(Tag tag, ImageEntity image)
+        {
+            if (!tag.ImageEntity.Contains(image))
+            {
+                tag.ImageEntity.Add(image);
+                tag.taggedImagesNumber++;
+            }
+
+            Update(tag);
+        }
+
+        public void UntagImage(Tag tag, ImageEntity image)
+        {
+            if (tag.ImageEntity.Contains(image))
+            {
+                tag.ImageEntity.Remove(image);
+                tag.taggedImagesNumber--;
+            }
+
+            Update(tag);
+        }
     }
 }

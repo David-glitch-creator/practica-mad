@@ -9,5 +9,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
         Tag FindByName(string tagName);
 
         List<Tag> FindAllOrderByPopularity();
+
+        void TagImage(Tag tag, ImageEntity image);
+
+        void UntagImage(Tag tag, ImageEntity image);
     }
 }

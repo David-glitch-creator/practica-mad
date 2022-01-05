@@ -103,6 +103,8 @@
     </Compile>
     <Compile Include="TagDao\ITagDao.cs" />
     <Compile Include="TagDao\TagDaoEntityFramework.cs" />
+    <Compile Include="TagService\ITagService.cs" />
+    <Compile Include="TagService\TagService.cs" />
     <Compile Include="UserProfile.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
