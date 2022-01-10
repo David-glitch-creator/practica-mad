@@ -94,6 +94,7 @@
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Authentication.aspx.cs">
+      <DependentUpon>Authentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Authentication.aspx.designer.cs">
+      <DependentUpon>Authentication.aspx</DependentUpon>
     </Compile>
     <Compile Include="PracticaMaD.Master.cs">
       <DependentUpon>PracticaMaD.Master</DependentUpon>
@@ -195,6 +203,15 @@
       <Project>{774A7E48-34F2-4CDB-BA74-6FD377620FD3}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Authentication.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Authentication.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Authentication.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
