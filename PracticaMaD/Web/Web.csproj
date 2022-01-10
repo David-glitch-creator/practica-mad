@@ -95,6 +95,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,13 @@
     <Compile Include="Pages\User\Authentication.aspx.designer.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PracticaMaD.Master.cs">
       <DependentUpon>PracticaMaD.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,7 +190,9 @@
       <LastGenOutput>Common.gl.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Register.aspx.es.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Common.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
@@ -212,6 +222,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\Authentication.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Register.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Register.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
