@@ -366,15 +366,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 userService.FollowUser(user2Id, userId);
 
-                Assert.AreEqual(userId, userService.GetFollowers(user2Id)[0].userId);
-                Assert.AreEqual(user2Id, userService.ViewFollowedUsers(userId)[0].userId);
+                Assert.AreEqual(new UserProfileDetails(firstName, lastName, email, language, country),
+                    userService.GetFollowers(user2Id)[0]);
+                Assert.AreEqual(new UserProfileDetails(firstName, lastName, email2, language, country),
+                    userService.ViewFollowedUsers(userId)[0]);
 
                 userService.UnfollowUser(user2Id, userId);
 
                 Assert.IsTrue(userService.GetFollowers(user2Id).Count == 0);
                 Assert.IsTrue(userService.ViewFollowedUsers(userId).Count == 0);
-
-                // transaction.Complete() is not called, so Rollback is executed.
             }
         }
 

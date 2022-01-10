@@ -163,18 +163,38 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             UserProfileDao.Unfollow(followedUser, follower);
         }
 
-        public List<UserProfile> ViewFollowedUsers(long userId)
+        public List<UserProfileDetails> ViewFollowedUsers(long userId)
         {
+            List<UserProfileDetails> result = new List<UserProfileDetails>();
+
             UserProfile userProfile = UserProfileDao.Find(userId);
 
-            return UserProfileDao.GetFollowed(userProfile);
+            List<UserProfile> profiles = UserProfileDao.GetFollowed(userProfile);
+
+            foreach (UserProfile profile in profiles)
+            {
+                result.Add(new UserProfileDetails(profile.firstName, profile.lastName,
+                    profile.email, profile.lang, profile.country));
+            }
+
+            return result;
         }
 
-        public List<UserProfile> GetFollowers(long userId)
+        public List<UserProfileDetails> GetFollowers(long userId)
         {
+            List<UserProfileDetails> result = new List<UserProfileDetails>();
+
             UserProfile userProfile = UserProfileDao.Find(userId);
 
-            return UserProfileDao.GetFollowers(userProfile);
+            List<UserProfile> profiles = UserProfileDao.GetFollowers(userProfile);
+
+            foreach (UserProfile profile in profiles)
+            {
+                result.Add(new UserProfileDetails(profile.firstName, profile.lastName, 
+                    profile.email, profile.lang, profile.country));
+            }
+
+            return result;
         }
 
         #endregion IUserService Members
