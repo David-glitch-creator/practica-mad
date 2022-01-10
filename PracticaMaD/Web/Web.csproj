@@ -95,6 +95,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="Pages\User\Authentication.aspx.designer.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
