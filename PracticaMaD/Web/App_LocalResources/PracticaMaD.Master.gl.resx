@@ -135,6 +135,9 @@
   <data name="lnkLogout.Text" xml:space="preserve">
     <value>Saír</value>
   </data>
+  <data name="lnkMyProfile.Text" xml:space="preserve">
+    <value>O meu Perfil</value>
+  </data>
   <data name="lnkUpdate.Text" xml:space="preserve">
     <value>Actualizar información de usuario</value>
   </data>

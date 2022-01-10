@@ -22,6 +22,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                     lnkUpdate.Visible = false;
                 if (lblDash3 != null)
                     lblDash3.Visible = false;
+                if (lnkMyProfile != null)
+                    lnkMyProfile.Visible = false;
+                if (lblDash4 != null)
+                    lblDash4.Visible = false;
                 if (lnkLogout != null)
                     lnkLogout.Visible = false;
 
