@@ -26,6 +26,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         long UploadImage(long userProfileId, string title, string imageDescription,
             ExifDetails details, long categoryId, string imageFile);
 
+        long UploadImage(long userProfileId, string title, string imageDescription,
+            ExifDetails details, long categoryId, byte[] imageFile);
+
         void DeleteImage(long imageId);
 
         List<ImageEntity> SearchImages(String keywords);

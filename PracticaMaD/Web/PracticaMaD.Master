@@ -44,6 +44,10 @@
                         NavigateUrl="~/Pages/User/MyProfile.aspx"
                         meta:resourcekey="lnkMyProfile" />
                     <asp:Label ID="lblDash4" runat="server" Text="-" />
+                    <asp:HyperLink ID="lnkUpload" runat="server" 
+                        NavigateUrl="~/Pages/Image/Upload.aspx"
+                        meta:resourcekey="lnkUpload"/>
+                    <asp:Label ID="lblDash5" runat="server" Text="-"></asp:Label>
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />

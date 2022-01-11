@@ -117,31 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblWelcome.Hello.Text" xml:space="preserve">
-    <value>Hola</value>
+  <data name="btnUpload.Text" xml:space="preserve">
+    <value>Subir</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>Bienvenido a Photogram</value>
+  <data name="lclAperture.Text" xml:space="preserve">
+    <value>Apertura de diafragma</value>
   </data>
-  <data name="lclFooter.Text" xml:space="preserve">
-    <value>Práctica de MaD</value>
+  <data name="lclCategory.Text" xml:space="preserve">
+    <value>Categoría</value>
   </data>
-  <data name="lclPageTitle.Text" xml:space="preserve">
-    <value>Photogram: Red Social de compartición de fotografías</value>
+  <data name="lclExposureTime.Text" xml:space="preserve">
+    <value>Tiempo de exposición</value>
   </data>
-  <data name="lnkAuthenticate.Text" xml:space="preserve">
-    <value>Autenticación</value>
+  <data name="lclImageDescription.Text" xml:space="preserve">
+    <value>Descripción</value>
   </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Salir</value>
+  <data name="lclImageFile.Text" xml:space="preserve">
+    <value>Imagen</value>
   </data>
-  <data name="lnkMyProfile.Text" xml:space="preserve">
-    <value>Mi Perfil</value>
+  <data name="lclImageTitle.Text" xml:space="preserve">
+    <value>Título</value>
   </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Actualizar información de usuario</value>
+  <data name="lclIso.Text" xml:space="preserve">
+    <value>ISO</value>
   </data>
-  <data name="lnkUpload.Text" xml:space="preserve">
+  <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Subir imagen</value>
+  </data>
+  <data name="lclWhiteBalance.Text" xml:space="preserve">
+    <value>Balance de blancos</value>
   </data>
 </root>

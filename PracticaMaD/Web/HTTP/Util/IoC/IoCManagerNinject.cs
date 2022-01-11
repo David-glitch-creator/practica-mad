@@ -4,6 +4,9 @@ using Es.Udc.DotNet.ModelUtil.IoC;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
+using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -24,6 +27,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* UserService */
             kernel.Bind<IUserService>().
                 To<UserService>();
+
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
+
+            kernel.Bind<IImageEntityDao>().
+                To<ImageEntityDaoEntityFramework>();
+
+            kernel.Bind<IImageService>().
+                To<ImageService>();
 
             /* DbContext */
             string connectionString =

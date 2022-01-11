@@ -37,6 +37,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             return image.imageId;
         }
+
+        public long UploadImage(long userProfileId, string title, string imageDescription,
+            ExifDetails details, long categoryId, byte[] imageFile)
+        {
+            ImageEntity image = new ImageEntity();
+
+            image.title = title;
+            image.imageDescription = imageDescription;
+            image.uploadDate = DateTime.Now;
+            image.aperture = details.Aperture;
+            image.exposureTime = details.ExposureTime;
+            image.iso = details.Iso;
+            image.whiteBalance = details.WhiteBalance;
+            image.author = userProfileId;
+            image.categoryId = categoryId;
+            image.imageFile = imageFile;
+
+            ImageEntityDao.Create(image);
+
+            return image.imageId;
+        }
         public void DeleteImage(long imageId)
         {
             ImageEntityDao.Remove(imageId);

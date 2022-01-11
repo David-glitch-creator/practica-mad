@@ -26,6 +26,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                     lnkMyProfile.Visible = false;
                 if (lblDash4 != null)
                     lblDash4.Visible = false;
+                if (lnkUpload != null)
+                    lnkUpload.Visible = false;
+                if (lblDash5 != null)
+                    lblDash5.Visible = false;
                 if (lnkLogout != null)
                     lnkLogout.Visible = false;
 
