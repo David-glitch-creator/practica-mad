@@ -202,6 +202,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             return userProfileDetails;
         }
 
+        public static UserInfo GetUserInfo(HttpContext context)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+            UserInfo userInfo =
+                userService.GetUserInfo(userSession.UserProfileId);
+
+            return userInfo;
+        }
+
         /// <summary>
         /// Gets the user info stored in the session.
         /// </summary>

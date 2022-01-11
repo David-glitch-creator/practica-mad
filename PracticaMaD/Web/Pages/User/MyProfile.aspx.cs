@@ -9,15 +9,16 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
-    public partial class MyProfile : System.Web.UI.Page
+    public partial class MyProfile : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserProfileDetails userProfileDetails =
-                SessionManager.FindUserProfileDetails(Context);
+            UserInfo userInfo =
+                SessionManager.GetUserInfo(Context);
 
-            lblFirstName.Text = userProfileDetails.FirstName;
-            lblLastName.Text = userProfileDetails.Lastname;
+            lblLoginName.Text = userInfo.LoginName;
+            lblFirstName.Text = userInfo.FirstName;
+            lblLastName.Text = userInfo.Lastname;
             
         }
     }

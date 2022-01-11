@@ -10,16 +10,18 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
+        <asp:Label ID="lblLoginName" runat="server" Text="Label"></asp:Label>
+        <br />
         <asp:Label ID="lblFirstName" runat="server" Text="Label"></asp:Label>
         <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
         <asp:Label ID="lblLastName" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:HyperLink ID="lnkFollowedUsers" runat="server"
-                        NavigateUrl="~/Pages/User/FollowedUsers.aspx"
+                        NavigateUrl="~/Pages/User/Followed.aspx"
                         meta:resourcekey="lnkFollowedUsers" />
         <br />
         <asp:HyperLink ID="lnkFollowers" runat="server"
-                        NavigateUrl="~/Pages/User/Followes.aspx"
+                        NavigateUrl="~/Pages/User/Followers.aspx"
                         meta:resourcekey="lnkFollowers" />
         <br />
     </form>

@@ -80,8 +80,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         void UnfollowUser(long followedUserId, long followerId);
 
-        List<UserProfileDetails> ViewFollowedUsers(long userId);
+        List<UserInfo> ViewFollowedUsers(long userId);
 
-        List<UserProfileDetails> GetFollowers(long userId);
+        List<UserInfo> GetFollowers(long userId);
+
+        UserInfo GetUserInfo(long userProfileId);
     }
 }

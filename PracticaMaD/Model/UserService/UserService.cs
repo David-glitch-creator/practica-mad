@@ -163,9 +163,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             UserProfileDao.Unfollow(followedUser, follower);
         }
 
-        public List<UserProfileDetails> ViewFollowedUsers(long userId)
+        public List<UserInfo> ViewFollowedUsers(long userId)
         {
-            List<UserProfileDetails> result = new List<UserProfileDetails>();
+            List<UserInfo> result = new List<UserInfo>();
 
             UserProfile userProfile = UserProfileDao.Find(userId);
 
@@ -173,16 +173,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             foreach (UserProfile profile in profiles)
             {
-                result.Add(new UserProfileDetails(profile.firstName, profile.lastName,
+                result.Add(new UserInfo(profile.userId, profile.loginName, 
+                    profile.firstName, profile.lastName,
                     profile.email, profile.lang, profile.country));
             }
 
             return result;
         }
 
-        public List<UserProfileDetails> GetFollowers(long userId)
+        public List<UserInfo> GetFollowers(long userId)
         {
-            List<UserProfileDetails> result = new List<UserProfileDetails>();
+            List<UserInfo> result = new List<UserInfo>();
 
             UserProfile userProfile = UserProfileDao.Find(userId);
 
@@ -190,11 +191,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             foreach (UserProfile profile in profiles)
             {
-                result.Add(new UserProfileDetails(profile.firstName, profile.lastName, 
+                result.Add(new UserInfo(profile.userId, profile.loginName,
+                    profile.firstName, profile.lastName,
                     profile.email, profile.lang, profile.country));
             }
 
             return result;
+        }
+
+        [Transactional]
+        public UserInfo GetUserInfo(long userProfileId)
+        {
+            UserProfile userProfile = UserProfileDao.Find(userProfileId);
+
+            UserInfo userInfo =
+                new UserInfo(userProfile.userId, userProfile.loginName, userProfile.firstName,
+                    userProfile.lastName, userProfile.email,
+                    userProfile.lang, userProfile.country);
+
+            return userInfo;
         }
 
         #endregion IUserService Members

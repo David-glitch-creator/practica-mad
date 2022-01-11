@@ -366,15 +366,28 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 userService.FollowUser(user2Id, userId);
 
-                Assert.AreEqual(new UserProfileDetails(firstName, lastName, email, language, country),
+                Assert.AreEqual(new UserInfo(userId, loginName, firstName, lastName, email, language, country),
                     userService.GetFollowers(user2Id)[0]);
-                Assert.AreEqual(new UserProfileDetails(firstName, lastName, email2, language, country),
+                Assert.AreEqual(new UserInfo(user2Id, loginName2, firstName, lastName, email2, language, country),
                     userService.ViewFollowedUsers(userId)[0]);
 
                 userService.UnfollowUser(user2Id, userId);
 
                 Assert.IsTrue(userService.GetFollowers(user2Id).Count == 0);
                 Assert.IsTrue(userService.ViewFollowedUsers(userId).Count == 0);
+            }
+        }
+
+        [TestMethod]
+        public void GetUserInfo_Test()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+                Assert.AreEqual(new UserInfo(userId, loginName, firstName, lastName, email, language, country),
+                    userService.GetUserInfo(userId));
             }
         }
 

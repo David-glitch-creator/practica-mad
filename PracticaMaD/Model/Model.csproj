@@ -119,6 +119,7 @@
     <Compile Include="UserService\Exceptions\IncorrectPasswordException.cs" />
     <Compile Include="UserService\IUserService.cs" />
     <Compile Include="UserService\LoginResult.cs" />
+    <Compile Include="UserService\UserInfo.cs" />
     <Compile Include="UserService\UserProfileDetails.cs" />
     <Compile Include="UserService\UserService.cs" />
     <Compile Include="UserService\Util\PasswordEncrypter.cs" />
