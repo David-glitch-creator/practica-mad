@@ -218,3 +218,13 @@ CREATE NONCLUSTERED INDEX IX_FK_AccountOpIndexByAccId
 ON AccountOP (accId);*/
 
 PRINT N'Done'
+
+
+INSERT INTO Category(categoryName)
+    VALUES('Monumentos')
+
+INSERT INTO Category(categoryName)
+    VALUES('Paisajes')
+
+INSERT INTO Category(categoryName)
+    VALUES('Retratos')
