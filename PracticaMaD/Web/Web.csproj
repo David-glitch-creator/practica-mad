@@ -97,6 +97,7 @@
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\Followed.aspx" />
+    <Content Include="Pages\User\Followers.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="Pages\User\Followed.aspx.designer.cs">
       <DependentUpon>Followed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Followers.aspx.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Followers.aspx.designer.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
