@@ -10,15 +10,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 {
     public interface IImageEntityDao : IGenericDao<ImageEntity, Int64>
     {
-        List<ImageEntity> FindByAuthor(long userId);
+        List<ImageEntity> FindByAuthor(long userId, int startIndex, int count);
 
-        List<ImageEntity> FindByCategory(long categoryId);
+        List<ImageEntity> FindByCategory(long categoryId, int startIndex, int count);
 
-        List<ImageEntity> FindAll();
+        List<ImageEntity> FindAll(int startIndex, int count);
 
-        List<ImageEntity> FindByKeywords(string keywords);
+        List<ImageEntity> FindByKeywords(string keywords, int startIndex, int count);
 
-        List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords);
+        List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords, int startIndex, int count);
 
         long Like(UserProfile user, ImageEntity image);
 

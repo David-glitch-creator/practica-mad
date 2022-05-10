@@ -31,11 +31,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
         void DeleteImage(long imageId);
 
-        List<ImageEntity> SearchImages(String keywords);
+        ImageBlock GetAllImages(int startIndex, int count);
 
-        List<ImageEntity> SearchImages(string keywords, long categoryId);
+        ImageBlock GetImagesByUser(long userId, int startIndex, int count);
 
-        List<ImageEntity> SearchImages(long categoryId);
+        ImageBlock SearchImages(String keywords, int startIndex, int count);
+
+        ImageBlock SearchImages(string keywords, long categoryId, int startIndex, int count);
+
+        ImageBlock SearchImages(long categoryId, int startIndex, int count);
 
         long LikeImage(long userId, long imageId);
 

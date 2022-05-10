@@ -24,61 +24,67 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
         #region IImageEntityDao Members. Specific Operations
 
-        public List<ImageEntity> FindByAuthor(long userId)
+        public List<ImageEntity> FindByAuthor(long userId, int startIndex,
+            int count)
         {
             DbSet<ImageEntity> images = Context.Set<ImageEntity>();
 
             var result =
                 (from i in images
                  where i.author == userId
-                 select i).ToList();
+                 orderby i.uploadDate descending
+                 select i).Skip(startIndex).Take(count).ToList();
 
             return result;
         }
 
-        public List<ImageEntity> FindByCategory(long categoryId)
+        public List<ImageEntity> FindByCategory(long categoryId, int startIndex, int count)
         {
             DbSet<ImageEntity> images = Context.Set<ImageEntity>();
 
             var result =
                 (from i in images
                  where i.categoryId == categoryId
-                 select i).ToList();
+                 orderby i.uploadDate descending
+                 select i).Skip(startIndex).Take(count).ToList();
 
             return result;
         }
 
-        public List<ImageEntity> FindAll()
+        public List<ImageEntity> FindAll(int startIndex, int count)
         {
             DbSet<ImageEntity> images = Context.Set<ImageEntity>();
 
             var result =
-                (from c in images
-                 select c).ToList();
+                (from i in images
+                 orderby i.uploadDate descending
+                 select i).Skip(startIndex).Take(count).ToList();
 
             return result;
         }
 
-        public List<ImageEntity> FindByKeywords(string keywords)
+        public List<ImageEntity> FindByKeywords(string keywords, int startIndex, int count)
         {
             DbSet<ImageEntity> images = Context.Set<ImageEntity>();
 
             var result =
-                (from c in images
-                 where c.title.Contains(keywords) || c.imageDescription.Contains(keywords)
-                 select c).ToList();
+                (from i in images
+                 where i.title.Contains(keywords) || i.imageDescription.Contains(keywords)
+                 orderby i.uploadDate descending
+                 select i).Skip(startIndex).Take(count).ToList();
 
             return result;
         }
 
-        public List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords)
+        public List<ImageEntity> FindByCategoryKeywords(long categoryId, string keywords, int startIndex, int count)
         {
             DbSet<ImageEntity> images = Context.Set<ImageEntity>();
 
             var result =
-                (from c in images
-                 where c.categoryId == categoryId && (c.title.Contains(keywords) || c.imageDescription.Contains(keywords))
-                 select c).ToList();
+                (from i in images
+                 where i.categoryId == categoryId && (i.title.Contains(keywords) || i.imageDescription.Contains(keywords))
+                 orderby i.uploadDate descending
+                 select i).Skip(startIndex).Take(count).ToList();
 
             return result;
         }

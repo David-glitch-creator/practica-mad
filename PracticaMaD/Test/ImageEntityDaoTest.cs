@@ -137,7 +137,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindByAuthorTest()
         {
-            ImageEntity actual = imageEntityDao.FindByAuthor(userProfile.userId)[0];
+            ImageEntity actual = imageEntityDao.FindByAuthor(userProfile.userId, 0, 9)[0];
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
@@ -145,7 +145,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindByCategoryTest()
         {
-            ImageEntity actual = imageEntityDao.FindByCategory(category.categoryId)[0];
+            ImageEntity actual = imageEntityDao.FindByCategory(category.categoryId, 0, 9)[0];
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
@@ -153,7 +153,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindAllTest()
         {
-            ImageEntity actual = imageEntityDao.FindAll()[0];
+            ImageEntity actual = imageEntityDao.FindAll(0, 9)[0];
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
@@ -161,7 +161,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindByKeywordsTest()
         {
-            ImageEntity actual = imageEntityDao.FindByKeywords(imageEntity.title)[0];
+            ImageEntity actual = imageEntityDao.FindByKeywords(imageEntity.title, 0, 9)[0];
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }
@@ -169,7 +169,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         [TestMethod()]
         public void DAO_FindByCategoryKeywordsTest()
         {
-            ImageEntity actual = imageEntityDao.FindByCategoryKeywords(category.categoryId, imageEntity.title)[0];
+            ImageEntity actual = imageEntityDao.FindByCategoryKeywords(category.categoryId, imageEntity.title, 0, 9)[0];
 
             Assert.AreEqual(imageEntity, actual, "Expected image not equal to actual image");
         }

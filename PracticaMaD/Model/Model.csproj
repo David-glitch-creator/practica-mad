@@ -87,6 +87,8 @@
     <Compile Include="ImageEntityDao\ImageEntityDaoEntityFramework.cs" />
     <Compile Include="ImageService\ExifDetails.cs" />
     <Compile Include="ImageService\IImageService.cs" />
+    <Compile Include="ImageService\ImageBlock.cs" />
+    <Compile Include="ImageService\ImageDto.cs" />
     <Compile Include="ImageService\ImageService.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>

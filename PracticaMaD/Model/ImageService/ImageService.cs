@@ -63,24 +63,109 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             ImageEntityDao.Remove(imageId);
         }
 
-        public List<ImageEntity> GetImagesByUser(long userId)
+        public ImageBlock GetAllImages(int startIndex, int count)
         {
-            return ImageEntityDao.FindByAuthor(userId);
+            List<ImageEntity> images = ImageEntityDao.FindAll(startIndex, count + 1);
+
+            bool existMoreAccounts = (images.Count == count + 1);
+
+            if (existMoreAccounts)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach (ImageEntity image in images)
+            {
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreAccounts);
         }
 
-        public List<ImageEntity> SearchImages(string keywords)
+        public ImageBlock GetImagesByUser(long userId, int startIndex, int count)
         {
-            return ImageEntityDao.FindByKeywords(keywords);
+            List<ImageEntity> images = ImageEntityDao.FindByAuthor(userId, startIndex, count + 1);
+
+            bool existMoreAccounts = (images.Count == count + 1);
+
+            if (existMoreAccounts)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach(ImageEntity image in images)
+            {
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate, 
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance, 
+                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreAccounts);
         }
 
-        public List<ImageEntity> SearchImages(string keywords, long categoryId)
+        public ImageBlock SearchImages(string keywords, int startIndex, int count)
         {
-            return ImageEntityDao.FindByCategoryKeywords(categoryId, keywords);
+            List<ImageEntity> images = ImageEntityDao.FindByKeywords(keywords, startIndex, count + 1);
+
+            bool existMoreAccounts = (images.Count == count + 1);
+
+            if (existMoreAccounts)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach (ImageEntity image in images)
+            {
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreAccounts);
         }
 
-        public List<ImageEntity> SearchImages(long categoryId)
+        public ImageBlock SearchImages(string keywords, long categoryId, int startIndex, int count)
         {
-            return ImageEntityDao.FindByCategory(categoryId);
+            List<ImageEntity> images = ImageEntityDao.FindByCategoryKeywords(categoryId, keywords, startIndex, count + 1);
+
+            bool existMoreAccounts = (images.Count == count + 1);
+
+            if (existMoreAccounts)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach (ImageEntity image in images)
+            {
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreAccounts);
+        }
+
+        public ImageBlock SearchImages(long categoryId, int startIndex, int count)
+        {
+            List<ImageEntity> images = ImageEntityDao.FindByCategory(categoryId, startIndex, count + 1);
+
+            bool existMoreAccounts = (images.Count == count + 1);
+
+            if (existMoreAccounts)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach (ImageEntity image in images)
+            {
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreAccounts);
         }
 
         public long LikeImage(long userId, long imageId)
