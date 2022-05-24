@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
                     (System.Web.UI.HtmlControls.HtmlImage)e.Row.FindControl("ImageControl");
                 imageControl.Src = "data:image/png;base64," +
                     Convert.ToBase64String(((ImageDto)e.Row.DataItem).ImageFile);
+
+
+                IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+                IUserService userService = ioCManager.Resolve<IUserService>();
+
+                long authorId = long.Parse(e.Row.Cells[2].Text);
+                String login = userService.GetUserInfo(authorId).LoginName;
+                e.Row.Cells[2].Text = login;
             }
         }
     }
