@@ -13,7 +13,7 @@
                 <%--<asp:ImageField DataImageUrlField="ImageFile" HeaderText="Imagen"></asp:ImageField>--%>
                 <asp:TemplateField HeaderText="Imagen">
                     <ItemTemplate>
-                        <img src='<%# Eval("ImageFile") %>' id="ImageControl" runat="server" />
+                        <img src='<%# Eval("ImageFile") %>' style="height:120px;width:120px;" id="ImageControl" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Title" HeaderText="Titulo" />
