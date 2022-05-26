@@ -4,6 +4,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
     <form id="form1" runat="server">
+        <p>
+            <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes"></asp:Label>
+        </p>
+
         <asp:GridView ID="gvImagesMain" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound">
             <Columns>
                 <%--<asp:ImageField DataImageUrlField="ImageFile" HeaderText="Imagen"></asp:ImageField>--%>
@@ -16,5 +20,15 @@
                 <asp:BoundField DataField="Author" HeaderText="Autor" />
             </Columns>
         </asp:GridView>
+    <br />
+    <!-- "Previous" and "Next" links. -->
+    <div class="previousNextLinks">
+        <span class="previousLink">
+            <asp:HyperLink ID="lnkPrevious" Text="Anterior" runat="server" Visible="False"></asp:HyperLink>
+        </span>
+        <span class="nextLink">
+            <asp:HyperLink ID="lnkNext" Text="Siguiente" runat="server" Visible="False"></asp:HyperLink>
+        </span>
+    </div>
     </form>
 </asp:Content>

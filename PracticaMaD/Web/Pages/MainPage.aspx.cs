@@ -2,6 +2,7 @@
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,14 +17,72 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int startIndex, count;
+
+            lnkPrevious.Visible = false;
+            lnkNext.Visible = false;
+            lblNoImages.Visible = false;
+
+            /* Get Start Index */
+            try
+            {
+                startIndex = Int32.Parse(Request.Params.Get("startIndex"));
+            }
+            catch (ArgumentNullException)
+            {
+                startIndex = 0;
+            }
+
+            /* Get Count */
+            try
+            {
+                count = Int32.Parse(Request.Params.Get("count"));
+            }
+            catch (ArgumentNullException)
+            {
+                count = Settings.Default.PracticaMaD_defaultCount;
+            }
+
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
-            List<ImageDto> images = imageService.GetAllImages(0, 9).Images;
+            ImageBlock imageBlock = imageService.GetAllImages(startIndex, count);
 
-            this.gvImagesMain.DataSource = images;
+            if (imageBlock.Images.Count == 0)
+            {
+                lblNoImages.Visible = true;
+                return;
+            }
+
+            this.gvImagesMain.DataSource = imageBlock.Images;
             this.gvImagesMain.DataBind();
+
+            /* "Previous" link */
+            if ((startIndex - count) >= 0)
+            {
+                String url =
+                    "/Pages/MainPage.aspx" +
+                    "?startIndex=" + (startIndex - count) + "&count=" +
+                    count;
+
+                this.lnkPrevious.NavigateUrl =
+                    Response.ApplyAppPathModifier(url);
+                this.lnkPrevious.Visible = true;
+            }
+
+            /* "Next" link */
+            if (imageBlock.ExistMoreImages)
+            {
+                String url =
+                    "/Pages/MainPage.aspx" +
+                    "?startIndex=" + (startIndex + count) +
+                    "&count=" + count;
+
+                this.lnkNext.NavigateUrl =
+                    Response.ApplyAppPathModifier(url);
+                this.lnkNext.Visible = true;
+            }
         }
 
         protected void grd_RowDataBound(object sender, GridViewRowEventArgs e)
