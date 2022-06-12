@@ -120,6 +120,9 @@
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Mi Perfil</value>
   </data>
+  <data name="lnkFindFolloweds.Text" xml:space="preserve">
+    <value>Seguir a usuario</value>
+  </data>
   <data name="lnkFollowedUsers.Text" xml:space="preserve">
     <value>Ver usuarios seguidos</value>
   </data>

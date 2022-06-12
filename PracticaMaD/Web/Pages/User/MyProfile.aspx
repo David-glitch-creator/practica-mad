@@ -28,5 +28,10 @@
                         NavigateUrl="~/Pages/User/Followers.aspx"
                         meta:resourcekey="lnkFollowers" />
         <br />
+        <asp:HyperLink ID="lnkFindFolloweds" runat="server"
+                        NavigateUrl="~/Pages/User/FindFollowers.aspx"
+                        meta:resourcekey="lnkFindFolloweds" />
+        <br />
+
     </form>
 </asp:Content>
