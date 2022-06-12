@@ -7,6 +7,10 @@
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
+    - 
+    <asp:HyperLink ID="lnkLogout" runat="server"
+                        NavigateUrl="~/Pages/User/Logout.aspx"
+                        meta:resourcekey="lnkLogout" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">

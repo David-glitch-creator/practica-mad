@@ -126,4 +126,7 @@
   <data name="lnkFollowers.Text" xml:space="preserve">
     <value>Ver seguidores</value>
   </data>
+  <data name="lnkLogout.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
 </root>

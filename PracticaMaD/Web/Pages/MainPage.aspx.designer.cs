@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
-{
-
-
-    public partial class MainPage
-    {
-
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages {
+    
+    
+    public partial class MainPage {
+        
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Control lblNoImages.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoImages;
-
+        
         /// <summary>
         /// Control gvImagesMain.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvImagesMain;
-
+        
         /// <summary>
         /// Control lnkPrevious.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
-
+        
         /// <summary>
         /// Control lnkNext.
         /// </summary>
