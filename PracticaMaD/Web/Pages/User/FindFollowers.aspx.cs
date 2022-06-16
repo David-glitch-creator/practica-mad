@@ -24,5 +24,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName);
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
+
     }
 }

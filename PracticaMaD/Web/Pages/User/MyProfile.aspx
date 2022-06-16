@@ -8,6 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
     - 
+    <asp:HyperLink ID="lnkMenu" runat="server"
+                        NavigateUrl="~/Pages/MainPage.aspx"
+                        Text="<%$ Resources:Common, InkMenu %>" />
+    
+    - 
     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />

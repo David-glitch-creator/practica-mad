@@ -5,6 +5,10 @@
     runat="server">
     -
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
+    -
+    <asp:HyperLink ID="lnkMenu" runat="server" ForeColor="White"
+                        NavigateUrl="~/Pages/MainPage.aspx"
+                        Text="<%$ Resources:Common, InkMenu %>" />    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">

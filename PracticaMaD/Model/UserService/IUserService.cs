@@ -87,5 +87,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         UserInfo GetUserInfo(long userProfileId);
 
         UserInfo FindUserByLoginName(string loginName);
+
     }
 }
