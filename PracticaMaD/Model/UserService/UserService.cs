@@ -212,6 +212,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return userInfo;
         }
 
+        [Transactional]
+        public UserInfo FindUserByLoginName(string loginName)
+        {
+            UserProfile userProfile = UserProfileDao.FindByLoginName(loginName);
+
+            UserInfo userInfo =
+                new UserInfo(userProfile.userId, userProfile.loginName, userProfile.firstName,
+                    userProfile.lastName, userProfile.email,
+                    userProfile.lang, userProfile.country);
+
+            return userInfo;
+        }
+
         #endregion IUserService Members
     }
+
 }
