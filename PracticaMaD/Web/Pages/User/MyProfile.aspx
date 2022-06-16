@@ -28,7 +28,7 @@
                         NavigateUrl="~/Pages/User/Followers.aspx"
                         meta:resourcekey="lnkFollowers" />
         <br />
-        <asp:HyperLink ID="lnkFindFolloweds" runat="server"
+        <asp:HyperLink ID="lnkFindFolloweds" runat="server" Display="Dynamic"
                         NavigateUrl="~/Pages/User/FindFollowers.aspx"
                         meta:resourcekey="lnkFindFolloweds" />
         <br />

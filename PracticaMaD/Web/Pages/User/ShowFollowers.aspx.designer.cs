@@ -10,7 +10,7 @@
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
     
     
-    public partial class FindFollowers {
+    public partial class ShowFollowers {
         
         /// <summary>
         /// Control lclMenuExplanation.
