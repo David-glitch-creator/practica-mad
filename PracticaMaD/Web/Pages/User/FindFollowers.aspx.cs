@@ -20,8 +20,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         }
 
         protected void BtnNameClick(object sender, EventArgs e)
-        {
-            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName);
+        {   
+            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName.Text);
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
 

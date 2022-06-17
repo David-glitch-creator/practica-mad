@@ -45,7 +45,7 @@
                     <span class="labelTittle">
                         <asp:Localize ID="lblName" runat="server" meta:resourcekey="lblName" />
                         </span>
-                    <asp:Label ID="lblName2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblName2" runat="server"></asp:Label>
                 </div>
 
                 <div >

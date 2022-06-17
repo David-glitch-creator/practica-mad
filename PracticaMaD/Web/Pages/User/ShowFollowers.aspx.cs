@@ -24,8 +24,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             //obtenemos la persona a seguir
             String FollowedName = Request.Params.Get("txtName");
-            
-            //Obtenemos service
+
+                //Obtenemos service
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IUserService userService = iocManager.Resolve<IUserService>();
 
@@ -57,7 +57,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected void BtnNameClick(object sender, EventArgs e)
         {
             
-            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName);
+            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName.Text);
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
 
