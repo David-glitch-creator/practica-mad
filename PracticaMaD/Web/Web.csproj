@@ -329,7 +329,9 @@
     <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.es.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.gl.resx" />
+    <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.gl.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.resx" />

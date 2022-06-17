@@ -404,6 +404,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             }
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void NotFoundUserByLoginName_Test()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+
+                UserInfo user = userService.FindUserByLoginName(loginName2);
+            }
+        }
         #region Additional test attributes
 
         //Use ClassInitialize to run code before running the first test in the class

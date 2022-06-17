@@ -29,6 +29,40 @@
             <div class="button">
                 <asp:Button ID="btnName" runat="server" OnClick="BtnNameClick" meta:resourcekey="btnName" />
             </div>
+            <br />
+            <div id="infoGeneral">
+                <asp:Label ID="lblFindNameError" runat="server"
+                            Visible="False" meta:resourcekey="lblFindNameError">                        
+                        </asp:Label>
+                <div >
+                    <span class="labelTittle">
+                        <asp:Localize ID="lblTitleName" runat="server" meta:resourcekey="lblTitleName" />
+                     </span>
+                    <asp:Label ID="lblTitleName2" runat="server" Text="Label"></asp:Label>
+                </div>
+                
+                <div >
+                    <span class="labelTittle">
+                        <asp:Localize ID="lblName" runat="server" meta:resourcekey="lblName" />
+                        </span>
+                    <asp:Label ID="lblName2" runat="server" Text="Label"></asp:Label>
+                </div>
+
+                <div >
+                    <span class="labelTittle">
+                        <asp:Localize ID="lbllastName" runat="server" meta:resourcekey="lbllastName" />
+                        </span>
+                    <asp:Label ID="lbllastName2" runat="server" Text="Label"></asp:Label>
+                </div>
+
+                <div >
+                    <span class="labelTittle">
+                        <asp:Localize ID="lblcountry" runat="server" meta:resourcekey="lblcountry" />
+                        </span>
+                    <asp:Label ID="lblcountry2" runat="server" Text="Label"></asp:Label>
+                </div>
+
+            </div>
         </form>
     </div>
 </asp:Content>

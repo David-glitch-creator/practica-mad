@@ -17,23 +17,47 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblNameError.Visible = false;
+            if (!IsPostBack)
+            {
+                lblNameError.Visible = false;
 
 
             //obtenemos la persona a seguir
             String FollowedName = Request.Params.Get("txtName");
-
+            
             //Obtenemos service
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IUserService userService = iocManager.Resolve<IUserService>();
 
-            //devolvemos el usurio al que se quiere seguir
-            UserInfo user = userService.FindUserByLoginName(FollowedName);
+                //devolvemos el usurio al que se quiere seguir
+                try
+                {
+                    UserInfo user = userService.FindUserByLoginName(FollowedName);
+
+                    lblTitleName2.Text = user.LoginName;
+                    lblName2.Text = user.FirstName;
+                    lbllastName2.Text = user.Lastname;
+                    lblcountry2.Text = user.Country;
+                }
+                catch (InstanceNotFoundException)
+                {
+                    lblFindNameError.Visible = true;
+                    lblTitleName.Visible = false;
+                    lblTitleName2.Visible = false;
+                    lblName.Visible = false;
+                    lblName2.Visible = false;
+                    lbllastName.Visible = false;
+                    lbllastName2.Visible = false;
+                    lblcountry.Visible = false;
+                    lblcountry2.Visible = false;
+                }
+            }
         }
 
         protected void BtnNameClick(object sender, EventArgs e)
-        {            
-            String url = String.Format("./MyProfile.aspx");
+        {
+            
+            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName);
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
 

@@ -120,11 +120,26 @@
   <data name="btnName.Text" xml:space="preserve">
     <value>Find</value>
   </data>
+  <data name="lblcountry.Text" xml:space="preserve">
+    <value>Country: </value>
+  </data>
+  <data name="lblFindNameError.Text" xml:space="preserve">
+    <value>Person not found </value>
+  </data>
+  <data name="lbllastName.Text" xml:space="preserve">
+    <value>Last name: </value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
   <data name="lblNameError.Text" xml:space="preserve">
     <value>User not found</value>
   </data>
+  <data name="lblTitleName.Text" xml:space="preserve">
+    <value>Alias: </value>
+  </data>
   <data name="lclFindByName.Text" xml:space="preserve">
-    <value>Find by name</value>
+    <value>Find by login</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Follow to somebody</value>
