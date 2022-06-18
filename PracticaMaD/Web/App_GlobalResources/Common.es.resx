@@ -129,4 +129,7 @@
   <data name="searchButton" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="InkProfile" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
 </root>

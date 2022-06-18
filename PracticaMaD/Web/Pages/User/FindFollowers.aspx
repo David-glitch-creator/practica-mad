@@ -9,6 +9,10 @@
     <asp:HyperLink ID="lnkMenu" runat="server" ForeColor="White"
                         NavigateUrl="~/Pages/MainPage.aspx"
                         Text="<%$ Resources:Common, InkMenu %>" />
+    -
+    <asp:HyperLink ID="InkProfile" runat="server" ForeColor="White"
+                        NavigateUrl="~/Pages/User/MyProfile.aspx"
+                        Text="<%$ Resources:Common, InkProfile %>" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"

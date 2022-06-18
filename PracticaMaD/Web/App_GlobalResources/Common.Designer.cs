@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Profile.
+        /// </summary>
+        internal static string InkProfile {
+            get {
+                return ResourceManager.GetString("InkProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Mandatory Field.
         /// </summary>
         internal static string mandatoryField {

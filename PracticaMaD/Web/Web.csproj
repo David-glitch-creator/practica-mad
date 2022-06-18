@@ -97,6 +97,7 @@
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\FindFollowers.aspx" />
+    <Content Include="Pages\User\FindSelect.aspx" />
     <Content Include="Pages\User\Followed.aspx" />
     <Content Include="Pages\User\Followers.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
@@ -161,6 +162,13 @@
     </Compile>
     <Compile Include="Pages\User\FindFollowers.aspx.designer.cs">
       <DependentUpon>FindFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\FindSelect.aspx.cs">
+      <DependentUpon>FindSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\FindSelect.aspx.designer.cs">
+      <DependentUpon>FindSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Followed.aspx.cs">
       <DependentUpon>Followed.aspx</DependentUpon>
@@ -335,6 +343,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

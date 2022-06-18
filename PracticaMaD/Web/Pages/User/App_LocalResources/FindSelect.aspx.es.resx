@@ -123,16 +123,10 @@
   <data name="btnFindByLogin.Text" xml:space="preserve">
     <value>Buscar por login</value>
   </data>
-  <data name="btnName.Text" xml:space="preserve">
-    <value>Atopar</value>
-  </data>
-  <data name="lblNameError.Text" xml:space="preserve">
-    <value>Usuario non atopado</value>
-  </data>
-  <data name="lclFindByName.Text" xml:space="preserve">
-    <value>Búsqueda polo nome</value>
-  </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Seguir a alguén</value>
+    <value>Buscar</value>
+  </data>
+  <data name="lclMenuExplanation.Text1" xml:space="preserve">
+    <value>Seguir a alguien</value>
   </data>
 </root>

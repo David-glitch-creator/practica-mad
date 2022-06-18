@@ -118,21 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAllLogins.Text" xml:space="preserve">
-    <value>Mostrar logins</value>
+    <value>Show logins</value>
   </data>
   <data name="btnFindByLogin.Text" xml:space="preserve">
-    <value>Buscar por login</value>
+    <value>Find by login</value>
   </data>
   <data name="btnName.Text" xml:space="preserve">
-    <value>Atopar</value>
-  </data>
-  <data name="lblNameError.Text" xml:space="preserve">
-    <value>Usuario non atopado</value>
-  </data>
-  <data name="lclFindByName.Text" xml:space="preserve">
-    <value>Búsqueda polo nome</value>
+    <value>Find</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Seguir a alguén</value>
+    <value>Follow to somebody</value>
   </data>
 </root>

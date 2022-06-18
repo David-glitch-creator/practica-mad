@@ -16,15 +16,17 @@
         <form id="AuthenticationForm" method="POST" runat="server">
             <div class="field">
                 <span class="label">
-                    <asp:Localize ID="lclFindByName" runat="server" meta:resourcekey="lclFindByName" /></span><span
-                        class="entry">
+                    <asp:Localize ID="lclFindByName" runat="server" meta:resourcekey="lclFindByName" />
+
+                </span>
+                <span class="entry">
                         <asp:TextBox ID="txtName" runat="server" Width="100" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvName" runat="server"
                             ControlToValidate="txtName" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
                         <asp:Label ID="lblNameError" runat="server" ForeColor="Red" Style="position: relative"
                             Visible="False" meta:resourcekey="lblNameError">                        
                         </asp:Label>
-                    </span>
+                </span>
             </div>          
             <div class="button">
                 <asp:Button ID="btnName" runat="server" OnClick="BtnNameClick" meta:resourcekey="btnName" />

@@ -10,7 +10,7 @@
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
     
     
-    public partial class FindFollowers {
+    public partial class FindSelect {
         
         /// <summary>
         /// Control lclMenuExplanation.
@@ -49,48 +49,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         protected global::System.Web.UI.HtmlControls.HtmlForm AuthenticationForm;
         
         /// <summary>
-        /// Control lclFindByName.
+        /// Control btnFindByLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclFindByName;
+        protected global::System.Web.UI.WebControls.Button btnFindByLogin;
         
         /// <summary>
-        /// Control txtName.
+        /// Control btnAllLogins.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
-        
-        /// <summary>
-        /// Control rfvName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
-        
-        /// <summary>
-        /// Control lblNameError.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNameError;
-        
-        /// <summary>
-        /// Control btnName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnName;
+        protected global::System.Web.UI.WebControls.Button btnAllLogins;
     }
 }
