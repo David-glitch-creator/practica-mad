@@ -132,4 +132,10 @@
   <data name="InkProfile" xml:space="preserve">
     <value>Perfil</value>
   </data>
+  <data name="btnAllLogins" xml:space="preserve">
+    <value>Mostrar logins</value>
+  </data>
+  <data name="btnFindByLogin" xml:space="preserve">
+    <value>Buscar por login</value>
+  </data>
 </root>

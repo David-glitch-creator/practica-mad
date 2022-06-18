@@ -19,7 +19,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         {
             if (!IsPostBack)
             {
-                lblNameError.Visible = false;
 
 
             //obtenemos la persona a seguir
@@ -61,6 +60,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
 
-   
+        protected void BtnFindByLoginClick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnShowAllLoginsClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

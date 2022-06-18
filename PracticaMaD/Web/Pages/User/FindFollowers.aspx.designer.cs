@@ -49,6 +49,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         protected global::System.Web.UI.HtmlControls.HtmlForm AuthenticationForm;
         
         /// <summary>
+        /// Control btnFindByLogin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFindByLogin;
+        
+        /// <summary>
+        /// Control btnAllLogins.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAllLogins;
+        
+        /// <summary>
         /// Control lclFindByName.
         /// </summary>
         /// <remarks>
@@ -65,24 +83,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
-        
-        /// <summary>
-        /// Control rfvName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
-        
-        /// <summary>
-        /// Control lblNameError.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNameError;
         
         /// <summary>
         /// Control btnName.

@@ -17,8 +17,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
         <form id="AuthenticationForm" method="POST" runat="server">
-            <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" meta:resourcekey="btnFindByLogin" />               
+            <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Text="<%$ Resources:Common, btnFindByLogin %>" />               
                 &nbsp;&nbsp;                
-            <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" meta:resourcekey="btnAllLogins" />                
+            <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" Text="<%$ Resources:Common, btnAllLogins %>" />                
         </form>          
 </asp:Content>

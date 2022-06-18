@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Show logins.
+        /// </summary>
+        internal static string btnAllLogins {
+            get {
+                return ResourceManager.GetString("btnAllLogins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Find by login.
+        /// </summary>
+        internal static string btnFindByLogin {
+            get {
+                return ResourceManager.GetString("btnFindByLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cancel.
         /// </summary>
         internal static string cancel {
