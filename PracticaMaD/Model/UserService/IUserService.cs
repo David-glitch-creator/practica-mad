@@ -85,5 +85,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         List<UserInfo> GetFollowers(long userId);
 
         UserInfo GetUserInfo(long userProfileId);
+
+        UserInfo FindUserByLoginName(string loginName);
+
     }
 }

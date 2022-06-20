@@ -117,22 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InkMenu.Text" xml:space="preserve">
-    <value>Volver al menu princial</value>
+  <data name="btnAllLogins.Text" xml:space="preserve">
+    <value>Mostrar logins</value>
+  </data>
+  <data name="btnFindByLogin.Text" xml:space="preserve">
+    <value>Buscar por login</value>
+  </data>
+  <data name="btnName.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblNameError.Text" xml:space="preserve">
+    <value>Usuario no encontrado</value>
+  </data>
+  <data name="lclFindByName.Text" xml:space="preserve">
+    <value>Buscar por nombre</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Mi Perfil</value>
-  </data>
-  <data name="lnkFindFolloweds.Text" xml:space="preserve">
-    <value>Seguir a usuario</value>
-  </data>
-  <data name="lnkFollowedUsers.Text" xml:space="preserve">
-    <value>Ver usuarios seguidos</value>
-  </data>
-  <data name="lnkFollowers.Text" xml:space="preserve">
-    <value>Ver seguidores</value>
-  </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Salir</value>
+    <value>Seguir a alguien</value>
   </data>
 </root>

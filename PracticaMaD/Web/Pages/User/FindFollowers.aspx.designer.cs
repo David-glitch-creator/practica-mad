@@ -10,7 +10,7 @@
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
     
     
-    public partial class MyProfile {
+    public partial class FindFollowers {
         
         /// <summary>
         /// Control lclMenuExplanation.
@@ -31,84 +31,66 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         protected global::System.Web.UI.WebControls.HyperLink lnkMenu;
         
         /// <summary>
-        /// Control lnkLogout.
+        /// Control InkProfile.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+        protected global::System.Web.UI.WebControls.HyperLink InkProfile;
         
         /// <summary>
-        /// Control form1.
+        /// Control AuthenticationForm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm AuthenticationForm;
         
         /// <summary>
-        /// Control lblLoginName.
+        /// Control btnFindByLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoginName;
+        protected global::System.Web.UI.WebControls.Button btnFindByLogin;
         
         /// <summary>
-        /// Control lblFirstName.
+        /// Control btnAllLogins.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstName;
+        protected global::System.Web.UI.WebControls.Button btnAllLogins;
         
         /// <summary>
-        /// Control Label1.
+        /// Control lclFindByName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Localize lclFindByName;
         
         /// <summary>
-        /// Control lblLastName.
+        /// Control txtName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// Control lnkFollowedUsers.
+        /// Control btnName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFollowedUsers;
-        
-        /// <summary>
-        /// Control lnkFollowers.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFollowers;
-        
-        /// <summary>
-        /// Control lnkFindFolloweds.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFindFolloweds;
+        protected global::System.Web.UI.WebControls.Button btnName;
     }
 }

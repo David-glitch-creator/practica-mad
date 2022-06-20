@@ -117,22 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InkMenu.Text" xml:space="preserve">
-    <value>Volver al menu princial</value>
+  <data name="btnName.Text" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="lblcountry.Text" xml:space="preserve">
+    <value>Country: </value>
+  </data>
+  <data name="lblFindNameError.Text" xml:space="preserve">
+    <value>Person not found </value>
+  </data>
+  <data name="lbllastName.Text" xml:space="preserve">
+    <value>Last name: </value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="lblNameError.Text" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="lblTitleName.Text" xml:space="preserve">
+    <value>Alias: </value>
+  </data>
+  <data name="lclFindByName.Text" xml:space="preserve">
+    <value>Find by login</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Mi Perfil</value>
-  </data>
-  <data name="lnkFindFolloweds.Text" xml:space="preserve">
-    <value>Seguir a usuario</value>
-  </data>
-  <data name="lnkFollowedUsers.Text" xml:space="preserve">
-    <value>Ver usuarios seguidos</value>
-  </data>
-  <data name="lnkFollowers.Text" xml:space="preserve">
-    <value>Ver seguidores</value>
-  </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Salir</value>
+    <value>Follow to somebody</value>
   </data>
 </root>

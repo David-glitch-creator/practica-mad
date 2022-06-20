@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="InkMenu" xml:space="preserve">
+    <value>Menú principal</value>
+  </data>
   <data name="mandatoryField" xml:space="preserve">
     <value>Campo obligatorio</value>
   </data>
   <data name="searchButton" xml:space="preserve">
     <value>Buscar</value>
+  </data>
+  <data name="InkProfile" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="btnAllLogins" xml:space="preserve">
+    <value>Mostrar logins</value>
+  </data>
+  <data name="btnFindByLogin" xml:space="preserve">
+    <value>Buscar por login</value>
   </data>
 </root>

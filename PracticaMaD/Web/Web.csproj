@@ -97,11 +97,14 @@
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\FindFollowers.aspx" />
+    <Content Include="Pages\User\FindSelect.aspx" />
     <Content Include="Pages\User\Followed.aspx" />
     <Content Include="Pages\User\Followers.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
+    <Content Include="Pages\User\ShowFollowers.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +164,20 @@
     <Compile Include="Pages\User\Authentication.aspx.designer.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\FindFollowers.aspx.cs">
+      <DependentUpon>FindFollowers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\FindFollowers.aspx.designer.cs">
+      <DependentUpon>FindFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\FindSelect.aspx.cs">
+      <DependentUpon>FindSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\FindSelect.aspx.designer.cs">
+      <DependentUpon>FindSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Followed.aspx.cs">
       <DependentUpon>Followed.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,6 +212,13 @@
     </Compile>
     <Compile Include="Pages\User\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ShowFollowers.aspx.cs">
+      <DependentUpon>ShowFollowers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ShowFollowers.aspx.designer.cs">
+      <DependentUpon>ShowFollowers.aspx</DependentUpon>
     </Compile>
     <Compile Include="PracticaMaD.Master.cs">
       <DependentUpon>PracticaMaD.Master</DependentUpon>
@@ -296,12 +320,18 @@
     <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.es.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.gl.resx" />
+    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.gl.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindFollowers.aspx.es.resx" />
+    <Content Include="Pages\User\App_LocalResources\FindFollowers.aspx.gl.resx" />
+    <Content Include="Pages\User\App_LocalResources\FindFollowers.aspx.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Image\App_LocalResources\Upload.aspx.es.resx" />
   </ItemGroup>
@@ -310,6 +340,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Image\App_LocalResources\Upload.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.gl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowFollowers.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,6 +7,15 @@
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
+    - 
+    <asp:HyperLink ID="lnkMenu" runat="server"
+                        NavigateUrl="~/Pages/MainPage.aspx"
+                        Text="<%$ Resources:Common, InkMenu %>" />
+    
+    - 
+    <asp:HyperLink ID="lnkLogout" runat="server"
+                        NavigateUrl="~/Pages/User/Logout.aspx"
+                        meta:resourcekey="lnkLogout" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
@@ -24,5 +33,10 @@
                         NavigateUrl="~/Pages/User/Followers.aspx"
                         meta:resourcekey="lnkFollowers" />
         <br />
+        <asp:HyperLink ID="lnkFindFolloweds" runat="server" Display="Dynamic"
+                        NavigateUrl="~/Pages/User/FindSelect.aspx"
+                        meta:resourcekey="lnkFindFolloweds" />
+        <br />
+
     </form>
 </asp:Content>

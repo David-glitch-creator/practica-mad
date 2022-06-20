@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="InkMenu.Text" xml:space="preserve">
+    <value>Back main menu</value>
+  </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>My Profile</value>
+  </data>
+  <data name="lnkFindFolloweds.Text" xml:space="preserve">
+    <value>Follow to followeds</value>
   </data>
   <data name="lnkFollowedUsers.Text" xml:space="preserve">
     <value>View Followed Users</value>
   </data>
   <data name="lnkFollowers.Text" xml:space="preserve">
     <value>View Followers</value>
+  </data>
+  <data name="lnkLogout.Text" xml:space="preserve">
+    <value>Exit</value>
   </data>
 </root>
