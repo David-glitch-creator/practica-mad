@@ -190,5 +190,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             return ImageEntityDao.GetNumberOfLikes(image);
         }
+
+        public ImageDto GetImageById(long imageId)
+        {
+            ImageEntity image = ImageEntityDao.Find(imageId);
+            return new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, image.categoryId, image.imageFile, image.imageDescription);
+        }
     }
 }
