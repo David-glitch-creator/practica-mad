@@ -24,7 +24,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
-            IUserService userService = ioCManager.Resolve<IUserService>();
 
             try
             {
@@ -37,7 +36,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             }
 
             ImageDto image = imageService.GetImageById(imageId);
-            UserInfo user = userService.GetUserInfo(image.Author);
 
             if (image==null)
             {
@@ -51,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             Image.Attributes.Add("width", "220");
             Image.Attributes.Add("height", "220");
 
-            lblAuthor.Text = "<b>" + user.LoginName + "</b>";
+            lblAuthor.Text = "<b>" + image.AuthorLogin + "</b>";
             lblAuthor.Visible = true;
 
             lblTitle.Text = "<b><i>" + image.Title + "</i></b>";

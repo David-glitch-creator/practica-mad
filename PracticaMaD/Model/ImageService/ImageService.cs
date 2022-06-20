@@ -76,9 +76,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             foreach (ImageEntity image in images)
             {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreAccounts);
@@ -97,9 +99,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             foreach(ImageEntity image in images)
             {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate, 
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance, 
-                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreAccounts);
@@ -118,9 +122,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             foreach (ImageEntity image in images)
             {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreAccounts);
@@ -139,9 +145,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             foreach (ImageEntity image in images)
             {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreAccounts);
@@ -160,9 +168,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             foreach (ImageEntity image in images)
             {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreAccounts);
@@ -194,9 +204,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         public ImageDto GetImageById(long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
+            String loginName = UserProfileDao.Find(image.author).loginName;
+
             return new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, image.categoryId, image.imageFile, image.imageDescription);
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription);
         }
     }
 }
