@@ -16,7 +16,10 @@
                         <img src='<%# Eval("ImageFile") %>' style="height:120px;width:120px;" id="ImageControl" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="Title" HeaderText="Titulo" />
+                <%--<asp:BoundField DataField="Title" HeaderText="Titulo" />--%>
+                <asp:HyperLinkField DataTextField="Title" HeaderText="Título"
+                    DataNavigateUrlFields="ImageId"
+                    DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" />
                 <asp:BoundField DataField="Author" HeaderText="Autor" />
             </Columns>
         </asp:GridView>
