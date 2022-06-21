@@ -130,7 +130,7 @@
     <value>Usuario non atopado</value>
   </data>
   <data name="lclFindByName.Text" xml:space="preserve">
-    <value>Búsqueda polo nome</value>
+    <value>Búsqueda polo login</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Seguir a alguén</value>
