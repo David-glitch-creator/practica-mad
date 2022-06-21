@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="CategoryDao\CategoryDaoEntityFramework.cs" />
     <Compile Include="CategoryDao\ICategoryDao.cs" />
+    <Compile Include="CategoryService\CategoryDto.cs" />
+    <Compile Include="CategoryService\CategoryService.cs" />
+    <Compile Include="CategoryService\ICategoryService.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Comment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
