@@ -17,7 +17,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         public String ExposureTime { get; private set; }
         public String Iso { get; private set; }
         public String WhiteBalance { get; private set; }
-        public long Author { get; private set; }
+        public long AuthorId { get; private set; }
+        public String AuthorLogin { get; private set; }
         public long CategoryId { get; private set; }
         public byte[] ImageFile { get; private set; }
         public String ImageDescription { get; private set; }
@@ -25,8 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         #endregion
 
         public ImageDto(long imageId, string title, DateTime uploadDate, string aperture,
-            string exposureTime, string iso, string whiteBalance, long author, long categoryId, byte[] imageFile,
-            string imageDescription)
+            string exposureTime, string iso, string whiteBalance, long authorId, String authorLogin,
+            long categoryId, byte[] imageFile, string imageDescription)
         {
             this.ImageId = imageId;
             this.Title = title;
@@ -35,7 +36,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             this.ExposureTime = exposureTime;
             this.Iso = iso;
             this.WhiteBalance = whiteBalance;
-            this.Author = author;
+            this.AuthorId = authorId;
+            this.AuthorLogin = authorLogin;
             this.CategoryId = categoryId;
             this.ImageFile = imageFile;
             this.ImageDescription = imageDescription;
@@ -53,7 +55,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
                   && (this.ExposureTime == target.ExposureTime)
                   && (this.Iso == target.Iso)
                   && (this.WhiteBalance == target.WhiteBalance)
-                  && (this.Author == target.Author)
+                  && (this.AuthorId == target.AuthorId)
+                  && (this.AuthorLogin == target.AuthorLogin)
                   && (this.CategoryId == target.CategoryId)
                   && (this.ImageFile == target.ImageFile)
                   && (this.ImageDescription == target.ImageDescription);

@@ -15,15 +15,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
     {
 
         /// <summary>
-        /// Control lclMenuExplanation.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
-
-        /// <summary>
         /// Control UploadForm.
         /// </summary>
         /// <remarks>
@@ -159,24 +150,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         protected global::System.Web.UI.WebControls.TextBox txtWhiteBalance;
 
         /// <summary>
-        /// Control lclImageFile.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclImageFile;
-
-        /// <summary>
-        /// Control fuImageFile.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuImageFile;
-
-        /// <summary>
         /// Control lclCategory.
         /// </summary>
         /// <remarks>
@@ -193,6 +166,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList comboCategory;
+
+        /// <summary>
+        /// Control lclImageFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclImageFile;
+
+        /// <summary>
+        /// Control fuImageFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuImageFile;
 
         /// <summary>
         /// Control btnUpload.

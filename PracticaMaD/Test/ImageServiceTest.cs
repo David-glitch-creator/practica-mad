@@ -78,23 +78,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance), 
                     category.categoryId, imageFile);
 
-                var image = imageEntityDao.Find(imageId);
+                var image = imageService.GetImageById(imageId);
 
                 // Check data
-                Assert.AreEqual(imageId, image.imageId);
-                Assert.AreEqual(title, image.title);
-                Assert.AreEqual(imageDescription, image.imageDescription);
-                Assert.IsTrue(Math.Abs((uploadDate - image.uploadDate).TotalSeconds) < 1);
-                Assert.AreEqual(aperture, image.aperture);
-                Assert.AreEqual(exposureTime, image.exposureTime);
-                Assert.AreEqual(iso, image.iso);
-                Assert.AreEqual(whiteBalance, image.whiteBalance);
-                Assert.AreEqual(userId, image.author);
+                Assert.AreEqual(imageId, image.ImageId);
+                Assert.AreEqual(title, image.Title);
+                Assert.AreEqual(imageDescription, image.ImageDescription);
+                Assert.IsTrue(Math.Abs((uploadDate - image.UploadDate).TotalSeconds) < 1);
+                Assert.AreEqual(aperture, image.Aperture);
+                Assert.AreEqual(exposureTime, image.ExposureTime);
+                Assert.AreEqual(iso, image.Iso);
+                Assert.AreEqual(whiteBalance, image.WhiteBalance);
+                Assert.AreEqual(userId, image.AuthorId);
+                Assert.AreEqual(loginName, image.AuthorLogin);
 
                 byte[] expected = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expected.Length; i++)
                 {
-                    Assert.AreEqual(expected[i], image.imageFile[i]);
+                    Assert.AreEqual(expected[i], image.ImageFile[i]);
                 }
 
             }
@@ -118,11 +119,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                     new ExifDetails(aperture, exposureTime, iso, whiteBalance),
                     category.categoryId, imageFile);
 
-                var image = imageEntityDao.Find(imageId);
+                var image = imageService.GetImageById(imageId);
 
                 imageService.DeleteImage(imageId);
 
-                Assert.IsNull(imageEntityDao.Find(imageId));
+                imageService.GetImageById(imageId);
 
             }
         }
@@ -215,7 +216,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(exposureTime, images[0].ExposureTime);
                 Assert.AreEqual(iso, images[0].Iso);
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
-                Assert.AreEqual(userId, images[0].Author);
+                Assert.AreEqual(userId, images[0].AuthorId);
+                Assert.AreEqual(loginName, images[0].AuthorLogin);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -267,7 +269,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(exposureTime, images[0].ExposureTime);
                 Assert.AreEqual(iso, images[0].Iso);
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
-                Assert.AreEqual(userId, images[0].Author);
+                Assert.AreEqual(userId, images[0].AuthorId);
+                Assert.AreEqual(loginName, images[0].AuthorLogin);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -284,7 +287,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(exposureTime, images[1].ExposureTime);
                 Assert.AreEqual(iso, images[1].Iso);
                 Assert.AreEqual(whiteBalance, images[1].WhiteBalance);
-                Assert.AreEqual(userId, images[1].Author);
+                Assert.AreEqual(userId, images[1].AuthorId);
+                Assert.AreEqual(loginName, images[1].AuthorLogin);
 
                 for (int i = 0; i < expectedImage.Length; i++)
                 {
@@ -337,7 +341,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(exposureTime, images[0].ExposureTime);
                 Assert.AreEqual(iso, images[0].Iso);
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
-                Assert.AreEqual(userId, images[0].Author);
+                Assert.AreEqual(userId, images[0].AuthorId);
+                Assert.AreEqual(loginName, images[0].AuthorLogin);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -391,7 +396,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(exposureTime, images[0].ExposureTime);
                 Assert.AreEqual(iso, images[0].Iso);
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
-                Assert.AreEqual(userId, images[0].Author);
+                Assert.AreEqual(userId, images[0].AuthorId);
+                Assert.AreEqual(loginName, images[0].AuthorLogin);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)

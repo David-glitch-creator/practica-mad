@@ -1,14 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" 
     CodeBehind="Upload.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Image.Upload" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation"
-    runat="server">
-    -
-    <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="UploadForm" method="post" runat="server">
 
@@ -66,19 +59,19 @@
             </div>
             <div class="field">
                 <span class="label">
-                    <asp:Localize ID="lclImageFile" runat="server" meta:resourcekey="lclImageFile" /></span><span
-                        class="entry">
-                        <asp:FileUpload ID="fuImageFile" accept=".jpg" runat="server" CssClass="form-control"/>
-                        </span>
-            </div>
-            <div class="field">
-                <span class="label">
                     <asp:Localize ID="lclCategory" runat="server" meta:resourcekey="lclCategory" /></span><span
                         class="entry">
                         <asp:DropDownList ID="comboCategory" runat="server" AutoPostBack="True"
                             Width="100px" meta:resourcekey="comboCategoryResource1"
                             OnSelectedIndexChanged="ComboCategorySelectedIndexChanged">
                         </asp:DropDownList></span>
+            </div>
+            <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclImageFile" runat="server" meta:resourcekey="lclImageFile" /></span><span
+                        class="entry">
+                        <asp:FileUpload ID="fuImageFile" accept=".jpg" runat="server" CssClass="form-control"/>
+                        </span>
             </div>
             <div class="button">
                 <asp:Button ID="btnUpload" runat="server" OnClick="BtnUploadClick" meta:resourcekey="btnUpload" />

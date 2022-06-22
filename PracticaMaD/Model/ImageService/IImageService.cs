@@ -31,6 +31,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
         void DeleteImage(long imageId);
 
+        ImageDto GetImageById(long imageId);
+
         ImageBlock GetAllImages(int startIndex, int count);
 
         ImageBlock GetImagesByUser(long userId, int startIndex, int count);

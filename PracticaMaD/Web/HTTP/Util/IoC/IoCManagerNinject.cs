@@ -7,6 +7,7 @@ using System.Data.Entity;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.CategoryService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -36,6 +37,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 
             kernel.Bind<IImageService>().
                 To<ImageService>();
+
+            kernel.Bind<ICategoryService>().
+                To<CategoryService>();
 
             /* DbContext */
             string connectionString =
