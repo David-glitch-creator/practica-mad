@@ -94,15 +94,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         protected global::System.Web.UI.WebControls.Label lblFindNameError;
         
         /// <summary>
-        /// Control lblTitleName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lblTitleName;
-        
-        /// <summary>
         /// Control lblTitleName2.
         /// </summary>
         /// <remarks>
@@ -164,5 +155,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcountry2;
+        
+        /// <summary>
+        /// Control btnFollow.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFollow;
     }
 }

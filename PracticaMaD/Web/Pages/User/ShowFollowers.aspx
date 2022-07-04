@@ -30,36 +30,38 @@
                 <asp:Button ID="btnName" runat="server" OnClick="BtnNameClick" meta:resourcekey="btnName" />
             </div>
             <br />
+            <hr />
+            <br />
             <div id="infoGeneral">
                 <asp:Label ID="lblFindNameError" runat="server"
-                            Visible="False" meta:resourcekey="lblFindNameError">                        
-                        </asp:Label>
+                            Visible="False" meta:resourcekey="lblFindNameError" Font-Size="Medium" Font-Strikeout="False"></asp:Label>
                 <div >
-                    <span class="labelTittle">
-                        <asp:Localize ID="lblTitleName" runat="server" meta:resourcekey="lblTitleName" />
-                     </span>
-                    <asp:Label ID="lblTitleName2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblTitleName2" runat="server" Text="Label" BackColor="White" Font-Size="Large" Font-Strikeout="False" Font-Underline="False" Font-Bold="True"></asp:Label>
                 </div>
                 
                 <div >
                     <span class="labelTittle">
                         <asp:Localize ID="lblName" runat="server" meta:resourcekey="lblName" />
                         </span>
-                    <asp:Label ID="lblName2" runat="server"></asp:Label>
+                    <asp:Label ID="lblName2" runat="server" Font-Size="Small"></asp:Label>
                 </div>
 
                 <div >
                     <span class="labelTittle">
                         <asp:Localize ID="lbllastName" runat="server" meta:resourcekey="lbllastName" />
                         </span>
-                    <asp:Label ID="lbllastName2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lbllastName2" runat="server" Text="Label" Font-Size="Small"></asp:Label>
                 </div>
 
                 <div >
                     <span class="labelTittle">
                         <asp:Localize ID="lblcountry" runat="server" meta:resourcekey="lblcountry" />
                         </span>
-                    <asp:Label ID="lblcountry2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblcountry2" runat="server" Text="Label" Font-Size="Small"></asp:Label>
+                    <br />
+                </div>
+                <div class ="button">
+                    <asp:Button ID="btnFollow" runat="server" OnClick="BtnFollowAlias" meta:resourcekey="btnFollowAlias" />
                 </div>
 
             </div>

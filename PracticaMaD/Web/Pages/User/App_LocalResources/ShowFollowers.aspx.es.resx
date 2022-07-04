@@ -135,13 +135,13 @@
   <data name="lblNameError.Text" xml:space="preserve">
     <value>Usuario no encontrado</value>
   </data>
-  <data name="lblTitleName.Text" xml:space="preserve">
-    <value>Alias: </value>
-  </data>
   <data name="lclFindByName.Text" xml:space="preserve">
     <value>Buscar por Login</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Seguir a alguien</value>
+  </data>
+  <data name="btnFollowAlias.Text" xml:space="preserve">
+    <value>Seguir</value>
   </data>
 </root>
