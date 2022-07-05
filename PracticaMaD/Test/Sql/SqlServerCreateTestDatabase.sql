@@ -128,7 +128,7 @@ GO
 /*  ImageEntity */
 CREATE TABLE ImageEntity (
 	imageId BIGINT IDENTITY(1,1) UNIQUE NOT NULL,
-	title VARCHAR(30) UNIQUE NOT NULL,
+	title VARCHAR(30) NOT NULL,
 	imageDescription VARCHAR(60) NOT NULL,
 	uploadDate DATETIME NOT NULL,
 	aperture VARCHAR(30),
