@@ -4,6 +4,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
     <form id="form1" runat="server">
+        <asp:HyperLink ID="lnkSearchImages" runat="server" NavigateUrl="~/Pages/Image/SearchImages.aspx">
+            HyperLink
+        </asp:HyperLink>
+
         <p>
             <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes"></asp:Label>
         </p>
