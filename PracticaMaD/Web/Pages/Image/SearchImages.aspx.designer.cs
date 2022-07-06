@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
 
 
-    public partial class MainPage
+    public partial class SearchImages
     {
 
         /// <summary>
@@ -24,13 +24,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lnkSearchImages.
+        /// Control txtKeywords.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSearchImages;
+        protected global::System.Web.UI.WebControls.TextBox txtKeywords;
+
+        /// <summary>
+        /// Control btnFind.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFind;
 
         /// <summary>
         /// Control lblNoImages.
@@ -42,13 +51,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
         protected global::System.Web.UI.WebControls.Label lblNoImages;
 
         /// <summary>
-        /// Control gvImagesMain.
+        /// Control gvImagesSearch.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvImagesMain;
+        protected global::System.Web.UI.WebControls.GridView gvImagesSearch;
 
         /// <summary>
         /// Control lnkPrevious.
