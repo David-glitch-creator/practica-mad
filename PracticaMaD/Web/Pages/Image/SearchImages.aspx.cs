@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
@@ -16,10 +17,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         {
             int startIndex, count;
             String keywords;
+            long category;
 
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
             lblNoImages.Visible = false;
+
+            if (!IsPostBack)
+            {
+                IIoCManager ioCManager1 = (IIoCManager)Application["managerIoC"];
+
+                ICategoryService categoryService = ioCManager1.Resolve<ICategoryService>();
+
+                this.comboCategory.DataSource = categoryService.FindAll();
+                this.comboCategory.DataTextField = "Name";
+                this.comboCategory.DataValueField = "CategoryId";
+                this.comboCategory.DataBind();
+                this.comboCategory.Items.Insert(0, new ListItem(string.Empty, string.Empty));
+                this.comboCategory.SelectedIndex = 0;
+            }
 
             /* Get Keywords */
             try
@@ -28,7 +44,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             }
             catch (ArgumentNullException)
             {
-                keywords = "";
+                keywords = null;
+            }
+
+            /* Get Category */
+            try
+            {
+                category = Int32.Parse(Request.Params.Get("category"));
+            }
+            catch (ArgumentNullException)
+            {
+                category = -1;
+            }
+
+            if ((keywords == null) && (category == -1))
+            {
+                return;
             }
 
             /* Get Start Index */
@@ -55,7 +86,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
-            ImageBlock imageBlock = imageService.SearchImages(keywords, startIndex, count);
+            ImageBlock imageBlock;
+
+            if (category == -1)
+            {
+                imageBlock = imageService.SearchImages(keywords, startIndex, count);
+            }
+            else if(keywords == null)
+            {
+                imageBlock = imageService.SearchImages(category, startIndex, count);
+            }
+            else
+            {
+                imageBlock = imageService.SearchImages(keywords, category, startIndex, count);
+            }
 
             if (imageBlock.Images.Count == 0)
             {
@@ -72,6 +116,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 String url =
                     "/Pages/Image/SearchImages.aspx" +
                     "?keywords=" + keywords +
+                    "&category=" + category +
                     "&startIndex=" + (startIndex - count) +
                     "&count=" + count;
 
@@ -86,6 +131,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 String url =
                     "/Pages/Image/SearchImages.aspx" +
                     "?keywords=" + keywords +
+                    "&category=" + category +
                     "&startIndex=" + (startIndex + count) +
                     "&count=" + count;
 
@@ -111,7 +157,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             {
                 String keywords = txtKeywords.Text;
 
-                String url = String.Format("./SearchImages.aspx?keywords={0}", keywords);
+                String url;
+
+                if (comboCategory.SelectedValue!="")
+                {
+                    long category = long.Parse(comboCategory.SelectedValue);
+                    url = String.Format("./SearchImages.aspx?keywords={0}&category={1}", keywords, category);
+                }
+                else
+                {
+                    url = String.Format("./SearchImages.aspx?keywords={0}", keywords);
+                }
+
                 Response.Redirect(Response.ApplyAppPathModifier(url));
             }
         }

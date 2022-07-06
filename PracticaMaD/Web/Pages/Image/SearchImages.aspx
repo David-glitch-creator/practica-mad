@@ -6,8 +6,10 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
         <asp:TextBox ID="txtKeywords" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="comboCategory" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
         <br />
-        <asp:Button ID="btnFind" runat="server" Text="Button"
+        <asp:Button ID="btnFind" runat="server" Text="Buscar"
             OnClick="BtnFind_Click" />
         <br />
 
