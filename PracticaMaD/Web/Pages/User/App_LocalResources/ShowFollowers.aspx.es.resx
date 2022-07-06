@@ -144,4 +144,7 @@
   <data name="btnFollowAlias.Text" xml:space="preserve">
     <value>Seguir</value>
   </data>
+  <data name="btnUnFollowAlias.Text" xml:space="preserve">
+    <value>Dejar de seguir</value>
+  </data>
 </root>

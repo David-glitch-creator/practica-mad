@@ -77,7 +77,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
         public void Follow(UserProfile followedUser, UserProfile follower)
         {
-            if (!follower.UserProfile2.Contains(followedUser))
+            if (!IsFollow(followedUser, follower))
             {
                 follower.UserProfile2.Add(followedUser);
             }
@@ -87,12 +87,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
         public void Unfollow(UserProfile followedUser, UserProfile follower)
         {
-            if (follower.UserProfile2.Contains(followedUser))
+            if (IsFollow(followedUser, follower))
             {
                 follower.UserProfile2.Remove(followedUser);
             }
 
             Update(follower);
+        }
+
+        public Boolean IsFollow(UserProfile followedUser, UserProfile follower) {
+            return (follower.UserProfile2.Contains(followedUser));
         }
 
         public List<UserProfile> GetFollowed(UserProfile user)

@@ -31,6 +31,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
         void Unfollow(UserProfile followedUser, UserProfile follower);
 
+        Boolean IsFollow(UserProfile followedUser, UserProfile follower);
+
         List<UserProfile> GetFollowed(UserProfile user);
 
         List<UserProfile> GetFollowers(UserProfile user);

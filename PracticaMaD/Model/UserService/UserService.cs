@@ -162,6 +162,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             UserProfileDao.Unfollow(followedUser, follower);
         }
+        public Boolean IsFollow(long followedUserId, long followerId)
+        {
+            UserProfile followedUser = UserProfileDao.Find(followedUserId);
+            UserProfile follower = UserProfileDao.Find(followerId);
+
+            return UserProfileDao.IsFollow(followedUser, follower);
+        }
 
         public List<UserInfo> ViewFollowedUsers(long userId)
         {

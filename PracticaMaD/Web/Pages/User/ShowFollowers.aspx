@@ -60,10 +60,13 @@
                     <asp:Label ID="lblcountry2" runat="server" Text="Label" Font-Size="Small"></asp:Label>
                     <br />
                 </div>
-                <div class ="button">
-                    <asp:Button ID="btnFollow" runat="server" OnClick="BtnFollowAlias" meta:resourcekey="btnFollowAlias" />
-                </div>
-
+                                            
+            </div>
+            <br />
+            <div >
+                <asp:Button ID="btnFollow" runat="server" OnClick="BtnFollowAlias" meta:resourcekey="btnFollowAlias" />
+                    &nbsp;&nbsp;
+                <asp:Button ID="btnUnFollow" runat="server" OnClick="BtnUnFollowAlias" meta:resourcekey="btnUnFollowAlias" />
             </div>
         </form>
     </div>
