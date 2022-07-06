@@ -17,15 +17,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
     {
         private IIoCManager iocManager;
         private IUserService userService;
-        private UserInfo User;
+        private UserInfo userToFollow;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (!IsPostBack)
-            {
-
-
+            Trace.IsEnabled = true;
             //obtenemos la persona a seguir
             String FollowedName = Request.Params.Get("txtName");
 
@@ -36,12 +33,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 //devolvemos el usurio al que se quiere seguir
                 try
                 {
-                    this.User = userService.FindUserByLoginName(FollowedName);
+                    this.userToFollow = userService.FindUserByLoginName(FollowedName);
 
-                    lblTitleName2.Text = this.User.LoginName;
-                    lblName2.Text = this.User.FirstName;
-                    lbllastName2.Text = this.User.Lastname;
-                    lblcountry2.Text = this.User.Country;
+                    lblTitleName2.Text = this.userToFollow.LoginName;
+                    lblName2.Text = this.userToFollow.FirstName;
+                    lbllastName2.Text = this.userToFollow.Lastname;
+                    lblcountry2.Text = this.userToFollow.Country;
                 }
                 catch (InstanceNotFoundException)
                 {
@@ -55,7 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                     lblcountry2.Visible = false;
                     btnFollow.Visible = false;
                 }
-            }
+            
         }
 
         protected void BtnNameClick(object sender, EventArgs e)
@@ -81,7 +78,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             UserInfo usuario = SessionManager.GetUserInfo(Context);
 
             //Obtenemos service           
-            //userService.FollowUser(this.User.UserId, usuario.UserId);
+            userService.FollowUser(this.userToFollow.UserId, usuario.UserId);
+
+            
+            
+            //volvemos la la pagina
+            //String url = String.Format("~/Pages/User/MyProfile.aspx");
+            //Response.Redirect(Response.ApplyAppPathModifier(url));
         }
     }
 }
