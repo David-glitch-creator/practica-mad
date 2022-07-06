@@ -379,6 +379,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         }
 
         [TestMethod]
+        public void IsFollow_test()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+                var user2Id = userService.RegisterUser(loginName2, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email2, language, country));
+
+                userService.FollowUser(user2Id, userId);
+
+                Assert.IsTrue(userService.IsFollow(user2Id, userId));
+            }
+        }
+
+        [TestMethod]
         public void GetUserInfo_Test()
         {
             using (var scope = new TransactionScope())
