@@ -15,6 +15,33 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
     {
 
         /// <summary>
+        /// Control lclMenuExplanation.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
+
+        /// <summary>
+        /// Control lnkMenu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMenu;
+
+        /// <summary>
+        /// Control lnkLogout.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+
+        /// <summary>
         /// Control form1.
         /// </summary>
         /// <remarks>
@@ -24,12 +51,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control Repeater1.
+        /// Control lblNoUsersFollowed.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Label lblNoUsersFollowed;
+
+        /// <summary>
+        /// Control gvFollowed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvFollowed;
     }
 }
