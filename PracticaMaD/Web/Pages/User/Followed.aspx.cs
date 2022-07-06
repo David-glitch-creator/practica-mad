@@ -15,6 +15,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            lblNoUsersFollowed.Visible = false;
+
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IUserService userService = ioCManager.Resolve<IUserService>();
@@ -24,8 +26,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             List<UserInfo> followed = userService.ViewFollowedUsers(userInfo.UserId);
 
-            Repeater1.DataSource = followed;
-            Repeater1.DataBind();
+            if (followed.Count == 0)
+            {
+                lblNoUsersFollowed.Visible = true;
+                return;
+            }
+
+            gvFollowed.DataSource = followed;
+            gvFollowed.DataBind();
         }
     }
 }
