@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Trace.IsEnabled = true;
+            //Trace.IsEnabled = true;
             //obtenemos la persona a seguir
             String FollowedName = Request.Params.Get("txtName");
 
@@ -79,12 +79,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             //Obtenemos service           
             userService.FollowUser(this.userToFollow.UserId, usuario.UserId);
-
-            
             
             //volvemos la la pagina
-            //String url = String.Format("~/Pages/User/MyProfile.aspx");
-            //Response.Redirect(Response.ApplyAppPathModifier(url));
+            String url = String.Format("~/Pages/User/MyProfile.aspx");
+            Response.Redirect(Response.ApplyAppPathModifier(url));
         }
     }
 }
