@@ -105,6 +105,7 @@
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
+    <Content Include="Pages\User\ShowAllUserProfile.aspx" />
     <Content Include="Pages\User\ShowFollowers.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="Pages\User\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ShowAllUserProfile.aspx.cs">
+      <DependentUpon>ShowAllUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ShowAllUserProfile.aspx.designer.cs">
+      <DependentUpon>ShowAllUserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\ShowFollowers.aspx.cs">
       <DependentUpon>ShowFollowers.aspx</DependentUpon>
@@ -368,6 +376,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\FindSelect.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowAllUserProfile.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowAllUserProfile.aspx.gl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ShowAllUserProfile.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
