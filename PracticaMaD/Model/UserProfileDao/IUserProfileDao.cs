@@ -26,6 +26,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
         /// <exception cref="InstanceNotFoundException"/>
         UserProfile FindByEmail(String email);
 
+        List<UserProfile> FindAllUsers(int startIndex, int count);
 
         void Follow(UserProfile followedUser, UserProfile follower);
 

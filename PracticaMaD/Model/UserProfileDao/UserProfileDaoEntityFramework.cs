@@ -49,11 +49,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
             return userProfile;
         }
 
-        /// <summary>
-        /// Finds a UserProfile by his email
-        /// </summary>
+        /// <summary>Finds a UserProfile by his email</summary>
         /// <param name="email"></param>
-        /// <returns></returns>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         /// <exception cref="InstanceNotFoundException"></exception>
         public UserProfile FindByEmail(string email)
         {
@@ -74,6 +74,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
             return userProfile; ;
         }
+
+        public List<UserProfile> FindAllUsers( int startIndex, int count)
+        {
+
+            var userProfiles = Context.Set<UserProfile>();
+
+            var result =
+                (from u in userProfiles
+                 orderby u.loginName
+                 select u).Skip(startIndex).Take(count).ToList();
+
+            return result; ;
+        }
+
 
         public void Follow(UserProfile followedUser, UserProfile follower)
         {
@@ -103,6 +117,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
         {
             return user.UserProfile2.ToList();
         }
+
 
         public List<UserProfile> GetFollowers(UserProfile user)
         {

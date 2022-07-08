@@ -20,10 +20,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            //Obtenemos service
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IUserService userService = iocManager.Resolve<IUserService>();
+
+            //usuario que da la orden de la busqueda
+            UserInfo usuario = SessionManager.GetUserInfo(Context);
+
+
         }
 
-        
+
     }
 }

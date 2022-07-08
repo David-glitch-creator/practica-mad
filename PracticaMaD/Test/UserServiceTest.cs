@@ -8,6 +8,8 @@ using Ninject;
 using System;
 using System.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Test;
+using Es.Udc.DotNet.PracticaMaD.Model;
+using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
@@ -28,8 +30,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
         private const string language = "es";
         private const string country = "ES";
 
-        private const string loginName2 = "loginNameTest2";
+        private const string loginName2 = "loginNameTestA";
         private const string email2 = "user2@udc.es";
+
+        private const string loginName3 = "loginNameTestB";
+        private const string email3 = "user3@udc.es";
+        private const string loginName4 = "loginNameTestC";
+        private const string email4 = "user4@udc.es";
 
         private const long NON_EXISTENT_USER_ID = -1;
         private static IKernel kernel;
@@ -352,6 +359,33 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 // transaction.Complete() is not called, so Rollback is executed.
             }
         }
+
+         [TestMethod]
+         public void FindAllUsers_Test()
+         {
+             using (var scope = new TransactionScope())
+             {
+                 var userId = userService.RegisterUser(loginName, clearPassword,
+                     new UserProfileDetails(firstName, lastName, email, language, country));
+
+                 var user2Id = userService.RegisterUser(loginName2, clearPassword,
+                         new UserProfileDetails(firstName, lastName, email2, language, country));
+
+                 var user3Id = userService.RegisterUser(loginName3, clearPassword,
+                         new UserProfileDetails(firstName, lastName, email3, language, country));
+
+                 var user4Id = userService.RegisterUser(loginName4, clearPassword,
+                         new UserProfileDetails(firstName, lastName, email4, language, country));
+
+                List<UserProfile> lista = userService.FindAllUsers(0, 5);
+
+                //miramos que estan en orden
+                Assert.AreEqual(loginName,lista[0].loginName);
+                Assert.AreEqual(loginName2, lista[1].loginName);
+                Assert.AreEqual(loginName3, lista[2].loginName);
+                Assert.AreEqual(loginName4, lista[3].loginName);
+            }
+         }
 
         [TestMethod]
         public void FollowUser()

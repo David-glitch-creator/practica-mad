@@ -147,6 +147,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return true;
         }
 
+        public List<UserProfile> FindAllUsers(int startIndex, int count)
+        {
+            return UserProfileDao.FindAllUsers(startIndex, count);
+        }
+
         public void FollowUser(long followedUserId, long followerId)
         {
             UserProfile followedUser = UserProfileDao.Find(followedUserId);

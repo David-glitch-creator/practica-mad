@@ -76,6 +76,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         /// <returns> Boolean to indicate if the loginName exists </returns>
         bool UserExists(string loginName);
 
+        List<UserProfile> FindAllUsers(int startIndex, int count);
+
         void FollowUser(long followedUserId, long followerId);
 
         void UnfollowUser(long followedUserId, long followerId);
