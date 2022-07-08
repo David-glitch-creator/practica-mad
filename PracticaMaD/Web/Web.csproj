@@ -107,6 +107,7 @@
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\ShowAllUserProfile.aspx" />
     <Content Include="Pages\User\ShowFollowers.aspx" />
+    <Content Include="Pages\User\ViewUser.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="Pages\User\ShowFollowers.aspx.designer.cs">
       <DependentUpon>ShowFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ViewUser.aspx.cs">
+      <DependentUpon>ViewUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ViewUser.aspx.designer.cs">
+      <DependentUpon>ViewUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="PracticaMaD.Master.cs">
       <DependentUpon>PracticaMaD.Master</DependentUpon>

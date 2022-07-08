@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         {
             int startIndex, count;
             String keywords;
-            long category;
+            Nullable<long> category;
 
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
@@ -54,10 +54,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             }
             catch (ArgumentNullException)
             {
-                category = -1;
+                category = null;
             }
 
-            if ((keywords == null) && (category == -1))
+            if ((keywords == null) && (category == null))
             {
                 return;
             }
@@ -88,17 +88,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             ImageBlock imageBlock;
 
-            if (category == -1)
+            if (category == null)
             {
                 imageBlock = imageService.SearchImages(keywords, startIndex, count);
             }
             else if(keywords == null)
             {
-                imageBlock = imageService.SearchImages(category, startIndex, count);
+                imageBlock = imageService.SearchImages((long)category, startIndex, count);
             }
             else
             {
-                imageBlock = imageService.SearchImages(keywords, category, startIndex, count);
+                imageBlock = imageService.SearchImages(keywords, (long)category, startIndex, count);
             }
 
             if (imageBlock.Images.Count == 0)
