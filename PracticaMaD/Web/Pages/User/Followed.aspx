@@ -27,7 +27,7 @@
                 <Columns>
                     <asp:HyperLinkField DataTextField="LoginName" HeaderText="Login"
                         DataNavigateUrlFields="UserId"
-                        DataNavigateUrlFormatString="/Pages/User/ViewProfile.aspx?UserId={0}"/>
+                        DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
                 </Columns>
             </asp:GridView>
         </div>
