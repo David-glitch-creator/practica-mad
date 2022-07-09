@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="CommentDao\CommentDaoEntityFramework.cs" />
     <Compile Include="CommentDao\ICommentDao.cs" />
+    <Compile Include="CommentService\CommentDto.cs" />
     <Compile Include="CommentService\CommentService.cs" />
     <Compile Include="CommentService\ICommentService.cs" />
     <Compile Include="ImageEntity.cs">
