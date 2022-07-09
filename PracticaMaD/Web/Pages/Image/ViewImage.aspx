@@ -12,6 +12,17 @@
     <asp:Label ID="lblTitle" runat="server" Text="Título"></asp:Label>
     <br />
     <asp:Label ID="lblDescription" runat="server" Text="Descripción"></asp:Label>
+    <br />
+    <br />
+    <asp:Label ID="lblExifDetails" runat="server" Text="Detalles Exif"></asp:Label>
+    <br />
+    <asp:Label ID="lblAperture" runat="server" Text="Apertura de Diafragma: "></asp:Label>
+    <br />
+    <asp:Label ID="lblExposureTime" runat="server" Text="Tiempo de exposición: "></asp:Label>
+    <br />
+    <asp:Label ID="lblIso" runat="server" Text="ISO: "></asp:Label>
+    <br />
+    <asp:Label ID="lblWhiteBalance" runat="server" Text="Balance de blancos: "></asp:Label>
 
     <hr />
 </asp:Content>

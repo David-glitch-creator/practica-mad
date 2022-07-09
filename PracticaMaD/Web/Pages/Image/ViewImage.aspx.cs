@@ -20,6 +20,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblAuthor.Visible = false;
             lblTitle.Visible = false;
             lblDescription.Visible = false;
+            lblExifDetails.Visible = false;
+            lblAperture.Visible = false;
+            lblExposureTime.Visible = false;
+            lblIso.Visible = false;
+            lblWhiteBalance.Visible = false;
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
@@ -57,6 +62,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             lblDescription.Text = image.ImageDescription;
             lblDescription.Visible = true;
+
+            lblExifDetails.Visible = true;
+
+            lblAperture.Text += image.Aperture;
+            lblAperture.Visible = true;
+
+            lblExposureTime.Text += image.ExposureTime;
+            lblExposureTime.Visible = true;
+
+            lblIso.Text += image.Iso;
+            lblIso.Visible = true;
+
+            lblWhiteBalance.Text += image.WhiteBalance;
+            lblWhiteBalance.Visible = true;
         }
     }
 }
