@@ -23,6 +23,9 @@
     <asp:Label ID="lblIso" runat="server" Text="ISO: "></asp:Label>
     <br />
     <asp:Label ID="lblWhiteBalance" runat="server" Text="Balance de blancos: "></asp:Label>
+    <br />
+    <br />
+    <asp:HyperLink ID="lnkComments" Text="Ver comentarios" runat="server"></asp:HyperLink>
 
     <hr />
 </asp:Content>

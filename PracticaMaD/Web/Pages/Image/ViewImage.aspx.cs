@@ -26,6 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblIso.Visible = false;
             lblWhiteBalance.Visible = false;
 
+            lnkComments.Visible = false;
+
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
@@ -76,6 +78,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             lblWhiteBalance.Text += image.WhiteBalance;
             lblWhiteBalance.Visible = true;
+
+            String url =
+                    "/Pages/Image/ViewComments.aspx" +
+                    "?imageId=" + imageId;
+
+            lnkComments.NavigateUrl =
+                Response.ApplyAppPathModifier(url);
+            lnkComments.Visible = true;
         }
     }
 }
