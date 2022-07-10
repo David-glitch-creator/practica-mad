@@ -95,6 +95,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Image\SearchImages.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
+    <Content Include="Pages\Image\ViewComments.aspx" />
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Pages\Image\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\ViewComments.aspx.cs">
+      <DependentUpon>ViewComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\ViewComments.aspx.designer.cs">
+      <DependentUpon>ViewComments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Image\ViewImage.aspx.cs">
       <DependentUpon>ViewImage.aspx</DependentUpon>
