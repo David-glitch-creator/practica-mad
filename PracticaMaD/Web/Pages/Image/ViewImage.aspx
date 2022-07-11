@@ -25,6 +25,8 @@
     <asp:Label ID="lblWhiteBalance" runat="server" Text="Balance de blancos: "></asp:Label>
     <br />
     <br />
+    <asp:HyperLink ID="lnkAddComment" Text="Añadir comentario" runat="server"></asp:HyperLink>
+    <br />
     <asp:HyperLink ID="lnkComments" Text="Ver comentarios" runat="server"></asp:HyperLink>
 
     <hr />

@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using System;
@@ -26,11 +27,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblIso.Visible = false;
             lblWhiteBalance.Visible = false;
 
+            lnkAddComment.Visible = false;
             lnkComments.Visible = false;
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
+
+            ICommentService commentService = ioCManager.Resolve<CommentService>();
 
             try
             {
@@ -79,13 +83,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblWhiteBalance.Text += image.WhiteBalance;
             lblWhiteBalance.Visible = true;
 
-            String url =
+            String urlAddComment = "/Pages/Image/AddComment.aspx?imageId=" + imageId;
+            // Context.Items.Add("image", imageId);
+            lnkAddComment.NavigateUrl = Response.ApplyAppPathModifier(urlAddComment);
+            lnkAddComment.Visible = true;
+
+            if (commentService.HasComments(imageId))
+            {
+                String urlViewComments =
                     "/Pages/Image/ViewComments.aspx" +
                     "?imageId=" + imageId;
 
-            lnkComments.NavigateUrl =
-                Response.ApplyAppPathModifier(url);
-            lnkComments.Visible = true;
+                lnkComments.NavigateUrl =
+                    Response.ApplyAppPathModifier(urlViewComments);
+                lnkComments.Visible = true;
+            }
         }
     }
 }
