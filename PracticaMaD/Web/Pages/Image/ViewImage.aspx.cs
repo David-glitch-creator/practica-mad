@@ -2,6 +2,7 @@
 using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblExposureTime.Visible = false;
             lblIso.Visible = false;
             lblWhiteBalance.Visible = false;
+
+            lblLikesNumber.Visible = false;
 
             lnkAddComment.Visible = false;
             lnkComments.Visible = false;
@@ -83,8 +86,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblWhiteBalance.Text += image.WhiteBalance;
             lblWhiteBalance.Visible = true;
 
+            int likesNumber = imageService.GetNumberOfLikes(imageId);
+            if (likesNumber > 0)
+            {
+                lblLikesNumber.Text = likesNumber + " Me gusta";
+                lblLikesNumber.Visible = true;
+            }
+
             String urlAddComment = "/Pages/Image/AddComment.aspx?imageId=" + imageId;
-            // Context.Items.Add("image", imageId);
             lnkAddComment.NavigateUrl = Response.ApplyAppPathModifier(urlAddComment);
             lnkAddComment.Visible = true;
 
@@ -98,6 +107,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                     Response.ApplyAppPathModifier(urlViewComments);
                 lnkComments.Visible = true;
             }
+        }
+
+        protected void BtnLikeImage_Click(object sender, EventArgs e)
+        {
+            UserInfo myInfo = SessionManager.GetUserInfo(Context);
+
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            IImageService imageService = ioCManager.Resolve<IImageService>();
+
+            long imageId = Int32.Parse(Request.Params.Get("imageId"));
+
+            imageService.LikeImage(myInfo.UserId, imageId);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));
         }
     }
 }
