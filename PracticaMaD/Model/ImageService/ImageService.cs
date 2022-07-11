@@ -210,5 +210,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
                     image.author, loginName, image.categoryId, image.imageFile, image.imageDescription);
         }
+
+        public bool DoesLike(long userId, long imageId)
+        {
+            UserProfile userProfile = UserProfileDao.Find(userId);
+            ImageEntity image = ImageEntityDao.Find(imageId);
+
+            return ImageEntityDao.DoesLike(userProfile, image);
+        }
     }
 }

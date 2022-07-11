@@ -26,5 +26,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
         int GetNumberOfLikes(ImageEntity image);
 
+        bool DoesLike(UserProfile user, ImageEntity image);
+
     }
 }
