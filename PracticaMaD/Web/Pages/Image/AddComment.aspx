@@ -12,6 +12,8 @@
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclCommentText" runat="server" Text="Texto del comentario"></asp:Localize>
+                </span>
+                <span class="entry">
                     <asp:TextBox ID="txtCommentText" runat="server" Width="100px"
                             Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCommentText" runat="server" ControlToValidate="txtCommentText"
