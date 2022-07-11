@@ -1,6 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
-using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +10,16 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
-    public partial class ViewComments : System.Web.UI.Page
+    public partial class AddComment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            long imageId;
 
-            lblNoComments.Visible = false;
+        }
+
+        protected void BtnAddComment_Click(object sender, EventArgs e)
+        {
+            long imageId;
 
             try
             {
@@ -24,7 +27,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             }
             catch (ArgumentNullException)
             {
-                lblNoComments.Visible = true;
                 return;
             }
 
@@ -32,16 +34,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             ICommentService commentService = ioCManager.Resolve<ICommentService>();
 
-            List<CommentDto> comments = commentService.GetCommentsByImage(imageId);
+            long userId = SessionManager.GetUserInfo(Context).UserId;
 
-            if(comments.Count == 0)
-            {
-                lblNoComments.Visible = true;
-                return;
-            }
+            String commentText = txtCommentText.Text;
 
-            gvViewComments.DataSource = comments;
-            gvViewComments.DataBind();
+            commentService.CommentImage(userId, imageId, commentText);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/ViewComments.aspx?imageId=" + imageId));
         }
     }
 }

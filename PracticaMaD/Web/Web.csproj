@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Image\AddComment.aspx" />
     <Content Include="Pages\Image\SearchImages.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
     <Content Include="Pages\Image\ViewComments.aspx" />
@@ -140,6 +141,13 @@
     <Compile Include="HTTP\View\ApplicationObjects\Countries.cs" />
     <Compile Include="HTTP\View\ApplicationObjects\Languages.cs" />
     <Compile Include="HTTP\View\ApplicationObjects\Locale.cs" />
+    <Compile Include="Pages\Image\AddComment.aspx.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\AddComment.aspx.designer.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Image\SearchImages.aspx.cs">
       <DependentUpon>SearchImages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
