@@ -37,6 +37,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 return;
             }
 
+            /* If userId is our userId, we are redirected to our profile */
+            if (userId == SessionManager.GetUserInfo(Context).UserId)
+            {
+                Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
+            }
+
             /* Get Start Index */
             try
             {
