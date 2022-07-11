@@ -29,6 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblWhiteBalance.Visible = false;
 
             lblLikesNumber.Visible = false;
+            btnLikeImage.Visible = false;
 
             lnkAddComment.Visible = false;
             lnkComments.Visible = false;
@@ -93,6 +94,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 lblLikesNumber.Visible = true;
             }
 
+            btnLikeImage.Visible = true;
+
             String urlAddComment = "/Pages/Image/AddComment.aspx?imageId=" + imageId;
             lnkAddComment.NavigateUrl = Response.ApplyAppPathModifier(urlAddComment);
             lnkAddComment.Visible = true;
@@ -111,18 +114,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
         protected void BtnLikeImage_Click(object sender, EventArgs e)
         {
-            UserInfo myInfo = SessionManager.GetUserInfo(Context);
-
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
             long imageId = Int32.Parse(Request.Params.Get("imageId"));
 
-            imageService.LikeImage(myInfo.UserId, imageId);
-
             Response.Redirect(Response.
-                        ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));
+                        ApplyAppPathModifier("~/Pages/Image/LikeImage.aspx?ImageId=" + imageId));
         }
     }
 }
