@@ -12,5 +12,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
         void AddTagToImage(string tagName, long imageId);
 
         void RemoveTagFromImage(string tagName, long imageId);
+
+        List<TagDto> GetTagsFromImage(long imageId);
     }
 }

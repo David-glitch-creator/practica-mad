@@ -62,5 +62,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
 
             Update(tag);
         }
+
+        public List<Tag> GetTagsOfImage(ImageEntity image)
+        {
+            return image.Tag.ToList();
+        }
     }
 }

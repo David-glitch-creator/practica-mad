@@ -13,5 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
         void TagImage(Tag tag, ImageEntity image);
 
         void UntagImage(Tag tag, ImageEntity image);
+
+        List<Tag> GetTagsOfImage(ImageEntity image);
     }
 }
