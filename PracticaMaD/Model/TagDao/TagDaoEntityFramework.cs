@@ -54,9 +54,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
 
         public void UntagImage(Tag tag, ImageEntity image)
         {
-            if (tag.ImageEntity.Contains(image))
+            if (image.Tag.Contains(tag))
             {
-                tag.ImageEntity.Remove(image);
+                image.Tag.Remove(tag);
                 tag.taggedImagesNumber--;
             }
 

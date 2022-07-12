@@ -190,14 +190,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             expected.taggedImagesNumber = 0;
             
             Assert.AreEqual(expected, actual);
+            Assert.IsTrue(tagDao.GetTagsOfImage(imageEntity).Count == 0);
 
             tagDao.TagImage(tag, imageEntity);
             expected.taggedImagesNumber++;
 
             Assert.AreEqual(expected, actual);
+            Assert.IsTrue(tagDao.GetTagsOfImage(imageEntity).Count == 1);
 
             tagDao.UntagImage(tag, imageEntity);
             expected.taggedImagesNumber--;
+            Assert.IsTrue(tagDao.GetTagsOfImage(imageEntity).Count == 0);
 
             Assert.AreEqual(expected, actual);
         }
