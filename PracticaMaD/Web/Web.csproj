@@ -94,6 +94,7 @@
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Image\AddComment.aspx" />
+    <Content Include="Pages\Image\AddTags.aspx" />
     <Content Include="Pages\Image\LikeImage.aspx" />
     <Content Include="Pages\Image\SearchImages.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="Pages\Image\AddComment.aspx.designer.cs">
       <DependentUpon>AddComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\AddTags.aspx.cs">
+      <DependentUpon>AddTags.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\AddTags.aspx.designer.cs">
+      <DependentUpon>AddTags.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Image\LikeImage.aspx.cs">
       <DependentUpon>LikeImage.aspx</DependentUpon>

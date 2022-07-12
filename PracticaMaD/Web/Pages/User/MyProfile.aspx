@@ -52,6 +52,9 @@
                     DataNavigateUrlFields="ImageId"
                     DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" />
                 <asp:BoundField DataField="AuthorLogin" HeaderText="Autor" />
+                <asp:HyperLinkField Text="Añadir etiquetas" HeaderText="Añadir etiquetas"
+                    DataNavigateUrlFields="ImageId" 
+                    DataNavigateUrlFormatString="/Pages/Image/AddTags.aspx?ImageId={0}" />
             </Columns>
         </asp:GridView>
 
