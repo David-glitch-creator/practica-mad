@@ -33,6 +33,14 @@
                 <asp:Button ID="btnAddTags" runat="server" OnClick="BtnAddTags_Click" Text="Añadir etiquetas" />
             </div>
 
+            <asp:GridView ID="gvImageTags" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:HyperLinkField DataTextField="TagName" HeaderText="Tags"
+                        DataNavigateUrlFields="TagId"
+                        DataNavigateUrlFormatString="/Pages/User/SearchByTag.aspx?TagId={0}"/>
+                </Columns>
+            </asp:GridView>
+
         </form>
     </div>
 </asp:Content>

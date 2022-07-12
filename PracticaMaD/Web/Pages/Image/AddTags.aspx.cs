@@ -24,6 +24,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             txtTags.Visible = false;
             btnAddTags.Visible = false;
 
+            gvImageTags.Visible = false;
+
             try
             {
                 imageId = Int32.Parse(Request.Params.Get("imageId"));
@@ -39,6 +41,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
+
+            ITagService tagService = ioCManager.Resolve<ITagService>();
 
             ImageDto imageDto = imageService.GetImageById(imageId);
 
@@ -57,6 +61,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lclTags.Visible = true;
             txtTags.Visible = true;
             btnAddTags.Visible = true;
+
+            gvImageTags.DataSource = tagService.GetTagsFromImage(imageId);
+            gvImageTags.DataBind();
+            gvImageTags.Visible = true;
         }
 
         protected void BtnAddTags_Click(object sender, EventArgs e)
