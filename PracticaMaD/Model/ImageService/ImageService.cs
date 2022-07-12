@@ -1,5 +1,6 @@
 using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
+using Es.Udc.DotNet.PracticaMaD.Model.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
 using Ninject;
 using System;
@@ -16,6 +17,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         public ICategoryDao CategoryDao { private get; set ; }
         [Inject]
         public IImageEntityDao ImageEntityDao { private get; set ; }
+        [Inject]
+        public ITagDao TagDao { private get; set ; }
         
         public long UploadImage(long userProfileId, string title, string imageDescription,
             ExifDetails details, long categoryId, string imageFile)
@@ -217,6 +220,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             ImageEntity image = ImageEntityDao.Find(imageId);
 
             return ImageEntityDao.DoesLike(userProfile, image);
+        }
+
+        public ImageBlock GetImagesByTag(long tagId, int startIndex, int count)
+        {
+            Tag tag = TagDao.Find(tagId);
+
+            List<ImageEntity> images = ImageEntityDao.GetImagesWithTag(tag, startIndex, count + 1);
+
+            bool existMoreImages = (images.Count == count + 1);
+
+            if (existMoreImages)
+                images.RemoveAt(count);
+
+            List<ImageDto> imageDtos = new List<ImageDto>();
+
+            foreach (ImageEntity image in images)
+            {
+                String loginName = UserProfileDao.Find(image.author).loginName;
+
+                imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
+                    image.aperture, image.exposureTime, image.iso, image.whiteBalance,
+                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+            }
+
+            return new ImageBlock(imageDtos, existMoreImages);
         }
     }
 }

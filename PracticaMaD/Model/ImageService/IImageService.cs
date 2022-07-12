@@ -50,5 +50,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         int GetNumberOfLikes(long imageId);
 
         bool DoesLike(long userId, long imageId);
+
+        ImageBlock GetImagesByTag(long tagId, int startIndex, int count);
     }
 }
