@@ -103,6 +103,7 @@
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\FindFollowers.aspx" />
     <Content Include="Pages\User\FindSelect.aspx" />
     <Content Include="Pages\User\Followed.aspx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="Pages\User\Authentication.aspx.designer.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\FindFollowers.aspx.cs">
       <DependentUpon>FindFollowers.aspx</DependentUpon>
@@ -461,6 +469,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\App_LocalResources\UserExists.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
