@@ -12,7 +12,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
-    <asp:GridView ID="gvProds" runat="server"  onrowcommand="gvProds_RowCommand" AutoGenerateColumns="False"  OnPageIndexChanging="gvProdsPageIndexChanging" ShowHeaderWhenEmpty ="True"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" SelectedRowStyle-HorizontalAlign="Center" SelectedRowStyle-VerticalAlign="Middle" RowStyle-HorizontalAlign="Center" RowStyle-VerticalAlign="Middle" PagerStyle-HorizontalAlign="Left" PagerStyle-VerticalAlign="Bottom" HorizontalAlign="Center" OnSelectedIndexChanged="gvProds_SelectedIndexChanged" meta:resourcekey="gvProdsResource1">
+    <form id="form1" runat="server">
+
+            <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Text="<%$ Resources:Common, btnFindByLogin %>" />               
+                &nbsp;&nbsp;                
+            <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" Enabled="false" Text="<%$ Resources:Common, btnAllLogins %>" />
+            
+            <br />
+            <br />
+        
+        <asp:GridView ID="gvUsers" runat="server"  onrowcommand="gvUsers_RowCommand" AutoGenerateColumns="False"  OnPageIndexChanging="gvUsersPageIndexChanging" ShowHeaderWhenEmpty ="True"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" SelectedRowStyle-HorizontalAlign="Center" SelectedRowStyle-VerticalAlign="Middle" RowStyle-HorizontalAlign="Center" RowStyle-VerticalAlign="Middle" PagerStyle-HorizontalAlign="Left" PagerStyle-VerticalAlign="Bottom" HorizontalAlign="Center" OnSelectedIndexChanged="gvUsers_SelectedIndexChanged" meta:resourcekey="gvUsersResource1">
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -26,9 +35,9 @@
 
             <Columns>
              
-                <asp:hyperlinkfield   headertext="Alias" datatextfield="Alias"  
-      datanavigateurlformatstring="./ShowFollowers.aspx?txtName={0}" meta:resourcekey="HyperLinkFieldResource1" />
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" meta:resourcekey="BoundFieldResource2" />
+               <asp:hyperlinkfield   headertext="Alias" datatextfield="loginName" datanavigateurlfields="loginName"
+                   datanavigateurlformatstring="~/Pages/User/ShowFollowers.aspx?txtName={0}"/>
+                <asp:BoundField DataField="firstName" HeaderText="Nombre" meta:resourcekey="BoundFieldResource" />
                 <asp:buttonfield buttontype="Button" 
             commandname="Select"
             headertext="Segir" 
@@ -37,5 +46,8 @@
           
               
     </asp:GridView >
-    
+    <span class="label">
+                    <asp:Localize ID="lblFollow" runat="server" Text ="Siguiendolo" Visible="False" meta:resourcekey="lblFollow" />
+                </span>
+    </form>
 </asp:Content>

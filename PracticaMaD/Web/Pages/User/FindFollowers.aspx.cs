@@ -32,7 +32,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void BtnShowAllLoginsClick(object sender, EventArgs e)
         {
-
+            String url = String.Format("./ShowAllUserProfile.aspx");
+            Response.Redirect(Response.ApplyAppPathModifier(url));
         }
     }
 }

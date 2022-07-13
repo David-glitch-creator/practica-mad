@@ -88,6 +88,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
             return result; ;
         }
 
+        public int GetNumberOfUsers()
+        {
+
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            var result =
+                (from u in userProfiles
+                 select u).Count();
+
+            return result; ;
+        }
+
+
 
         public void Follow(UserProfile followedUser, UserProfile follower)
         {

@@ -78,6 +78,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         List<UserProfile> FindAllUsers(int startIndex, int count);
 
+        int CountAllUsers();
+
         void FollowUser(long followedUserId, long followerId);
 
         void UnfollowUser(long followedUserId, long followerId);

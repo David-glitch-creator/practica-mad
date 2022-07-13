@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoundFieldResource1.Text" xml:space="preserve">
-    <value>Follow</value>
+  <data name="gvUsersResource1.Caption" xml:space="preserve">
+    <value>Users</value>
   </data>
-  <data name="BoundFieldResource2.Text" xml:space="preserve">
-    <value>Name</value>
+  <data name="gvUsersResource1.EmptyDataText" xml:space="preserve">
+    <value />
   </data>
-  <data name="HyperLinkFieldResource1.Test" xml:space="preserve">
-    <value>Alias</value>
+  <data name="gvUsersResource1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Show all urers</value>
+  </data>
+  <data name="lblFollow.Text" xml:space="preserve">
+    <value>following</value>
+  </data>
+  <data name="BoundFieldResource.HeaderText" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

@@ -28,6 +28,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
 
         List<UserProfile> FindAllUsers(int startIndex, int count);
 
+        int GetNumberOfUsers();
+
         void Follow(UserProfile followedUser, UserProfile follower);
 
         void Unfollow(UserProfile followedUser, UserProfile follower);

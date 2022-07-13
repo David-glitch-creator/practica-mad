@@ -13,7 +13,7 @@ using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
-    public partial class ShowFollowers : SpecificCulturePage
+    public partial class ShowSingleUser : SpecificCulturePage
     {
         private IIoCManager iocManager;
         private IUserService userService;
@@ -25,11 +25,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Trace.IsEnabled = true;
+            
 
             //obtenemos el nombre de la persona buscada            
             this.FollowedName = Request.Params.Get("txtName");
-            
+
             //Obtenemos service
             this.iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             this.userService = iocManager.Resolve<IUserService>();
@@ -38,43 +38,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             this.usuario = SessionManager.GetUserInfo(Context);
 
             
-            try
-                {   //obtenemos la persona a seguir
-                    this.userToFollow = this.userService.FindUserByLoginName(this.FollowedName);
+           //obtenemos la persona a seguir
+                
+            this.userToFollow = this.userService.FindUserByLoginName(this.FollowedName);
 
                 //comprobamos si esta siguiendo al usuario resultante de la busqueda
 
                 //userService.IsFollow(this.userToFollow, this.usuario)
 
-                    lblTitleName2.Text = this.userToFollow.LoginName;
-                    lblName2.Text = this.userToFollow.FirstName;
-                    lbllastName2.Text = this.userToFollow.Lastname;
-                    lblcountry2.Text = this.userToFollow.Country;
-                    btnUnFollow.Enabled = userService.IsFollow(this.userToFollow.UserId, this.usuario.UserId);
-                    btnFollow.Enabled = !(btnUnFollow.Enabled);
+             lblTitleName2.Text = this.userToFollow.LoginName;
+             lblName2.Text = this.userToFollow.FirstName;
+             lbllastName2.Text = this.userToFollow.Lastname;
+             lblcountry2.Text = this.userToFollow.Country;
+             btnUnFollow.Enabled = userService.IsFollow(this.userToFollow.UserId, this.usuario.UserId);
+             btnFollow.Enabled = !(btnUnFollow.Enabled);
 
-                }
-                catch (InstanceNotFoundException)
-                {
-                    lblFindNameError.Visible = true;
-                    lblTitleName2.Visible = false;
-                    lblName.Visible = false;
-                    lblName2.Visible = false;
-                    lbllastName.Visible = false;
-                    lbllastName2.Visible = false;
-                    lblcountry.Visible = false;
-                    lblcountry2.Visible = false;
-                    btnFollow.Visible = false;
-                    btnUnFollow.Visible = false;
-            }
+                
+                
             
-        }
-
-        protected void BtnNameClick(object sender, EventArgs e)
-        {
-            
-            String url = String.Format("./ShowFollowers.aspx?txtName={0}", txtName.Text);
-            Response.Redirect(Response.ApplyAppPathModifier(url));
         }
 
         protected void BtnFindByLoginClick(object sender, EventArgs e)
@@ -84,8 +65,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void BtnShowAllLoginsClick(object sender, EventArgs e)
         {
-            String url = String.Format("./ShowAllUserProfile.aspx");
-            Response.Redirect(Response.ApplyAppPathModifier(url));
+
         }
 
         protected void BtnFollowAlias(object sender, EventArgs e)
@@ -93,7 +73,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             //Seguimos al usuario           
             this.userService.FollowUser(this.userToFollow.UserId, this.usuario.UserId);
-     
             //volvemos la la pagina
             String url = String.Format("./ShowFollowers.aspx?txtName={0}", this.FollowedName);
             Response.Redirect(Response.ApplyAppPathModifier(url));
