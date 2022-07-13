@@ -72,17 +72,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         }
 
         protected void gvUsersPageIndexChanging(object sender, GridViewPageEventArgs e)
-        {/*
+        {
             gvUsers.PageIndex = e.NewPageIndex; //obtenemos el indice 
             gvUsers.DataBind();
 
             foreach (GridViewRow row in gvUsers.Rows)
             {
-                HyperLink link = row.Cells[1].Controls[0] as HyperLink;
+                HyperLink link = row.Cells[0].Controls[0] as HyperLink;
 
                 link.NavigateUrl = "~/Pages/User/ShowFollowers.aspx?txtName=" + (gvUsers.Rows[0].Cells[0].Text);
 
-            }*/
+            }
 
         }
 
