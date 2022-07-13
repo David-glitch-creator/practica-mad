@@ -26,6 +26,10 @@
         
         <asp:Button ID="btnUnfollow" runat="server" Text="Dejar de seguir" 
             OnClick="BtnUnfollow_Click"/>
+
+        <asp:HyperLink ID="lnkRegisterToFollow" runat="server" 
+            NavigateUrl="~/Pages/User/Authentication.aspx"
+            Text="¿Quiere seguir usuarios? ¡Regístrese!" />
         <br />
         <p>
             <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes"></asp:Label>

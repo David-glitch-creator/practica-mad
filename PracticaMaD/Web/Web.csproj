@@ -101,7 +101,9 @@
     <Content Include="Pages\Image\ViewComments.aspx" />
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\FindFollowers.aspx" />
     <Content Include="Pages\User\FindSelect.aspx" />
     <Content Include="Pages\User\Followed.aspx" />
@@ -111,6 +113,7 @@
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\ShowAllUserProfile.aspx" />
     <Content Include="Pages\User\ShowFollowers.aspx" />
+    <Content Include="Pages\User\UpdateUserProfile.aspx" />
     <Content Include="Pages\User\ViewUser.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -199,12 +202,26 @@
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserExists.aspx.cs">
+      <DependentUpon>UserExists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserExists.aspx.designer.cs">
+      <DependentUpon>UserExists.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Authentication.aspx.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\User\Authentication.aspx.designer.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\FindFollowers.aspx.cs">
       <DependentUpon>FindFollowers.aspx</DependentUpon>
@@ -268,6 +285,13 @@
     </Compile>
     <Compile Include="Pages\User\ShowFollowers.aspx.designer.cs">
       <DependentUpon>ShowFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\UpdateUserProfile.aspx.cs">
+      <DependentUpon>UpdateUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\UpdateUserProfile.aspx.designer.cs">
+      <DependentUpon>UpdateUserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\ViewUser.aspx.cs">
       <DependentUpon>ViewUser.aspx</DependentUpon>
@@ -427,6 +451,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ShowAllUserProfile.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\UpdateUserProfile.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\UpdateUserProfile.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\UpdateUserProfile.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
