@@ -101,6 +101,7 @@
     <Content Include="Pages\Image\ViewComments.aspx" />
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\FindFollowers.aspx" />
     <Content Include="Pages\User\FindSelect.aspx" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserExists.aspx.cs">
+      <DependentUpon>UserExists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserExists.aspx.designer.cs">
+      <DependentUpon>UserExists.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Authentication.aspx.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
@@ -444,6 +452,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\UpdateUserProfile.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\UserExists.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
