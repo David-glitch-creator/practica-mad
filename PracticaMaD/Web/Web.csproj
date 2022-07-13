@@ -106,7 +106,6 @@
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\ShowAllUserProfile.aspx" />
-    <Content Include="Pages\User\ShowSingleUser.aspx" />
     <Content Include="Pages\User\ShowFollowers.aspx" />
     <Content Include="Pages\User\ViewUser.aspx" />
     <Content Include="Web.config" />
@@ -230,13 +229,6 @@
     </Compile>
     <Compile Include="Pages\User\ShowAllUserProfile.aspx.designer.cs">
       <DependentUpon>ShowAllUserProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\User\ShowSingleUser.aspx.cs">
-      <DependentUpon>ShowSingleUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\User\ShowSingleUser.aspx.designer.cs">
-      <DependentUpon>ShowSingleUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\ShowFollowers.aspx.cs">
       <DependentUpon>ShowFollowers.aspx</DependentUpon>
