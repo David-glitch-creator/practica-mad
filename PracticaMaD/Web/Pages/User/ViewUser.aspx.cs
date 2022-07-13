@@ -25,6 +25,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             lblNoImages.Visible = false;
             btnFollow.Visible = false;
             btnUnfollow.Visible = false;
+            lnkRegisterToFollow.Visible = false;
 
             /* Get UserId */
             try
@@ -91,7 +92,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             }
             else
             {
-                btnFollow.Visible = true;
+                lnkRegisterToFollow.Visible = true;
             }
 
             ImageBlock imageBlock = imageService.GetImagesByUser(userInfo.UserId, startIndex, count);
