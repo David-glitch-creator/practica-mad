@@ -119,6 +119,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
             return image.UserProfile1.Count;
         }
 
+        public bool DoesLike(UserProfile user, ImageEntity image)
+        {
+            return image.UserProfile1.Contains(user);
+        }
+
+        public List<ImageEntity> GetImagesWithTag(Tag tag, int startIndex, int count)
+        {
+            return tag.ImageEntity.Skip(startIndex).Take(count).ToList();
+        }
+
         #endregion IImageEntityDao Members
     }
 }

@@ -53,5 +53,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
                 // No se puede quitar una etiqueta que no existe
             }
         }
+
+        public List<TagDto> GetTagsFromImage(long imageId)
+        {
+            ImageEntity image = ImageEntityDao.Find(imageId);
+
+            List<Tag> tags = TagDao.GetTagsOfImage(image);
+
+            List<TagDto> tagDtos = new List<TagDto>();
+
+            foreach (Tag tag in tags)
+            {
+                tagDtos.Add(new TagDto(tag.tagId, tag.tagName, tag.taggedImagesNumber));
+            }
+
+            return tagDtos;
+        }
     }
 }

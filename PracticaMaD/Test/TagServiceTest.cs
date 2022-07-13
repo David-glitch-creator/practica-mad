@@ -79,6 +79,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 tagService.AddTagToImage(tagName, imageId);
 
+                Assert.IsTrue(tagService.GetTagsFromImage(imageId).Count == 1);
+
                 Tag actual = tagDao.FindByName(tagName);
                 Tag expected = new Tag();
                 expected.tagId = actual.tagId;
@@ -89,6 +91,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 tagService.RemoveTagFromImage(tagName, imageId);
                 expected.taggedImagesNumber = 0;
+
+                Assert.IsTrue(tagService.GetTagsFromImage(imageId).Count == 0);
 
                 Assert.AreEqual(expected, actual);
             }
@@ -117,6 +121,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 tagService.AddTagToImage(tagName, imageId);
                 tagService.AddTagToImage("etiqueta2", imageId);
                 tagService.AddTagToImage(tagName, image2Id);
+
+                Assert.IsTrue(tagService.GetTagsFromImage(imageId).Count == 2);
+                Assert.IsTrue(tagService.GetTagsFromImage(image2Id).Count == 1);
 
                 List<Tag> actual = tagService.GetByPopularity();
                 List<Tag> expected = new List<Tag>();

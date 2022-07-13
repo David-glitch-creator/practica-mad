@@ -93,8 +93,12 @@
   <ItemGroup>
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Image\AddComment.aspx" />
+    <Content Include="Pages\Image\AddTags.aspx" />
+    <Content Include="Pages\Image\LikeImage.aspx" />
     <Content Include="Pages\Image\SearchImages.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
+    <Content Include="Pages\Image\ViewComments.aspx" />
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
@@ -139,6 +143,27 @@
     <Compile Include="HTTP\View\ApplicationObjects\Countries.cs" />
     <Compile Include="HTTP\View\ApplicationObjects\Languages.cs" />
     <Compile Include="HTTP\View\ApplicationObjects\Locale.cs" />
+    <Compile Include="Pages\Image\AddComment.aspx.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\AddComment.aspx.designer.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\AddTags.aspx.cs">
+      <DependentUpon>AddTags.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\AddTags.aspx.designer.cs">
+      <DependentUpon>AddTags.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\LikeImage.aspx.cs">
+      <DependentUpon>LikeImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\LikeImage.aspx.designer.cs">
+      <DependentUpon>LikeImage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Image\SearchImages.aspx.cs">
       <DependentUpon>SearchImages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +177,13 @@
     </Compile>
     <Compile Include="Pages\Image\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\ViewComments.aspx.cs">
+      <DependentUpon>ViewComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\ViewComments.aspx.designer.cs">
+      <DependentUpon>ViewComments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Image\ViewImage.aspx.cs">
       <DependentUpon>ViewImage.aspx</DependentUpon>

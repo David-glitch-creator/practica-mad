@@ -430,10 +430,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
                 imageService.LikeImage(userId, imageId);
 
+                Assert.IsTrue(imageService.DoesLike(userId, imageId));
                 Assert.IsTrue(imageService.GetNumberOfLikes(imageId) == 1);
 
                 imageService.DislikeImage(userId, imageId);
 
+                Assert.IsFalse(imageService.DoesLike(userId, imageId));
                 Assert.IsTrue(imageService.GetNumberOfLikes(imageId) == 0);
             }
         }

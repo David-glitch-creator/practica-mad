@@ -88,25 +88,28 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.IsTrue(commentService.GetCommentsByImage(imageId).Count == 1);
                 Assert.IsTrue(commentService.GetCommentsByAuthor(userId).Count == 1);
 
-                Comment actual1 = commentService.GetCommentsByImage(imageId)[0];
-                Comment actual2 = commentService.GetCommentsByAuthor(userId)[0];
+                CommentDto actual1 = commentService.GetCommentsByImage(imageId)[0];
+                CommentDto actual2 = commentService.GetCommentsByAuthor(userId)[0];
                 Assert.AreEqual(actual1, actual2);
 
                 // Check data
-                Assert.AreEqual(commentId, actual1.commentId);
-                Assert.AreEqual(userId, actual1.author);
-                Assert.AreEqual(imageId, actual1.imageId);
-                Assert.AreEqual(commentText, actual1.commentText);
-                Assert.IsTrue(Math.Abs((expectedDate - actual1.postedDate).TotalSeconds) < 1);
+                Assert.AreEqual(commentId, actual1.CommentId);
+                Assert.AreEqual(userId, actual1.AuthorId);
+                Assert.AreEqual(loginName, actual1.AuthorLogin);
+                Assert.AreEqual(imageId, actual1.ImageId);
+                Assert.AreEqual(commentText, actual1.CommentText);
+                Assert.IsTrue(Math.Abs((expectedDate - actual1.PostedDate).TotalSeconds) < 1);
 
                 commentService.UpdateComment(commentId, newCommentText);
+                actual1 = commentService.GetCommentsByImage(imageId)[0];
 
                 // Check data
-                Assert.AreEqual(commentId, actual1.commentId);
-                Assert.AreEqual(userId, actual1.author);
-                Assert.AreEqual(imageId, actual1.imageId);
-                Assert.AreEqual(newCommentText, actual1.commentText);
-                Assert.IsTrue(Math.Abs((expectedDate - actual1.postedDate).TotalSeconds) < 1);
+                Assert.AreEqual(commentId, actual1.CommentId);
+                Assert.AreEqual(userId, actual1.AuthorId);
+                Assert.AreEqual(loginName, actual1.AuthorLogin);
+                Assert.AreEqual(imageId, actual1.ImageId);
+                Assert.AreEqual(newCommentText, actual1.CommentText);
+                Assert.IsTrue(Math.Abs((expectedDate - actual1.PostedDate).TotalSeconds) < 1);
 
             }
         }
@@ -138,16 +141,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.IsTrue(commentService.GetCommentsByImage(imageId).Count == 1);
                 Assert.IsTrue(commentService.GetCommentsByAuthor(userId).Count == 1);
 
-                Comment actual1 = commentService.GetCommentsByImage(imageId)[0];
-                Comment actual2 = commentService.GetCommentsByAuthor(userId)[0];
+                CommentDto actual1 = commentService.GetCommentsByImage(imageId)[0];
+                CommentDto actual2 = commentService.GetCommentsByAuthor(userId)[0];
                 Assert.AreEqual(actual1, actual2);
 
                 // Check data
-                Assert.AreEqual(commentId, actual1.commentId);
-                Assert.AreEqual(userId, actual1.author);
-                Assert.AreEqual(imageId, actual1.imageId);
-                Assert.AreEqual(commentText, actual1.commentText);
-                Assert.IsTrue(Math.Abs((expectedDate - actual1.postedDate).TotalSeconds) < 1);
+                Assert.AreEqual(commentId, actual1.CommentId);
+                Assert.AreEqual(userId, actual1.AuthorId);
+                Assert.AreEqual(loginName, actual1.AuthorLogin);
+                Assert.AreEqual(imageId, actual1.ImageId);
+                Assert.AreEqual(commentText, actual1.CommentText);
+                Assert.IsTrue(Math.Abs((expectedDate - actual1.PostedDate).TotalSeconds) < 1);
 
                 commentService.DeleteComment(commentId);
 

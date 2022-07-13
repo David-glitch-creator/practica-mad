@@ -22,10 +22,10 @@
                         meta:resourcekey="lnkFindFolloweds" />
         <br />
         <asp:Button ID="btnFollow" runat="server" Text="Seguir" 
-            OnClick="btnFollow_Click"/>
+            OnClick="BtnFollow_Click"/>
         
         <asp:Button ID="btnUnfollow" runat="server" Text="Dejar de seguir" 
-            OnClick="btnUnfollow_Click"/>
+            OnClick="BtnUnfollow_Click"/>
         <br />
         <p>
             <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes"></asp:Label>

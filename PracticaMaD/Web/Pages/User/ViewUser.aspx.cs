@@ -37,6 +37,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 return;
             }
 
+            /* If userId is our userId, we are redirected to our profile */
+            if (userId == SessionManager.GetUserInfo(Context).UserId)
+            {
+                Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
+            }
+
             /* Get Start Index */
             try
             {
@@ -131,7 +138,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             }
         }
 
-        protected void btnFollow_Click(object sender, EventArgs e)
+        protected void BtnFollow_Click(object sender, EventArgs e)
         {
             UserInfo myInfo = SessionManager.GetUserInfo(Context);
 
@@ -147,7 +154,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                         ApplyAppPathModifier("~/Pages/User/ViewUser.aspx?userId=" + userId));
         }
 
-        protected void btnUnfollow_Click(object sender, EventArgs e)
+        protected void BtnUnfollow_Click(object sender, EventArgs e)
         {
             UserInfo myInfo = SessionManager.GetUserInfo(Context);
 

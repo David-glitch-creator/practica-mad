@@ -13,9 +13,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
 
         void DeleteComment(long commentId);
 
-        List<Comment> GetCommentsByImage(long imageId);
+        List<CommentDto> GetCommentsByImage(long imageId);
 
-        List<Comment> GetCommentsByAuthor(long userId);
+        List<CommentDto> GetCommentsByAuthor(long userId);
 
         bool HasComments(long imageId);
     }

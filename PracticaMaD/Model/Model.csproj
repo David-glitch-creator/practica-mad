@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="CommentDao\CommentDaoEntityFramework.cs" />
     <Compile Include="CommentDao\ICommentDao.cs" />
+    <Compile Include="CommentService\CommentDto.cs" />
     <Compile Include="CommentService\CommentService.cs" />
     <Compile Include="CommentService\ICommentService.cs" />
     <Compile Include="ImageEntity.cs">
@@ -115,6 +116,7 @@
     <Compile Include="TagDao\ITagDao.cs" />
     <Compile Include="TagDao\TagDaoEntityFramework.cs" />
     <Compile Include="TagService\ITagService.cs" />
+    <Compile Include="TagService\TagDto.cs" />
     <Compile Include="TagService\TagService.cs" />
     <Compile Include="UserProfile.cs">
       <DependentUpon>Model1.tt</DependentUpon>

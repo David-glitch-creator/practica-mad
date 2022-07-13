@@ -8,6 +8,10 @@ using Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.CategoryService;
+using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.TagDao;
+using Es.Udc.DotNet.PracticaMaD.Model.TagService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -32,14 +36,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             kernel.Bind<ICategoryDao>().
                 To<CategoryDaoEntityFramework>();
 
+            kernel.Bind<ICategoryService>().
+                To<CategoryService>();
+
             kernel.Bind<IImageEntityDao>().
                 To<ImageEntityDaoEntityFramework>();
 
             kernel.Bind<IImageService>().
                 To<ImageService>();
 
-            kernel.Bind<ICategoryService>().
-                To<CategoryService>();
+            kernel.Bind<ICommentDao>().
+                To<CommentDaoEntityFramework>();
+
+            kernel.Bind<ICommentService>().
+                To<CommentService>();
+
+            kernel.Bind<ITagDao>().
+                To<TagDaoEntityFramework>();
+
+            kernel.Bind<ITagService>().
+                To<TagService>();
 
             /* DbContext */
             string connectionString =

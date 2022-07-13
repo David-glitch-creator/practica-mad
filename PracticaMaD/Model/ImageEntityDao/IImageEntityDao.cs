@@ -26,5 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageEntityDao
 
         int GetNumberOfLikes(ImageEntity image);
 
+        bool DoesLike(UserProfile user, ImageEntity image);
+
+        List<ImageEntity> GetImagesWithTag(Tag tag, int startIndex, int count);
     }
 }
