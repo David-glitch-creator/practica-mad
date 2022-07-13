@@ -38,7 +38,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             }
 
             /* If userId is our userId, we are redirected to our profile */
-            if (userId == SessionManager.GetUserInfo(Context).UserId)
+            if (SessionManager.IsUserAuthenticated(Context)&&(userId == SessionManager.GetUserInfo(Context).UserId))
             {
                 Response.Redirect(Response.
                         ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
@@ -76,11 +76,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             lblFirstName.Text = userInfo.FirstName;
             lblLastName.Text = userInfo.Lastname;
 
-            UserInfo myInfo = SessionManager.GetUserInfo(Context);
-
-            if (userService.IsFollow(userId, myInfo.UserId))
+            if (SessionManager.IsUserAuthenticated(Context))
             {
-                btnUnfollow.Visible = true;
+                UserInfo myInfo = SessionManager.GetUserInfo(Context);
+
+                if (userService.IsFollow(userId, myInfo.UserId))
+                {
+                    btnUnfollow.Visible = true;
+                }
+                else
+                {
+                    btnFollow.Visible = true;
+                }
             }
             else
             {
@@ -116,7 +123,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             if (imageBlock.ExistMoreImages)
             {
                 String url =
-                    "/Pages/User/MyProfile.aspx" +
+                    "/Pages/User/ViewUser.aspx" +
                     "?userId=" + userId +
                     "&startIndex=" + (startIndex + count) +
                     "&count=" + count;
