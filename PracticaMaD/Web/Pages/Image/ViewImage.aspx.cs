@@ -34,6 +34,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lnkAddComment.Visible = false;
             lnkComments.Visible = false;
 
+            btnDeleteImage.Visible = false;
+
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
@@ -112,6 +114,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                     Response.ApplyAppPathModifier(urlViewComments);
                 lnkComments.Visible = true;
             }
+
+            if (SessionManager.IsUserAuthenticated(Context) &&
+                (SessionManager.GetUserInfo(Context).UserId == image.AuthorId))
+            {
+                btnDeleteImage.Visible = true;
+            }
         }
 
         protected void BtnLikeImage_Click(object sender, EventArgs e)
@@ -124,6 +132,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             Response.Redirect(Response.
                         ApplyAppPathModifier("~/Pages/Image/LikeImage.aspx?ImageId=" + imageId));
+        }
+
+        protected void BtnDeleteImage_Click(object sender, EventArgs e)
+        {
+            long imageId = Int32.Parse(Request.Params.Get("imageId"));
+
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            IImageService imageService = ioCManager.Resolve<IImageService>();
+
+            imageService.DeleteImage(imageId);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
         }
     }
 }

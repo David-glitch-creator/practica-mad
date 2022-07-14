@@ -34,6 +34,9 @@
         <asp:HyperLink ID="lnkAddComment" Text="Añadir comentario" runat="server"></asp:HyperLink>
         <br />
         <asp:HyperLink ID="lnkComments" Text="Ver comentarios" runat="server"></asp:HyperLink>
+        <br />
+        <br />
+        <asp:Button ID="btnDeleteImage" runat="server" Text="Borrar imagen" OnClick="BtnDeleteImage_Click" />
 
         <hr />
     </form>
