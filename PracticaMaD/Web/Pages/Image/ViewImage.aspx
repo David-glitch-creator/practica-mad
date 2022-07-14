@@ -29,6 +29,7 @@
         <asp:Label ID="lblLikesNumber" runat="server" Text="Número de Me gustas"></asp:Label>
         <br />
         <asp:Button ID="btnLikeImage" runat="server" Text="Me gusta" OnClick="BtnLikeImage_Click" />
+        <asp:Button ID="btnDislikeImage" runat="server" Text="Ya no me gusta" OnClick="BtnDislikeImage_Click" />
         <br />
         <br />
         <asp:HyperLink ID="lnkAddComment" Text="Añadir comentario" runat="server"></asp:HyperLink>

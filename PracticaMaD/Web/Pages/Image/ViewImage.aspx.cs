@@ -30,6 +30,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             lblLikesNumber.Visible = false;
             btnLikeImage.Visible = false;
+            btnDislikeImage.Visible = false;
 
             lnkAddComment.Visible = false;
             lnkComments.Visible = false;
@@ -98,7 +99,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 lblLikesNumber.Visible = true;
             }
 
-            btnLikeImage.Visible = true;
+            if (SessionManager.IsUserAuthenticated(Context))
+            {
+                UserInfo myInfo = SessionManager.GetUserInfo(Context);
+
+                if (imageService.DoesLike(myInfo.UserId, imageId))
+                {
+                    btnDislikeImage.Visible = true;
+                }
+                else
+                {
+                    btnLikeImage.Visible = true;
+                }
+            }
+            else
+            {
+                btnLikeImage.Visible = true;
+            }
 
             String urlAddComment = "/Pages/Image/AddComment.aspx?imageId=" + imageId;
             lnkAddComment.NavigateUrl = Response.ApplyAppPathModifier(urlAddComment);
@@ -124,14 +141,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
         protected void BtnLikeImage_Click(object sender, EventArgs e)
         {
+            long imageId = Int32.Parse(Request.Params.Get("imageId"));
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/LikeImage.aspx?ImageId=" + imageId));
+        }
+
+        protected void BtnDislikeImage_Click(object sender, EventArgs e)
+        {
+            UserInfo myInfo = SessionManager.GetUserInfo(Context);
+
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
             long imageId = Int32.Parse(Request.Params.Get("imageId"));
 
+            imageService.DislikeImage(myInfo.UserId, imageId);
+
             Response.Redirect(Response.
-                        ApplyAppPathModifier("~/Pages/Image/LikeImage.aspx?ImageId=" + imageId));
+                        ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));
         }
 
         protected void BtnDeleteImage_Click(object sender, EventArgs e)
