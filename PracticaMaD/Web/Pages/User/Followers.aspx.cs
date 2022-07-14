@@ -14,16 +14,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            long userId;
+
+            lblUserNotFound.Visible = false;
             lblNoFollowers.Visible = false;
+
+            /* Get UserId */
+            try
+            {
+                userId = Int32.Parse(Request.Params.Get("userId"));
+            }
+            catch (ArgumentNullException)
+            {
+                lblUserNotFound.Visible = true;
+                return;
+            }
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
             IUserService userService = ioCManager.Resolve<IUserService>();
 
-            UserInfo userInfo =
-                SessionManager.GetUserInfo(Context);
-
-            List<UserInfo> followers = userService.GetFollowers(userInfo.UserId);
+            List<UserInfo> followers = userService.GetFollowers(userId);
 
             if (followers.Count == 0)
             {
