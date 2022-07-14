@@ -3,19 +3,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
+        <asp:Label ID="lblUserNotFound" runat="server" Text="No se encontró usuario"></asp:Label>
         <asp:Label ID="lblLoginName" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Label ID="lblFirstName" runat="server" Text="Label"></asp:Label>
         <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
         <asp:Label ID="lblLastName" runat="server" Text="Label"></asp:Label>
         <br />
-        <%--<asp:HyperLink ID="lnkFollowedUsers" runat="server"
-                        NavigateUrl="~/Pages/User/Followed.aspx"
-                        meta:resourcekey="lnkFollowedUsers" />
+        <asp:HyperLink ID="lnkFollowedUsers" runat="server"
+                        Text="Ver Seguidos" />
         <br />
         <asp:HyperLink ID="lnkFollowers" runat="server"
-                        NavigateUrl="~/Pages/User/Followers.aspx"
-                        meta:resourcekey="lnkFollowers" />--%>
+                        Text="Ver Seguidores" />
         <br />
         <asp:HyperLink ID="lnkFindFolloweds" runat="server" Display="Dynamic"
                         NavigateUrl="~/Pages/User/FindSelect.aspx"

@@ -21,7 +21,7 @@
         <div>
             <p>
                 <asp:Label ID="lblUserNotFound" runat="server" Text="No se encontró usuario"></asp:Label>
-                <asp:Label ID="lblNoFollowers" runat="server" Text="Usted no tiene seguidores actualmente"></asp:Label>
+                <asp:Label ID="lblNoFollowers" runat="server" Text="No se encontraron seguidores"></asp:Label>
             </p>
 
             <asp:GridView ID="gvFollowers" runat="server" AutoGenerateColumns="false" >
