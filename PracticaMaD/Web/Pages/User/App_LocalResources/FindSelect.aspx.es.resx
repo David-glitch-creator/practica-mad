@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnAllLogins.ToolTip" xml:space="preserve">
+    <value>Mostrar todos los usuarios</value>
+  </data>
+  <data name="btnFindByLogin.ToolTip" xml:space="preserve">
+    <value>Buscar a alguien por su Alias</value>
+  </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Buscar</value>
-  </data>
-  <data name="lclMenuExplanation.Text1" xml:space="preserve">
-    <value>Seguir a alguien</value>
   </data>
 </root>

@@ -20,5 +20,8 @@
     <Setting Name="ObjectDS_CountParameter" Type="System.String" Scope="Application">
       <Value Profile="(Default)">count</Value>
     </Setting>
+    <Setting Name="ObjectDS_DefaultCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
