@@ -19,7 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             long imageId;
 
             lblNoImage.Visible = false;
-            lblAuthor.Visible = false;
+            lnkAuthor.Visible = false;
             lblTitle.Visible = false;
             lblDescription.Visible = false;
             lblExifDetails.Visible = false;
@@ -64,8 +64,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             Image.Attributes.Add("width", "220");
             Image.Attributes.Add("height", "220");
 
-            lblAuthor.Text = "<b>" + image.AuthorLogin + "</b>";
-            lblAuthor.Visible = true;
+            lnkAuthor.Text = "<b>" + image.AuthorLogin + "</b>";
+            lnkAuthor.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/User/ViewUser.aspx?userId=" + image.AuthorId);
+            lnkAuthor.Visible = true;
 
             lblTitle.Text = "<b><i>" + image.Title + "</i></b>";
             lblTitle.Visible = true;

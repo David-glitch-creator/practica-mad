@@ -8,7 +8,7 @@
 
         <asp:Image ID="Image" runat="server" />
         <br />
-        <asp:Label ID="lblAuthor" runat="server" Text="Autor"></asp:Label>
+        <asp:HyperLink ID="lnkAuthor" runat="server" />
         <br />
         <asp:Label ID="lblTitle" runat="server" Text="Título"></asp:Label>
         <br />
