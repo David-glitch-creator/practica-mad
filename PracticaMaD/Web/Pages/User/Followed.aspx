@@ -20,6 +20,7 @@
     <form id="form1" runat="server">
         <div>
             <p>
+                <asp:Label ID="lblUserNotFound" runat="server" Text="No se encontró usuario"></asp:Label>
                 <asp:Label ID="lblNoUsersFollowed" runat="server" Text="Usted no sigue a ningún usuario"></asp:Label>
             </p>
 
