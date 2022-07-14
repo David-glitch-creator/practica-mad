@@ -27,7 +27,9 @@
                 <asp:HyperLinkField DataTextField="Title" HeaderText="Título"
                     DataNavigateUrlFields="ImageId"
                     DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" />
-                <asp:BoundField DataField="AuthorLogin" HeaderText="Autor" />
+                <asp:HyperLinkField DataTextField="AuthorLogin" HeaderText="Autor"
+                    DataNavigateUrlFields="AuthorId"
+                    DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
             </Columns>
         </asp:GridView>
         <br />

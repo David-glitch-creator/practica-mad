@@ -14,17 +14,17 @@
 
         <asp:GridView ID="gvImagesMain" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound">
             <Columns>
-                <%--<asp:ImageField DataImageUrlField="ImageFile" HeaderText="Imagen"></asp:ImageField>--%>
                 <asp:TemplateField HeaderText="Imagen">
                     <ItemTemplate>
                         <img src='<%# Eval("ImageFile") %>' style="height:120px;width:120px;" id="ImageControl" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <%--<asp:BoundField DataField="Title" HeaderText="Titulo" />--%>
                 <asp:HyperLinkField DataTextField="Title" HeaderText="Título"
                     DataNavigateUrlFields="ImageId"
                     DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" />
-                <asp:BoundField DataField="AuthorLogin" HeaderText="Autor" />
+                <asp:HyperLinkField DataTextField="AuthorLogin" HeaderText="Autor"
+                    DataNavigateUrlFields="AuthorId"
+                    DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
             </Columns>
         </asp:GridView>
     <br />
