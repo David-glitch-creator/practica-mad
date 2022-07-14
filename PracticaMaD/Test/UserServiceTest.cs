@@ -388,6 +388,37 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
          }
 
         [TestMethod]
+        public void CountAllUsers_Test()
+        {
+            using (var scope = new TransactionScope())
+            {
+                Assert.AreEqual(userService.CountAllUsers(), 0);
+                var userId = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, language, country));
+
+                //miramos los usuarios que hay
+                Assert.AreEqual(userService.CountAllUsers(), 1);
+
+                var user2Id = userService.RegisterUser(loginName2, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email2, language, country));
+
+                //miramos los usuarios que hay
+                Assert.AreEqual(userService.CountAllUsers(), 2);
+
+                var user3Id = userService.RegisterUser(loginName3, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email3, language, country));
+
+                //miramos los usuarios que hay
+                Assert.AreEqual(userService.CountAllUsers(), 3);
+
+                var user4Id = userService.RegisterUser(loginName4, clearPassword,
+                        new UserProfileDetails(firstName, lastName, email4, language, country));
+
+                //miramos los usuarios que hay
+                Assert.AreEqual(userService.CountAllUsers(), 4);
+            }
+        }
+        [TestMethod]
         public void FollowUser()
         {
             using (var scope = new TransactionScope())
