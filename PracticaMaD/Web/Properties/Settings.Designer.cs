@@ -25,7 +25,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int PracticaMaD_defaultCount {
             get {
                 return ((int)(this["PracticaMaD_defaultCount"]));
@@ -74,6 +74,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
         public string ObjectDS_CountParameter {
             get {
                 return ((string)(this["ObjectDS_CountParameter"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int ObjectDS_DefaultCount {
+            get {
+                return ((int)(this["ObjectDS_DefaultCount"]));
             }
         }
     }

@@ -117,14 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnAllLogins.Text" xml:space="preserve">
-    <value>Show logins</value>
+  <data name="btnAllLog.ToolTip" xml:space="preserve">
+    <value>show all users</value>
   </data>
-  <data name="btnFindByLogin.Text" xml:space="preserve">
-    <value>Find by login</value>
+  <data name="btnFindByLog.ToolTip" xml:space="preserve">
+    <value>Search for someone by their Alias</value>
   </data>
   <data name="btnName.Text" xml:space="preserve">
     <value>Find</value>
+  </data>
+  <data name="btnName.ToolTip" xml:space="preserve">
+    <value>Press to search for the entered alias</value>
   </data>
   <data name="lblNameError.Text" xml:space="preserve">
     <value>User not found</value>
@@ -134,5 +137,8 @@
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Follow to somebody</value>
+  </data>
+  <data name="txtName.ToolTip" xml:space="preserve">
+    <value>Alias ​​that you want to search</value>
   </data>
 </root>

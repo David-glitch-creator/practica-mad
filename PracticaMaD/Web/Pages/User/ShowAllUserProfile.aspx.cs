@@ -49,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                     Settings.Default.ObjectDS_CountParameter; //nombre del atributo "count"
 
             gvUsers.AllowPaging = true;
-            gvUsers.PageSize = Settings.Default.PracticaMaD_defaultCount; //nº de elementos por pagina
+            gvUsers.PageSize = Settings.Default.ObjectDS_DefaultCount; //nº de elementos por pagina
 
             gvUsers.DataSource = pbpDataSource;
             gvUsers.DataBind();
