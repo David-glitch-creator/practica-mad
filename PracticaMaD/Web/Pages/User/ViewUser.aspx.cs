@@ -20,6 +20,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             int startIndex, count;
 
+            lblUserNotFound.Visible = false;
+            lblFirstName.Visible = false;
+            lblLastName.Visible = false;
+            lnkFollowedUsers.Visible = false;
+            lnkFollowers.Visible = false;
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
             lblNoImages.Visible = false;
@@ -34,7 +39,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             }
             catch (ArgumentNullException)
             {
-                
+                lblUserNotFound.Visible = true;
                 return;
             }
 
@@ -74,8 +79,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             UserInfo userInfo = userService.GetUserInfo(userId);
 
             lblLoginName.Text = userInfo.LoginName;
+            lblFirstName.Visible = true;
             lblFirstName.Text = userInfo.FirstName;
+            lblFirstName.Visible = true;
             lblLastName.Text = userInfo.Lastname;
+            lblLastName.Visible = true;
+
+            lnkFollowedUsers.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/User/Followed.aspx?userId=" + userId);
+            lnkFollowedUsers.Visible = true;
+
+            lnkFollowers.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/User/Followers.aspx?userId=" + userId);
+            lnkFollowers.Visible = true;
 
             if (SessionManager.IsUserAuthenticated(Context))
             {
