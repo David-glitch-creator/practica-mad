@@ -5,16 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
-        <p>
-            <asp:Label ID="lblNoImage" runat="server" Text="No se pudo obtener la imagen"></asp:Label>
-        </p>
-
-        <asp:Image ID="Image" runat="server" />
-
-        <br />
-        <br />
-
-        <asp:Button ID="btnLikeImage" runat="server" Text="Me gusta" OnClick="BtnLikeImage_Click" />
-        <asp:Button ID="btnDislikeImage" runat="server" Text="Ya no me gusta" OnClick="BtnDislikeImage_Click" />
+        
     </form>
 </asp:Content>
