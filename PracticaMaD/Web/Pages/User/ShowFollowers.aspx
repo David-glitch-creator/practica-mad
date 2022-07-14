@@ -14,17 +14,17 @@
     runat="server">
     <div id="form">
         <form id="AuthenticationForm" method="POST" runat="server">
-             <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Enabled="false" Text="<%$ Resources:Common, btnFindByLogin %>" />               
+             <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Enabled="false" Text="<%$ Resources:Common, btnFindByLogin %>" meta:resourcekey="btnFindByLogin"/>               
                 &nbsp;&nbsp;                
-            <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" Text="<%$ Resources:Common, btnAllLogins %>" />                
+            <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" Text="<%$ Resources:Common, btnAllLogins %>" meta:resourcekey="btnAllLogins" />                
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclFindByName" runat="server" meta:resourcekey="lclFindByName" />
 
                 </span>
                 <span class="entry">
-                        <asp:TextBox ID="txtName" runat="server" Width="100" Columns="16"></asp:TextBox>
-                </span>
+                        <asp:TextBox ID="txtName" runat="server" Width="100" Columns="16" meta:resourcekey="txtName"></asp:TextBox>
+                    </span>
             </div>          
             <div class="button">
                 <asp:Button ID="btnName" runat="server" OnClick="BtnNameClick" meta:resourcekey="btnName" />

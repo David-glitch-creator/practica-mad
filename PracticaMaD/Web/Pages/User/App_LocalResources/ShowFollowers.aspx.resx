@@ -147,4 +147,22 @@
   <data name="btnUnFollowAlias.Text" xml:space="preserve">
     <value>Unfollow</value>
   </data>
+  <data name="btnAllLogins.ToolTip" xml:space="preserve">
+    <value>show all users</value>
+  </data>
+  <data name="btnFindByLogin.ToolTip" xml:space="preserve">
+    <value>Search for someone by their Alias</value>
+  </data>
+  <data name="btnFollowAlias.ToolTip" xml:space="preserve">
+    <value>Click to follow user</value>
+  </data>
+  <data name="btnName.ToolTip" xml:space="preserve">
+    <value>Press to search for the entered alias</value>
+  </data>
+  <data name="btnUnFollowAlias.ToolTip" xml:space="preserve">
+    <value>Click unfollowing the user</value>
+  </data>
+  <data name="txtName.ToolTip" xml:space="preserve">
+    <value>the Alias ​​you want to search</value>
+  </data>
 </root>
