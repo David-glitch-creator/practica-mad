@@ -23,6 +23,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             lblFirstName.Text = userInfo.FirstName;
             lblLastName.Text = userInfo.Lastname;
 
+            lnkFollowedUsers.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/User/Followed.aspx?userId=" + userInfo.UserId);
+
+            lnkFollowers.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/User/Followers.aspx?userId=" + userInfo.UserId);
+
             int startIndex, count;
 
             lnkPrevious.Visible = false;

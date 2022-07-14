@@ -26,11 +26,9 @@
         <asp:Label ID="lblLastName" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:HyperLink ID="lnkFollowedUsers" runat="server"
-                        NavigateUrl="~/Pages/User/Followed.aspx"
                         meta:resourcekey="lnkFollowedUsers" />
         <br />
         <asp:HyperLink ID="lnkFollowers" runat="server"
-                        NavigateUrl="~/Pages/User/Followers.aspx"
                         meta:resourcekey="lnkFollowers" />
         <br />
         <asp:HyperLink ID="lnkFindFolloweds" runat="server" Display="Dynamic"
