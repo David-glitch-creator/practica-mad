@@ -14,7 +14,7 @@
     runat="server">
     <form id="form1" runat="server">
 
-            <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Text="<%$ Resources:Common, btnFindByLogin %>" />               
+            <asp:Button ID="btnFindByLogin" runat="server" OnClick="BtnFindByLoginClick" Text="<%$ Resources:Common, btnFindByLogin %>" meta:resourcekey="btnFindByLogin" />               
                 &nbsp;&nbsp;                
             <asp:Button ID="btnAllLogins" runat="server" OnClick="BtnShowAllLoginsClick" Enabled="false" Text="<%$ Resources:Common, btnAllLogins %>" />
             
@@ -41,7 +41,7 @@
                 <asp:buttonfield buttontype="Button" 
             commandname="Select"
             headertext="Segir" 
-             meta:resourcekey="ButtonFieldResource1"/>
+             meta:resourcekey="ButtonFieldResource1" />
             </Columns>
           
               

@@ -135,4 +135,10 @@
   <data name="BoundFieldResource.HeaderText" xml:space="preserve">
     <value>Nome</value>
   </data>
+  <data name="btnFindByLogin.ToolTip" xml:space="preserve">
+    <value>Atopar alguén polo Álias</value>
+  </data>
+  <data name="ButtonFieldResource1.Text" xml:space="preserve">
+    <value>Seguir</value>
+  </data>
 </root>
