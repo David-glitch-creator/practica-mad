@@ -72,7 +72,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
         protected void BtnEditComment_Click(object sender, EventArgs e)
         {
+            long commentID = Int32.Parse(Request.Params.Get("commentId"));
 
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/EditComment.aspx?commentId=" + commentID));
         }
 
         protected void BtnDeleteComment_Click(object sender, EventArgs e)
