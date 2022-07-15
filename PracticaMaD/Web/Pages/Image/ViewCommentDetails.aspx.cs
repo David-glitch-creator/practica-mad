@@ -77,7 +77,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
         protected void BtnDeleteComment_Click(object sender, EventArgs e)
         {
+            long commentID = Int32.Parse(Request.Params.Get("commentId"));
 
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            ICommentService commentService = ioCManager.Resolve<ICommentService>();
+
+            long imageId = commentService.GetCommentById(commentID).ImageId;
+
+            commentService.DeleteComment(commentID);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/ViewComments.aspx?imageId=" + imageId));
         }
     }
 }
