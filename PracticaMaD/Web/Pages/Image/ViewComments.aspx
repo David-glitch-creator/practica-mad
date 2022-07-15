@@ -16,7 +16,9 @@
                 <asp:HyperLinkField DataTextField="AuthorLogin" HeaderText="Usuario"
                         DataNavigateUrlFields="AuthorId"
                         DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
-                <asp:BoundField DataField="CommentText" HeaderText="Comentario" />
+                <asp:HyperLinkField DataTextField="CommentText" HeaderText="Comentario"
+                    DataNavigateUrlFields="CommentId"
+                    DataNavigateUrlFormatString="/Pages/Image/ViewCommentDetails.aspx?commentId={0}"/>
                 <asp:BoundField DataField="PostedDate" HeaderText="Fecha" />
             </Columns>
         </asp:GridView>
