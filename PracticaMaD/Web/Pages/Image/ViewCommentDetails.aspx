@@ -22,6 +22,9 @@
         <br />
         <br />
         <asp:Button ID="btnDeleteComment" runat="server" Text="Eliminar comentario" OnClick="BtnDeleteComment_Click" />
+        <br />
+        <br />
+        <asp:HyperLink ID="lnkBackToComments" Text="Volver a comentarios" runat="server" />
 
     </form>
 </asp:Content>

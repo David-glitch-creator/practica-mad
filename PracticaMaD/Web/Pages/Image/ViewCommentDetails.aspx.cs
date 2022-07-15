@@ -25,6 +25,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             btnEditComment.Visible = false;
             btnDeleteComment.Visible = false;
 
+            lnkBackToComments.Visible = false;
+
             try
             {
                 commentID = Int32.Parse(Request.Params.Get("commentId"));
@@ -68,6 +70,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 btnEditComment.Visible = true;
                 btnDeleteComment.Visible = true;
             }
+
+            lnkBackToComments.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/Image/ViewComments.aspx?imageId=" + comment.ImageId);
+            lnkBackToComments.Visible = true;
         }
 
         protected void BtnEditComment_Click(object sender, EventArgs e)

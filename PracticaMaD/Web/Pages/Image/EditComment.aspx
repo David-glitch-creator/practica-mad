@@ -32,6 +32,10 @@
                 <asp:Button ID="btnEditComment" runat="server" OnClick="BtnEditComment_Click" Text="Editar comentario" />
             </div>
 
+            <br />
+            <br />
+            <asp:HyperLink ID="lnkBackToComments" Text="Volver a comentarios" runat="server" />
+
         </form>
     </div>
 </asp:Content>

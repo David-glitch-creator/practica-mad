@@ -22,5 +22,8 @@
                 <asp:BoundField DataField="PostedDate" HeaderText="Fecha" />
             </Columns>
         </asp:GridView>
+        <br />
+        <br />
+        <asp:HyperLink ID="lnkBackToImage" Text="Volver a imagen" runat="server" />
     </form>
 </asp:Content>

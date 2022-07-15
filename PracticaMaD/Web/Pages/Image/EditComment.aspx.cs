@@ -24,6 +24,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             txtCommentText.Visible = false;
             btnEditComment.Visible = false;
 
+            lnkBackToComments.Visible = false;
+
             try
             {
                 commentId = Int32.Parse(Request.Params.Get("commentId"));
@@ -64,6 +66,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             {
                 txtCommentText.Text = comment.CommentText;
             }
+
+            lnkBackToComments.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/Image/ViewComments.aspx?imageId=" + comment.ImageId);
+            lnkBackToComments.Visible = true;
         }
 
         protected void BtnEditComment_Click(object sender, EventArgs e)

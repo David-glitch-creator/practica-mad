@@ -23,6 +23,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             txtCommentText.Visible = false;
             btnAddComment.Visible = false;
 
+            lnkBackToImage.Visible = false;
+
             try
             {
                 imageId = Int32.Parse(Request.Params.Get("imageId"));
@@ -48,6 +50,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lclCommentText.Visible = true;
             txtCommentText.Visible = true;
             btnAddComment.Visible = true;
+
+            lnkBackToImage.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?imageId=" + imageId);
+            lnkBackToImage.Visible = true;
         }
 
         protected void BtnAddComment_Click(object sender, EventArgs e)

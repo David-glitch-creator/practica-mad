@@ -31,6 +31,10 @@
                 <asp:Button ID="btnAddComment" runat="server" OnClick="BtnAddComment_Click" Text="Añadir comentario" />
             </div>
 
+            <br />
+            <br />
+            <asp:HyperLink ID="lnkBackToImage" Text="Volver a imagen" runat="server" />
+
         </form>
     </div>
 </asp:Content>

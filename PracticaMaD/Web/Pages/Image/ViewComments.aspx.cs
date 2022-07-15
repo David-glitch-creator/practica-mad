@@ -17,6 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             long imageId;
 
             lblNoComments.Visible = false;
+            lnkBackToImage.Visible = false;
 
             try
             {
@@ -52,6 +53,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             gvViewComments.DataSource = comments;
             gvViewComments.DataBind();
+
+            lnkBackToImage.NavigateUrl = Response.
+                ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?imageId=" + imageId);
+            lnkBackToImage.Visible = true;
         }
     }
 }
