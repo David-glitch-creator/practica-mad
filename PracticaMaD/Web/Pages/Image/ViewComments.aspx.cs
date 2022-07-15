@@ -30,11 +30,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 
+            IImageService imageService = ioCManager.Resolve<IImageService>();
+
             ICommentService commentService = ioCManager.Resolve<ICommentService>();
+
+            ImageDto imageDto = imageService.GetImageById(imageId);
 
             List<CommentDto> comments = commentService.GetCommentsByImage(imageId);
 
-            if(comments.Count == 0)
+            Byte[] arr = imageDto.ImageFile;
+            Image.ImageUrl = "data:image;base64," + Convert.ToBase64String(arr);
+
+            Image.Attributes.Add("width", "220");
+            Image.Attributes.Add("height", "220");
+
+            if (comments.Count == 0)
             {
                 lblNoComments.Visible = true;
                 return;

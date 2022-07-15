@@ -95,9 +95,11 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Image\AddComment.aspx" />
     <Content Include="Pages\Image\AddTags.aspx" />
+    <Content Include="Pages\Image\EditComment.aspx" />
     <Content Include="Pages\Image\LikeImage.aspx" />
     <Content Include="Pages\Image\SearchImages.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
+    <Content Include="Pages\Image\ViewCommentDetails.aspx" />
     <Content Include="Pages\Image\ViewComments.aspx" />
     <Content Include="Pages\Image\ViewImage.aspx" />
     <Content Include="Pages\MainPage.aspx" />
@@ -160,6 +162,13 @@
     <Compile Include="Pages\Image\AddTags.aspx.designer.cs">
       <DependentUpon>AddTags.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Image\EditComment.aspx.cs">
+      <DependentUpon>EditComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\EditComment.aspx.designer.cs">
+      <DependentUpon>EditComment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Image\LikeImage.aspx.cs">
       <DependentUpon>LikeImage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +189,13 @@
     </Compile>
     <Compile Include="Pages\Image\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\ViewCommentDetails.aspx.cs">
+      <DependentUpon>ViewCommentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\ViewCommentDetails.aspx.designer.cs">
+      <DependentUpon>ViewCommentDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Image\ViewComments.aspx.cs">
       <DependentUpon>ViewComments.aspx</DependentUpon>

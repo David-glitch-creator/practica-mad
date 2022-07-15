@@ -3,20 +3,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
 
         <p>
             <asp:Label ID="lblNoComments" runat="server" Text="No se encontraron comentarios"></asp:Label>
         </p>
+        <asp:Image ID="Image" runat="server" />
+        <br />
         <asp:GridView ID="gvViewComments" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:HyperLinkField DataTextField="AuthorLogin" HeaderText="Usuario"
                         DataNavigateUrlFields="AuthorId"
                         DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
-                <asp:BoundField DataField="CommentText" HeaderText="Comentario" />
+                <asp:HyperLinkField DataTextField="CommentText" HeaderText="Comentario"
+                    DataNavigateUrlFields="CommentId"
+                    DataNavigateUrlFormatString="/Pages/Image/ViewCommentDetails.aspx?commentId={0}"/>
                 <asp:BoundField DataField="PostedDate" HeaderText="Fecha" />
             </Columns>
         </asp:GridView>

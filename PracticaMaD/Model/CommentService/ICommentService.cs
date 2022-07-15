@@ -13,6 +13,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
 
         void DeleteComment(long commentId);
 
+        CommentDto GetCommentById(long commentId);
+
         List<CommentDto> GetCommentsByImage(long imageId);
 
         List<CommentDto> GetCommentsByAuthor(long userId);

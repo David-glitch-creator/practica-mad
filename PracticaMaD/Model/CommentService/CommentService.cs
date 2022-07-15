@@ -43,6 +43,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
             CommentDao.Remove(commentId);
         }
 
+        public CommentDto GetCommentById(long commentId)
+        {
+            Comment comment = CommentDao.Find(commentId);
+
+            String loginName = UserProfileDao.Find(comment.author).loginName;
+
+            return new CommentDto(commentId, comment.author, loginName, comment.imageId,
+                comment.commentText, comment.postedDate);
+        }
+
         public List<CommentDto> GetCommentsByImage(long imageId)
         {
             List<Comment> comments = CommentDao.FindByImage(imageId);
