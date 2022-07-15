@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lnkAuthor.Visible = false;
             lblCommentText.Visible = false;
             lblPostedDate.Visible = false;
+
+            btnEditComment.Visible = false;
+            btnDeleteComment.Visible = false;
 
             try
             {
@@ -57,6 +61,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             lblPostedDate.Text = comment.PostedDate.ToString();
             lblPostedDate.Visible = true;
+
+            if (SessionManager.IsUserAuthenticated(Context) &&
+                (comment.AuthorId == SessionManager.GetUserInfo(Context).UserId))
+            {
+                btnEditComment.Visible = true;
+                btnDeleteComment.Visible = true;
+            }
+        }
+
+        protected void BtnEditComment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnDeleteComment_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

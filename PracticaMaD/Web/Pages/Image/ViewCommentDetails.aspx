@@ -16,6 +16,12 @@
         <asp:Label ID="lblCommentText" runat="server" Text="Texto de comentario" />
         <br />
         <asp:Label ID="lblPostedDate" runat="server" />
+        <br />
+        <br />
+        <asp:Button ID="btnEditComment" runat="server" Text="Editar comentario" OnClick="BtnEditComment_Click" />
+        <br />
+        <br />
+        <asp:Button ID="btnDeleteComment" runat="server" Text="Eliminar comentario" OnClick="BtnDeleteComment_Click" />
 
     </form>
 </asp:Content>
