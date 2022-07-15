@@ -88,8 +88,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.IsTrue(commentService.GetCommentsByImage(imageId).Count == 1);
                 Assert.IsTrue(commentService.GetCommentsByAuthor(userId).Count == 1);
 
+                CommentDto actual = commentService.GetCommentById(commentId);
                 CommentDto actual1 = commentService.GetCommentsByImage(imageId)[0];
                 CommentDto actual2 = commentService.GetCommentsByAuthor(userId)[0];
+                Assert.AreEqual(actual, actual1);
                 Assert.AreEqual(actual1, actual2);
 
                 // Check data
@@ -141,8 +143,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.IsTrue(commentService.GetCommentsByImage(imageId).Count == 1);
                 Assert.IsTrue(commentService.GetCommentsByAuthor(userId).Count == 1);
 
+                CommentDto actual = commentService.GetCommentById(commentId);
                 CommentDto actual1 = commentService.GetCommentsByImage(imageId)[0];
                 CommentDto actual2 = commentService.GetCommentsByAuthor(userId)[0];
+                Assert.AreEqual(actual, actual1);
                 Assert.AreEqual(actual1, actual2);
 
                 // Check data
