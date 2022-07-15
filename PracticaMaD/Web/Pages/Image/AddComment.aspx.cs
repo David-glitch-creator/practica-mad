@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void BtnAddComment_Click(object sender, EventArgs e)
-        {
             long imageId;
+
+            lblNoImage.Visible = false;
+
+            lclCommentText.Visible = false;
+            txtCommentText.Visible = false;
+            btnAddComment.Visible = false;
 
             try
             {
@@ -27,8 +29,30 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             }
             catch (ArgumentNullException)
             {
+                lblNoImage.Visible = true;
                 return;
             }
+
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            IImageService imageService = ioCManager.Resolve<IImageService>();
+
+            ImageDto imageDto = imageService.GetImageById(imageId);
+
+            Byte[] arr = imageDto.ImageFile;
+            Image.ImageUrl = "data:image;base64," + Convert.ToBase64String(arr);
+
+            Image.Attributes.Add("width", "220");
+            Image.Attributes.Add("height", "220");
+
+            lclCommentText.Visible = true;
+            txtCommentText.Visible = true;
+            btnAddComment.Visible = true;
+        }
+
+        protected void BtnAddComment_Click(object sender, EventArgs e)
+        {
+            long imageId = Int32.Parse(Request.Params.Get("imageId"));
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
 

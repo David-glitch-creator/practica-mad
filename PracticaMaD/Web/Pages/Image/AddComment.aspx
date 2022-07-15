@@ -3,11 +3,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="AddCommentForm" method="post" runat="server">
+
+            <p>
+                <asp:Label ID="lblNoImage" runat="server" Text="No se encontró la imagen"></asp:Label>
+            </p>
+
+            <asp:Image ID="Image" runat="server" />
+            <br />
+            <br />
 
             <div class="field">
                 <span class="label">
