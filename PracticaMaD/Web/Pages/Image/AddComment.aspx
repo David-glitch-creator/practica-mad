@@ -1,39 +1,37 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="AddComment.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Image.AddComment" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuWelcome" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="AddComment.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Image.AddComment" meta:resourcekey="PageResource1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="AddCommentForm" method="post" runat="server">
 
             <p>
-                <asp:Label ID="lblNoImage" runat="server" Text="No se encontró la imagen"></asp:Label>
+                <asp:Label ID="lblNoImage" runat="server" Text="No se encontró la imagen" meta:resourcekey="lblNoImageResource1"></asp:Label>
             </p>
 
-            <asp:Image ID="Image" runat="server" />
+            <asp:Image ID="Image" runat="server" meta:resourcekey="ImageResource2" />
             <br />
             <br />
 
             <div class="field">
                 <span class="label">
-                    <asp:Localize ID="lclCommentText" runat="server" Text="Texto del comentario"></asp:Localize>
+                    <asp:Localize ID="lclCommentText" runat="server" Text="Texto del comentario" meta:resourcekey="lclCommentTextResource1"></asp:Localize>
                 </span>
                 <span class="entry">
                     <asp:TextBox ID="txtCommentText" runat="server" Width="100px"
-                            Columns="16"></asp:TextBox>
+                            Columns="16" meta:resourcekey="txtCommentTextResource1"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCommentText" runat="server" ControlToValidate="txtCommentText"
-                        Display="Dynamic" Text="Escriba un comentario"></asp:RequiredFieldValidator>
+                        Display="Dynamic" Text="Escriba un comentario" meta:resourcekey="rfvCommentTextResource1"></asp:RequiredFieldValidator>
                 </span>
             </div>
 
             <div class="button">
-                <asp:Button ID="btnAddComment" runat="server" OnClick="BtnAddComment_Click" Text="Añadir comentario" />
+                <asp:Button ID="btnAddComment" runat="server" OnClick="BtnAddComment_Click" Text="Añadir comentario" meta:resourcekey="btnAddCommentResource1" />
             </div>
 
             <br />
             <br />
-            <asp:HyperLink ID="lnkBackToImage" Text="Volver a imagen" runat="server" />
+            <asp:HyperLink ID="lnkBackToImage" Text="Volver a imagen" runat="server" meta:resourcekey="lnkBackToImageResource1" />
 
         </form>
     </div>
