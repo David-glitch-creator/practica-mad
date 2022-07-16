@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
-    public partial class SearchImages : System.Web.UI.Page
+    public partial class SearchImages : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
