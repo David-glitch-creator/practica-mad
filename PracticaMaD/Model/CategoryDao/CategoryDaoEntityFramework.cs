@@ -23,6 +23,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CategoryDao
 
         #region ICategoryDao Members. Specific Operations
 
+        /// <exception cref="InstanceNotFoundException"/>
         public Category FindByName(string name)
         {
             Category category = null;

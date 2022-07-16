@@ -29,8 +29,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         long UploadImage(long userProfileId, string title, string imageDescription,
             ExifDetails details, long categoryId, byte[] imageFile);
 
+        /// <exception cref="InstanceNotFoundException"/>
         void DeleteImage(long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         ImageDto GetImageById(long imageId);
 
         ImageBlock GetAllImages(int startIndex, int count);
@@ -43,14 +45,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
         ImageBlock SearchImages(long categoryId, int startIndex, int count);
 
+        /// <exception cref="InstanceNotFoundException"/>
         long LikeImage(long userId, long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         long DislikeImage(long userId, long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         int GetNumberOfLikes(long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         bool DoesLike(long userId, long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         ImageBlock GetImagesByTag(long tagId, int startIndex, int count);
     }
 }

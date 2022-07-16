@@ -20,6 +20,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
             return TagDao.FindAllOrderByPopularity();
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public void AddTagToImage(string tagName, long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
@@ -39,6 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
             }
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public void RemoveTagFromImage(string tagName, long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
@@ -54,6 +56,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
             }
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public List<TagDto> GetTagsFromImage(long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);

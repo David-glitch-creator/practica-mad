@@ -80,18 +80,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         int CountAllUsers();
 
+        /// <exception cref="InstanceNotFoundException"/>
         void FollowUser(long followedUserId, long followerId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         void UnfollowUser(long followedUserId, long followerId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         Boolean IsFollow(long followedUserId, long followerId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         List<UserInfo> ViewFollowedUsers(long userId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         List<UserInfo> GetFollowers(long userId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         UserInfo GetUserInfo(long userProfileId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         UserInfo FindUserByLoginName(string loginName);
 
     }

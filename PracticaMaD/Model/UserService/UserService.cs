@@ -158,8 +158,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return UserProfileDao.GetNumberOfUsers();
         }
 
-        
 
+        /// <exception cref="InstanceNotFoundException"/>
         public void FollowUser(long followedUserId, long followerId)
         {
             UserProfile followedUser = UserProfileDao.Find(followedUserId);
@@ -168,6 +168,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             UserProfileDao.Follow(followedUser, follower);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public void UnfollowUser(long followedUserId, long followerId)
         {
             UserProfile followedUser = UserProfileDao.Find(followedUserId);
@@ -175,6 +176,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             UserProfileDao.Unfollow(followedUser, follower);
         }
+
+        /// <exception cref="InstanceNotFoundException"/>
         public Boolean IsFollow(long followedUserId, long followerId)
         {
             UserProfile followedUser = UserProfileDao.Find(followedUserId);
@@ -183,6 +186,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return UserProfileDao.IsFollow(followedUser, follower);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public List<UserInfo> ViewFollowedUsers(long userId)
         {
             List<UserInfo> result = new List<UserInfo>();
@@ -201,6 +205,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return result;
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public List<UserInfo> GetFollowers(long userId)
         {
             List<UserInfo> result = new List<UserInfo>();
@@ -219,6 +224,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return result;
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public UserInfo GetUserInfo(long userProfileId)
         {
@@ -232,6 +238,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return userInfo;
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public UserInfo FindUserByLoginName(string loginName)
         {

@@ -10,6 +10,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CategoryService
         [Inject]
         public ICategoryDao CategoryDao { private get; set; }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public CategoryDto FindByName(string name)
         {
             Category category = CategoryDao.FindByName(name);

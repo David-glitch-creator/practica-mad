@@ -61,6 +61,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
             return image.imageId;
         }
+
+        /// <exception cref="InstanceNotFoundException"/>
         public void DeleteImage(long imageId)
         {
             ImageEntityDao.Remove(imageId);
@@ -181,6 +183,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             return new ImageBlock(imageDtos, existMoreImages);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public long LikeImage(long userId, long imageId)
         {
             UserProfile userProfile = UserProfileDao.Find(userId);
@@ -189,6 +192,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             return ImageEntityDao.Like(userProfile, image);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public long DislikeImage(long userId, long imageId)
         {
             UserProfile userProfile = UserProfileDao.Find(userId);
@@ -197,6 +201,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             return ImageEntityDao.Dislike(userProfile, image);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public int GetNumberOfLikes(long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
@@ -204,6 +209,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             return ImageEntityDao.GetNumberOfLikes(image);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public ImageDto GetImageById(long imageId)
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
@@ -214,6 +220,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
                     image.author, loginName, image.categoryId, image.imageFile, image.imageDescription);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public bool DoesLike(long userId, long imageId)
         {
             UserProfile userProfile = UserProfileDao.Find(userId);
@@ -222,6 +229,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             return ImageEntityDao.DoesLike(userProfile, image);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public ImageBlock GetImagesByTag(long tagId, int startIndex, int count)
         {
             Tag tag = TagDao.Find(tagId);

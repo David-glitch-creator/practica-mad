@@ -6,6 +6,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagDao
 {
     public interface ITagDao : IGenericDao<Tag, Int64>
     {
+        /// <exception cref="InstanceNotFoundException"/>
         Tag FindByName(string tagName);
 
         List<Tag> FindAllOrderByPopularity();

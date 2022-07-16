@@ -9,10 +9,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
 
         List<Tag> GetByPopularity();
 
+        /// <exception cref="InstanceNotFoundException"/>
         void AddTagToImage(string tagName, long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         void RemoveTagFromImage(string tagName, long imageId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         List<TagDto> GetTagsFromImage(long imageId);
     }
 }

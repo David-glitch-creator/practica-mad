@@ -27,6 +27,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
             return comment.commentId;
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public long UpdateComment(long commentId, string newText)
         {
             Comment comment = CommentDao.Find(commentId);
@@ -43,6 +44,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
             CommentDao.Remove(commentId);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public CommentDto GetCommentById(long commentId)
         {
             Comment comment = CommentDao.Find(commentId);

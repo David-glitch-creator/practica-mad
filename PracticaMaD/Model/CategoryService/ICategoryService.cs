@@ -8,6 +8,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CategoryService
     {
         ICategoryDao CategoryDao { set; }
 
+        /// <exception cref="InstanceNotFoundException"/>
         CategoryDto FindByName(String name);
 
         List<CategoryDto> FindAll();

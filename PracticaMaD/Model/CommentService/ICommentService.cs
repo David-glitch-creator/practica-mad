@@ -9,10 +9,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
 
         long CommentImage(long userId, long imageId, string commentText);
 
+        /// <exception cref="InstanceNotFoundException"/>
         long UpdateComment(long commentId, string newText);
 
         void DeleteComment(long commentId);
 
+        /// <exception cref="InstanceNotFoundException"/>
         CommentDto GetCommentById(long commentId);
 
         List<CommentDto> GetCommentsByImage(long imageId);
