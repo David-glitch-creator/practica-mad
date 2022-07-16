@@ -1,34 +1,23 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="Followed.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.Followed" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="Followed.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.Followed" meta:resourcekey="PageResource1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation"
     runat="server">
     -
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-    - 
-    <asp:HyperLink ID="lnkMenu" runat="server"
-                        NavigateUrl="~/Pages/MainPage.aspx"
-                        Text="<%$ Resources:Common, InkMenu %>" />
-    
-    - 
-    <asp:HyperLink ID="lnkLogout" runat="server"
-                        NavigateUrl="~/Pages/User/Logout.aspx"
-                        meta:resourcekey="lnkLogout" />
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
         <div>
             <p>
-                <asp:Label ID="lblUserNotFound" runat="server" Text="No se encontró usuario"></asp:Label>
-                <asp:Label ID="lblNoUsersFollowed" runat="server" Text="No se encontraron usuarios seguidos"></asp:Label>
+                <asp:Label ID="lblUserNotFound" runat="server" meta:resourcekey="lblUserNotFoundResource1"></asp:Label>
+                <asp:Label ID="lblNoUsersFollowed" runat="server" meta:resourcekey="lblNoUsersFollowedResource1"></asp:Label>
             </p>
 
-            <asp:GridView ID="gvFollowed" runat="server" AutoGenerateColumns="false" >
+            <asp:GridView ID="gvFollowed" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvFollowedResource1" >
                 <Columns>
-                    <asp:HyperLinkField DataTextField="LoginName" HeaderText="Login"
+                    <asp:HyperLinkField DataTextField="LoginName"
                         DataNavigateUrlFields="UserId"
-                        DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}"/>
+                        DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}" meta:resourcekey="HyperLinkFieldResource1"/>
                 </Columns>
             </asp:GridView>
         </div>
