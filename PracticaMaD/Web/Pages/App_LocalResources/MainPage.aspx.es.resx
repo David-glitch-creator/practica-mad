@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HyperLinkFieldResource1.HeaderText" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="HyperLinkFieldResource2.HeaderText" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="lblNoImagesResource1.Text" xml:space="preserve">
+    <value>No se encontraron imágenes</value>
+  </data>
   <data name="lclContent.Text" xml:space="preserve">
     <value>Contenido de la Página Principal de Photogram</value>
   </data>
+  <data name="lnkNextResource1.Text" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="lnkPreviousResource1.Text" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="lnkSearchImagesResource1.Text" xml:space="preserve">
+    <value>Buscar imágenes</value>
+  </data>
   <data name="Page.Title" xml:space="preserve">
     <value>Photogram - Página Principal</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Photogram</value>
+  </data>
+  <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
+    <value>Imagen</value>
   </data>
 </root>
