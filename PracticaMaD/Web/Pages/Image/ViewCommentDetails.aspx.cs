@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
-    public partial class ViewCommentDetails : System.Web.UI.Page
+    public partial class ViewCommentDetails : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

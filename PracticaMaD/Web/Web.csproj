@@ -538,6 +538,15 @@
   <ItemGroup>
     <Content Include="Pages\Image\App_LocalResources\ViewComments.aspx.gl.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewCommentDetails.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewCommentDetails.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewCommentDetails.aspx.gl.resx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
