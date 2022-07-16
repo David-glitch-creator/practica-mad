@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
-    public partial class Followers : System.Web.UI.Page
+    public partial class Followers : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
