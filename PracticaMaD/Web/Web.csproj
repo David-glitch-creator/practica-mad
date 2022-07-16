@@ -556,6 +556,15 @@
   <ItemGroup>
     <Content Include="Pages\Image\App_LocalResources\SearchImages.aspx.gl.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\EditComment.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\EditComment.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\EditComment.aspx.es.resx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
