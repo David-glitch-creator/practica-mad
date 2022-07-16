@@ -520,6 +520,15 @@
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ViewUser.aspx.gl.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewImage.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewImage.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Image\App_LocalResources\ViewImage.aspx.gl.resx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

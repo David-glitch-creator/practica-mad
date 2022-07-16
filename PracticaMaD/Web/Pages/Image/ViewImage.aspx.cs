@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
-    public partial class ViewImage : System.Web.UI.Page
+    public partial class ViewImage : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             int likesNumber = imageService.GetNumberOfLikes(imageId);
             if (likesNumber > 0)
             {
-                lblLikesNumber.Text = likesNumber + " Me gusta";
+                lblLikesNumber.Text = likesNumber.ToString();
                 lblLikesNumber.Visible = true;
             }
 

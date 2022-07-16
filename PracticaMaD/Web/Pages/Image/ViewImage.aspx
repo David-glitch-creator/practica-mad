@@ -1,43 +1,44 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="ViewImage.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Image.ViewImage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="ViewImage.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Image.ViewImage" meta:resourcekey="PageResource1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
         <hr />
         <p>
-            <asp:Label ID="lblNoImage" runat="server" Text="No se pudo obtener la imagen"></asp:Label>
+            <asp:Label ID="lblNoImage" runat="server" meta:resourcekey="lblNoImageResource1"></asp:Label>
         </p>
 
-        <asp:Image ID="Image" runat="server" />
+        <asp:Image ID="Image" runat="server" meta:resourcekey="ImageResource2" />
         <br />
-        <asp:HyperLink ID="lnkAuthor" runat="server" />
+        <asp:HyperLink ID="lnkAuthor" runat="server" meta:resourcekey="lnkAuthorResource1" />
         <br />
-        <asp:Label ID="lblTitle" runat="server" Text="Título"></asp:Label>
+        <asp:Label ID="lblTitle" runat="server" meta:resourcekey="lblTitleResource1"></asp:Label>
         <br />
-        <asp:Label ID="lblDescription" runat="server" Text="Descripción"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="lblExifDetails" runat="server" Text="Detalles Exif"></asp:Label>
-        <br />
-        <asp:Label ID="lblAperture" runat="server" Text="Apertura de Diafragma: "></asp:Label>
-        <br />
-        <asp:Label ID="lblExposureTime" runat="server" Text="Tiempo de exposición: "></asp:Label>
-        <br />
-        <asp:Label ID="lblIso" runat="server" Text="ISO: "></asp:Label>
-        <br />
-        <asp:Label ID="lblWhiteBalance" runat="server" Text="Balance de blancos: "></asp:Label>
+        <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescriptionResource1"></asp:Label>
         <br />
         <br />
-        <asp:Label ID="lblLikesNumber" runat="server" Text="Número de Me gustas"></asp:Label>
+        <asp:Label ID="lblExifDetails" runat="server" meta:resourcekey="lblExifDetailsResource1"></asp:Label>
         <br />
-        <asp:Button ID="btnLikeImage" runat="server" Text="Me gusta" OnClick="BtnLikeImage_Click" />
-        <asp:Button ID="btnDislikeImage" runat="server" Text="Ya no me gusta" OnClick="BtnDislikeImage_Click" />
+        <asp:Label ID="lblAperture" runat="server" meta:resourcekey="lblApertureResource1"></asp:Label>
+        <br />
+        <asp:Label ID="lblExposureTime" runat="server" meta:resourcekey="lblExposureTimeResource1"></asp:Label>
+        <br />
+        <asp:Label ID="lblIso" runat="server" meta:resourcekey="lblIsoResource1"></asp:Label>
+        <br />
+        <asp:Label ID="lblWhiteBalance" runat="server" meta:resourcekey="lblWhiteBalanceResource1"></asp:Label>
         <br />
         <br />
-        <asp:HyperLink ID="lnkAddComment" Text="Añadir comentario" runat="server"></asp:HyperLink>
+        <asp:Label ID="lblLikesNumber" runat="server" meta:resourcekey="lblLikesNumberResource1"></asp:Label>
+        <asp:Label ID="lblLikesText" runat="server" meta:resourcekey="lblLikesTextResource1"></asp:Label>
         <br />
-        <asp:HyperLink ID="lnkComments" Text="Ver comentarios" runat="server"></asp:HyperLink>
+        <asp:Button ID="btnLikeImage" runat="server" OnClick="BtnLikeImage_Click" meta:resourcekey="btnLikeImageResource1" />
+        <asp:Button ID="btnDislikeImage" runat="server" OnClick="BtnDislikeImage_Click" meta:resourcekey="btnDislikeImageResource1" />
         <br />
         <br />
-        <asp:Button ID="btnDeleteImage" runat="server" Text="Borrar imagen" OnClick="BtnDeleteImage_Click" />
+        <asp:HyperLink ID="lnkAddComment" runat="server" meta:resourcekey="lnkAddCommentResource1" />
+        <br />
+        <asp:HyperLink ID="lnkComments" runat="server" meta:resourcekey="lnkCommentsResource1" />
+        <br />
+        <br />
+        <asp:Button ID="btnDeleteImage" runat="server" OnClick="BtnDeleteImage_Click" meta:resourcekey="btnDeleteImageResource1" />
 
         <hr />
     </form>
