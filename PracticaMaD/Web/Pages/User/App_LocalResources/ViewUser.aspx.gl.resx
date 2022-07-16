@@ -120,40 +120,40 @@
   <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
     <value>Autor</value>
   </data>
+  <data name="btnFollowResource1.Text" xml:space="preserve">
+    <value>Seguir</value>
+  </data>
+  <data name="btnUnfollowResource1.Text" xml:space="preserve">
+    <value>Deixar de seguir</value>
+  </data>
   <data name="HyperLinkFieldResource1.HeaderText" xml:space="preserve">
     <value>Título</value>
   </data>
-  <data name="HyperLinkFieldResource2.HeaderText" xml:space="preserve">
-    <value>Añadir etiquetas</value>
-  </data>
-  <data name="HyperLinkFieldResource2.Text" xml:space="preserve">
-    <value>Añadir etiquetas</value>
-  </data>
   <data name="lblNoImagesResource1.Text" xml:space="preserve">
-    <value>No se encontraron imágenes</value>
+    <value>Non se encontraron imaxes</value>
   </data>
-  <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Mi Perfil</value>
+  <data name="lblUserNotFoundResource1.Text" xml:space="preserve">
+    <value>Non se encontrou usuario</value>
   </data>
-  <data name="lnkFindFolloweds.Text" xml:space="preserve">
-    <value>Seguir a usuario</value>
+  <data name="lnkFollowedUsersResource1.Text" xml:space="preserve">
+    <value>Ver Seguidos</value>
   </data>
-  <data name="lnkFollowedUsers.Text" xml:space="preserve">
-    <value>Ver usuarios seguidos</value>
-  </data>
-  <data name="lnkFollowers.Text" xml:space="preserve">
-    <value>Ver seguidores</value>
+  <data name="lnkFollowersResource1.Text" xml:space="preserve">
+    <value>Ver Seguidores</value>
   </data>
   <data name="lnkNextResource1.Text" xml:space="preserve">
-    <value>Siguiente</value>
+    <value>Seguinte</value>
   </data>
   <data name="lnkPreviousResource1.Text" xml:space="preserve">
     <value>Anterior</value>
+  </data>
+  <data name="lnkRegisterToFollowResource1.Text" xml:space="preserve">
+    <value>Por favor, rexístrese para seguir usuarios</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Photogram</value>
   </data>
   <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
-    <value>Imagen</value>
+    <value>Imaxe</value>
   </data>
 </root>
