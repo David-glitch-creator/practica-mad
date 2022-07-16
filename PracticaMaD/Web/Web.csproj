@@ -413,14 +413,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.es.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.gl.resx">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -512,6 +504,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\Followers.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\MyProfile.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

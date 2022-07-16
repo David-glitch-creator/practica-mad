@@ -1,29 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true"
-    CodeBehind="MyProfile.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.MyProfile" %>
+    CodeBehind="MyProfile.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.MyProfile" meta:resourcekey="PageResource1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation"
     runat="server">
     -
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-    - 
-    <asp:HyperLink ID="lnkMenu" runat="server"
-                        NavigateUrl="~/Pages/MainPage.aspx"
-                        Text="<%$ Resources:Common, InkMenu %>" />
-    
-    - 
-    <asp:HyperLink ID="lnkLogout" runat="server"
-                        NavigateUrl="~/Pages/User/Logout.aspx"
-                        meta:resourcekey="lnkLogout" />
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
-        <asp:Label ID="lblLoginName" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLoginName" runat="server" meta:resourcekey="lblLoginNameResource1"></asp:Label>
         <br />
-        <asp:Label ID="lblFirstName" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
-        <asp:Label ID="lblLastName" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstNameResource1"></asp:Label>
+        <asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastNameResource1"></asp:Label>
         <br />
         <asp:HyperLink ID="lnkFollowedUsers" runat="server"
                         meta:resourcekey="lnkFollowedUsers" />
@@ -36,23 +24,23 @@
                         meta:resourcekey="lnkFindFolloweds" />
         <br />
         <p>
-            <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes"></asp:Label>
+            <asp:Label ID="lblNoImages" runat="server" meta:resourcekey="lblNoImagesResource1"></asp:Label>
         </p>
 
-        <asp:GridView ID="gvImagesMyProfile" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound">
+        <asp:GridView ID="gvImagesMyProfile" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound" meta:resourcekey="gvImagesMyProfileResource1">
             <Columns>
-                <asp:TemplateField HeaderText="Imagen">
+                <asp:TemplateField meta:resourcekey="TemplateFieldResource1">
                     <ItemTemplate>
                         <img src='<%# Eval("ImageFile") %>' style="height:120px;width:120px;" id="ImageControl" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:HyperLinkField DataTextField="Title" HeaderText="Título"
+                <asp:HyperLinkField DataTextField="Title"
                     DataNavigateUrlFields="ImageId"
-                    DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" />
-                <asp:BoundField DataField="AuthorLogin" HeaderText="Autor" />
-                <asp:HyperLinkField Text="Añadir etiquetas" HeaderText="Añadir etiquetas"
+                    DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" meta:resourcekey="HyperLinkFieldResource1" />
+                <asp:BoundField DataField="AuthorLogin" meta:resourcekey="BoundFieldResource1" />
+                <asp:HyperLinkField
                     DataNavigateUrlFields="ImageId" 
-                    DataNavigateUrlFormatString="/Pages/Image/AddTags.aspx?ImageId={0}" />
+                    DataNavigateUrlFormatString="/Pages/Image/AddTags.aspx?ImageId={0}" meta:resourcekey="HyperLinkFieldResource2" />
             </Columns>
         </asp:GridView>
 
@@ -61,10 +49,10 @@
         <!-- "Previous" and "Next" links. -->
         <div class="previousNextLinks">
             <span class="previousLink">
-                <asp:HyperLink ID="lnkPrevious" Text="Anterior" runat="server" Visible="False"></asp:HyperLink>
+                <asp:HyperLink ID="lnkPrevious" runat="server" Visible="False" meta:resourcekey="lnkPreviousResource1"></asp:HyperLink>
             </span>
             <span class="nextLink">
-                <asp:HyperLink ID="lnkNext" Text="Siguiente" runat="server" Visible="False"></asp:HyperLink>
+                <asp:HyperLink ID="lnkNext" runat="server" Visible="False" meta:resourcekey="lnkNextResource1"></asp:HyperLink>
             </span>
         </div>
 
