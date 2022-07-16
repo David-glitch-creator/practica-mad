@@ -27,7 +27,10 @@
             <asp:Label ID="lblNoImages" runat="server" meta:resourcekey="lblNoImagesResource1"></asp:Label>
         </p>
 
-        <asp:GridView ID="gvImagesMyProfile" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound" meta:resourcekey="gvImagesMyProfileResource1">
+        <asp:GridView ID="gvImagesMyProfile" runat="server" AutoGenerateColumns="False"
+            HorizontalAlign="Center"
+            OnRowDataBound ="grd_RowDataBound"
+            meta:resourcekey="gvImagesMyProfileResource1">
             <Columns>
                 <asp:TemplateField meta:resourcekey="TemplateFieldResource1">
                     <ItemTemplate>

@@ -13,7 +13,9 @@
                 <asp:Label ID="lblNoFollowers" runat="server" meta:resourcekey="lblNoFollowersResource1"></asp:Label>
             </p>
 
-            <asp:GridView ID="gvFollowers" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvFollowersResource1" >
+            <asp:GridView ID="gvFollowers" runat="server" AutoGenerateColumns="False"
+                HorizontalAlign="Center"
+                meta:resourcekey="gvFollowersResource1" >
                 <Columns>
                     <asp:HyperLinkField DataTextField="LoginName"
                         DataNavigateUrlFields="UserId"

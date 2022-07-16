@@ -33,7 +33,7 @@
                 <asp:Button ID="btnAddTags" runat="server" OnClick="BtnAddTags_Click" Text="Añadir etiquetas" />
             </div>
 
-            <asp:GridView ID="gvImageTags" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="gvImageTags" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center">
                 <Columns>
                     <asp:HyperLinkField DataTextField="TagName" HeaderText="Tags"
                         DataNavigateUrlFields="TagId"

@@ -9,7 +9,9 @@
         </p>
         <asp:Image ID="Image" runat="server" meta:resourcekey="ImageResource1" />
         <br />
-        <asp:GridView ID="gvViewComments" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvViewCommentsResource1">
+        <asp:GridView ID="gvViewComments" runat="server" AutoGenerateColumns="False"
+            HorizontalAlign="Center"
+            meta:resourcekey="gvViewCommentsResource1">
             <Columns>
                 <asp:HyperLinkField DataTextField="AuthorLogin"
                         DataNavigateUrlFields="AuthorId"
