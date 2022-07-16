@@ -32,22 +32,26 @@
 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder_MenuLinks" runat="server">
                     <asp:Label ID="lblDash1" runat="server" Text="-" />
+                    <asp:HyperLink ID="lnkSearchImages" runat="server"
+                        NavigateUrl="~/Pages/Image/SearchImages.aspx"
+                        meta:resourcekey="lnkSearchImages" />
+                    <asp:Label ID="lblDash2" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkAuthenticate" runat="server"
                         NavigateUrl="~/Pages/User/Authentication.aspx"
                         meta:resourcekey="lnkAuthenticate" />
-                    <asp:Label ID="lblDash2" runat="server" Text="-" />
+                    <asp:Label ID="lblDash3" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkUpdate" runat="server"
                         NavigateUrl="~/Pages/User/UpdateUserProfile.aspx"
                         meta:resourcekey="lnkUpdate" />
-                    <asp:Label ID="lblDash3" runat="server" Text="-" />
+                    <asp:Label ID="lblDash4" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkMyProfile" runat="server"
                         NavigateUrl="~/Pages/User/MyProfile.aspx"
                         meta:resourcekey="lnkMyProfile" />
-                    <asp:Label ID="lblDash4" runat="server" Text="-" />
+                    <asp:Label ID="lblDash5" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkUpload" runat="server" 
                         NavigateUrl="~/Pages/Image/Upload.aspx"
                         meta:resourcekey="lnkUpload"/>
-                    <asp:Label ID="lblDash5" runat="server" Text="-"></asp:Label>
+                    <asp:Label ID="lblDash6" runat="server" Text="-"></asp:Label>
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />
