@@ -29,6 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lblWhiteBalance.Visible = false;
 
             lblLikesNumber.Visible = false;
+            lblLikesText.Visible = false;
             btnLikeImage.Visible = false;
             btnDislikeImage.Visible = false;
 
@@ -97,6 +98,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             {
                 lblLikesNumber.Text = likesNumber.ToString();
                 lblLikesNumber.Visible = true;
+                lblLikesText.Visible = true;
             }
 
             if (SessionManager.IsUserAuthenticated(Context))
