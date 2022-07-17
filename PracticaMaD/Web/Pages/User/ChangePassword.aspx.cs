@@ -33,7 +33,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                         txtNewPassword.Text);
 
                     Response.Redirect(Response.
-                        ApplyAppPathModifier("~/Pages/MainPage.aspx"));
+                        ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
 
                 }
                 catch (IncorrectPasswordException)

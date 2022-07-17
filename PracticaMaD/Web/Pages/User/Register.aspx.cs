@@ -117,7 +117,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                         txtPassword.Text, userProfileDetailsVO);
 
                     Response.Redirect(Response.
-                        ApplyAppPathModifier("~/Pages/MainPage.aspx"));
+                        ApplyAppPathModifier("~/Pages/User/MyProfile.aspx"));
                 }
                 catch (DuplicateInstanceException)
                 {
