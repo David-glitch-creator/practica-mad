@@ -91,6 +91,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, image.WhiteBalance);
                 Assert.AreEqual(userId, image.AuthorId);
                 Assert.AreEqual(loginName, image.AuthorLogin);
+                Assert.AreEqual(category.categoryId, image.CategoryId);
+                Assert.AreEqual(category.categoryName, image.CategoryName);
 
                 byte[] expected = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expected.Length; i++)
@@ -218,6 +220,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
                 Assert.AreEqual(userId, images[0].AuthorId);
                 Assert.AreEqual(loginName, images[0].AuthorLogin);
+                Assert.AreEqual(category.categoryId, images[0].CategoryId);
+                Assert.AreEqual(category.categoryName, images[0].CategoryName);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -271,6 +275,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
                 Assert.AreEqual(userId, images[0].AuthorId);
                 Assert.AreEqual(loginName, images[0].AuthorLogin);
+                Assert.AreEqual(category.categoryId, images[0].CategoryId);
+                Assert.AreEqual(category.categoryName, images[0].CategoryName);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -289,6 +295,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, images[1].WhiteBalance);
                 Assert.AreEqual(userId, images[1].AuthorId);
                 Assert.AreEqual(loginName, images[1].AuthorLogin);
+                Assert.AreEqual(category.categoryId, images[1].CategoryId);
+                Assert.AreEqual(category.categoryName, images[1].CategoryName);
 
                 for (int i = 0; i < expectedImage.Length; i++)
                 {
@@ -343,6 +351,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
                 Assert.AreEqual(userId, images[0].AuthorId);
                 Assert.AreEqual(loginName, images[0].AuthorLogin);
+                Assert.AreEqual(category.categoryId, images[0].CategoryId);
+                Assert.AreEqual(category.categoryName, images[0].CategoryName);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)
@@ -398,6 +408,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.AreEqual(whiteBalance, images[0].WhiteBalance);
                 Assert.AreEqual(userId, images[0].AuthorId);
                 Assert.AreEqual(loginName, images[0].AuthorLogin);
+                Assert.AreEqual(category2.categoryId, images[0].CategoryId);
+                Assert.AreEqual(category2.categoryName, images[0].CategoryName);
 
                 byte[] expectedImage = File.ReadAllBytes(@imageFile);
                 for (int i = 0; i < expectedImage.Length; i++)

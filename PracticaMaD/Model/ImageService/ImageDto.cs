@@ -20,6 +20,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         public long AuthorId { get; private set; }
         public String AuthorLogin { get; private set; }
         public long CategoryId { get; private set; }
+
+        public String CategoryName { get; private set; }
         public byte[] ImageFile { get; private set; }
         public String ImageDescription { get; private set; }
 
@@ -27,7 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
 
         public ImageDto(long imageId, string title, DateTime uploadDate, string aperture,
             string exposureTime, string iso, string whiteBalance, long authorId, String authorLogin,
-            long categoryId, byte[] imageFile, string imageDescription)
+            long categoryId, String categoryName, byte[] imageFile, string imageDescription)
         {
             this.ImageId = imageId;
             this.Title = title;
@@ -39,6 +41,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             this.AuthorId = authorId;
             this.AuthorLogin = authorLogin;
             this.CategoryId = categoryId;
+            this.CategoryName = categoryName;
             this.ImageFile = imageFile;
             this.ImageDescription = imageDescription;
         }
@@ -58,6 +61,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
                   && (this.AuthorId == target.AuthorId)
                   && (this.AuthorLogin == target.AuthorLogin)
                   && (this.CategoryId == target.CategoryId)
+                  && (this.CategoryName == target.CategoryName)
                   && (this.ImageFile == target.ImageFile)
                   && (this.ImageDescription == target.ImageDescription);
         }

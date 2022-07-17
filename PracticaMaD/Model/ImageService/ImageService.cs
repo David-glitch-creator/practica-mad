@@ -82,10 +82,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach (ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
@@ -105,10 +106,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach(ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate, 
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance, 
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
@@ -128,10 +130,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach (ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
@@ -151,10 +154,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach (ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
@@ -174,10 +178,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach (ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
@@ -214,10 +219,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
         {
             ImageEntity image = ImageEntityDao.Find(imageId);
             String loginName = UserProfileDao.Find(image.author).loginName;
+            String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
             return new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription);
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -246,10 +252,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ImageService
             foreach (ImageEntity image in images)
             {
                 String loginName = UserProfileDao.Find(image.author).loginName;
+                String categoryName = CategoryDao.Find(image.categoryId).categoryName;
 
                 imageDtos.Add(new ImageDto(image.imageId, image.title, image.uploadDate,
                     image.aperture, image.exposureTime, image.iso, image.whiteBalance,
-                    image.author, loginName, image.categoryId, image.imageFile, image.imageDescription));
+                    image.author, loginName, image.categoryId, categoryName, image.imageFile, image.imageDescription));
             }
 
             return new ImageBlock(imageDtos, existMoreImages);
