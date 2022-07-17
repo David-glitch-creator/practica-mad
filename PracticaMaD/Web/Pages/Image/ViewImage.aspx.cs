@@ -22,6 +22,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lnkAuthor.Visible = false;
             lblTitle.Visible = false;
             lblDescription.Visible = false;
+            lblCategoryText.Visible = false;
+            lblCategoryName.Visible = false;
             lblExifDetails.Visible = false;
             lblAperture.Visible = false;
             lblExposureTime.Visible = false;
@@ -78,6 +80,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             lblDescription.Text = image.ImageDescription;
             lblDescription.Visible = true;
+
+            lblCategoryText.Visible = true;
+            lblCategoryName.Text = image.CategoryName;
+            lblCategoryName.Visible = true;
 
             lblExifDetails.Visible = true;
 

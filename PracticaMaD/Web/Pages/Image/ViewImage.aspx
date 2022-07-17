@@ -15,6 +15,10 @@
         <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescriptionResource1"></asp:Label>
         <br />
         <br />
+        <asp:Label ID="lblCategoryText" runat="server" meta:resourcekey="lblCategoryTextResource1"></asp:Label>
+        <asp:Label ID="lblCategoryName" runat="server" meta:resourcekey="lblCategoryNameResource1"></asp:Label>
+        <br />
+        <br />
         <asp:Label ID="lblExifDetails" runat="server" meta:resourcekey="lblExifDetailsResource1"></asp:Label>
         <br />
         <asp:Label ID="lblAperture" runat="server" meta:resourcekey="lblApertureResource1"></asp:Label>

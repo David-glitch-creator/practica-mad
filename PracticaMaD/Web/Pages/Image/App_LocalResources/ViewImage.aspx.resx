@@ -129,6 +129,9 @@
   <data name="lblApertureResource1.Text" xml:space="preserve">
     <value>Aperture: </value>
   </data>
+  <data name="lblCategoryTextResource1.Text" xml:space="preserve">
+    <value>Category: </value>
+  </data>
   <data name="lblDescriptionResource1.Text" xml:space="preserve">
     <value>Description</value>
   </data>
