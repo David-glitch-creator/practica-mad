@@ -126,6 +126,12 @@
   <data name="HyperLinkFieldResource2.HeaderText" xml:space="preserve">
     <value>Autor</value>
   </data>
+  <data name="lblCategoryResource1.Text" xml:space="preserve">
+    <value>Categoría: </value>
+  </data>
+  <data name="lblKeywordsResource1.Text" xml:space="preserve">
+    <value>Palabras clave: </value>
+  </data>
   <data name="lblNoImagesResource1.Text" xml:space="preserve">
     <value>No se encontraron imágenes</value>
   </data>

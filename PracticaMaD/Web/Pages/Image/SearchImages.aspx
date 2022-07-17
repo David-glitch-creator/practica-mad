@@ -5,9 +5,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
-        <asp:TextBox ID="txtKeywords" runat="server" meta:resourcekey="txtKeywordsResource1"></asp:TextBox>
-        <asp:DropDownList ID="comboCategory" runat="server" AutoPostBack="True" meta:resourcekey="comboCategoryResource1">
-        </asp:DropDownList>
+        <div class="field">
+            <asp:Label ID="lblKeywords" runat="server" meta:resourcekey="lblKeywordsResource1"></asp:Label>
+            <asp:TextBox ID="txtKeywords" runat="server" meta:resourcekey="txtKeywordsResource1"></asp:TextBox>
+        </div>
+        <div class="field">
+            <asp:Label ID="lblCategory" runat="server" meta:resourcekey="lblCategoryResource1"></asp:Label>
+            <asp:DropDownList ID="comboCategory" runat="server" AutoPostBack="True" meta:resourcekey="comboCategoryResource1">
+            </asp:DropDownList>
+        </div>
         <br />
         <asp:Button ID="btnFind" runat="server" OnClick="BtnFind_Click" meta:resourcekey="btnFindResource1" />
         <br />

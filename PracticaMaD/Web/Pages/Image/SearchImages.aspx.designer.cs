@@ -33,6 +33,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control lblKeywords.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKeywords;
+
+        /// <summary>
         /// Control txtKeywords.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtKeywords;
+
+        /// <summary>
+        /// Control lblCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCategory;
 
         /// <summary>
         /// Control comboCategory.
