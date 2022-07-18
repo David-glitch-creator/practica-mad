@@ -98,6 +98,7 @@
     <Content Include="Pages\Image\EditComment.aspx" />
     <Content Include="Pages\Image\LikeImage.aspx" />
     <Content Include="Pages\Image\SearchImages.aspx" />
+    <Content Include="Pages\Image\SearchImagesByTag.aspx" />
     <Content Include="Pages\Image\Upload.aspx" />
     <Content Include="Pages\Image\ViewCommentDetails.aspx" />
     <Content Include="Pages\Image\ViewComments.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Pages\Image\SearchImages.aspx.designer.cs">
       <DependentUpon>SearchImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image\SearchImagesByTag.aspx.cs">
+      <DependentUpon>SearchImagesByTag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Image\SearchImagesByTag.aspx.designer.cs">
+      <DependentUpon>SearchImagesByTag.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Image\Upload.aspx.cs">
       <DependentUpon>Upload.aspx</DependentUpon>

@@ -48,7 +48,7 @@
                 <Columns>
                     <asp:HyperLinkField DataTextField="TagName"
                         DataNavigateUrlFields="TagId"
-                        DataNavigateUrlFormatString="/Pages/Image/SearchImageByTag.aspx?tagId={0}"
+                        DataNavigateUrlFormatString="/Pages/Image/SearchImagesByTag.aspx?tagId={0}"
                         meta:resourcekey="HyperLinkFieldResource1"/>
                 </Columns>
             </asp:GridView>
