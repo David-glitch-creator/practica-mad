@@ -138,10 +138,10 @@ CREATE TABLE Comment (
 	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId),
 	
 	CONSTRAINT [FK_CommentAuthor] FOREIGN KEY (author)
-		REFERENCES UserProfile(userId) ON DELETE CASCADE,
+		REFERENCES UserProfile(userId),
 		
 	CONSTRAINT [FK_CommentedImage] FOREIGN KEY (imageId)
-		REFERENCES ImageEntity (imageId) /*ON DELETE CASCADE*/
+		REFERENCES ImageEntity (imageId) ON DELETE CASCADE
 )
 
 PRINT N'Table Comment created.'
@@ -201,10 +201,10 @@ CREATE TABLE ImageTag (
 	CONSTRAINT [PK_ImageTag] PRIMARY KEY (tagId, imageId),
 
 	CONSTRAINT [FK_ImageTagId] FOREIGN KEY (tagId)
-		REFERENCES Tag (tagId),
+		REFERENCES Tag (tagId) ON DELETE CASCADE,
 	
 	CONSTRAINT [FK_TagImageId] FOREIGN KEY (imageId)
-		REFERENCES ImageEntity (imageId),
+		REFERENCES ImageEntity (imageId) ON DELETE CASCADE,
 )
 
 PRINT N'Table ImageTag created.'

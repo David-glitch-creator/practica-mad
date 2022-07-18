@@ -9,6 +9,7 @@
         </p>
         <asp:Image ID="Image" runat="server" meta:resourcekey="ImageResource1" />
         <br />
+        <br />
         <asp:GridView ID="gvViewComments" runat="server" AutoGenerateColumns="False"
             HorizontalAlign="Center"
             meta:resourcekey="gvViewCommentsResource1">

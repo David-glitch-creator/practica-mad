@@ -1,28 +1,38 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
-using Es.Udc.DotNet.PracticaMaD.Model.TagService;
-using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
-    public partial class MainPage : SpecificCulturePage
+    public partial class SearchImagesByTag : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             int startIndex, count;
+            long tagId;
 
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
             lblNoImages.Visible = false;
+            lblNoTag.Visible = false;
+
+            /* Get Tag */
+            try
+            {
+                tagId = Int32.Parse(Request.Params.Get("tagId"));
+            }
+            catch (ArgumentNullException)
+            {
+                lblNoTag.Visible = true;
+                return;
+            }
 
             /* Get Start Index */
             try
@@ -48,7 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
 
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
-            ImageBlock imageBlock = imageService.GetAllImages(startIndex, count);
+            ImageBlock imageBlock = imageService.GetImagesByTag(tagId, startIndex, count);
 
             if (imageBlock.Images.Count == 0)
             {
@@ -56,16 +66,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
                 return;
             }
 
-            this.gvImagesMain.DataSource = imageBlock.Images;
-            this.gvImagesMain.DataBind();
+            this.gvImages.DataSource = imageBlock.Images;
+            this.gvImages.DataBind();
 
             /* "Previous" link */
             if ((startIndex - count) >= 0)
             {
                 String url =
-                    "/Pages/MainPage.aspx" +
-                    "?startIndex=" + (startIndex - count) + "&count=" +
-                    count;
+                    "/Pages/Image/SearchImagesByTag.aspx" +
+                    "?tagId=" + tagId +
+                    "&startIndex=" + (startIndex - count) +
+                    "&count=" + count;
 
                 this.lnkPrevious.NavigateUrl =
                     Response.ApplyAppPathModifier(url);
@@ -76,23 +87,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
             if (imageBlock.ExistMoreImages)
             {
                 String url =
-                    "/Pages/MainPage.aspx" +
-                    "?startIndex=" + (startIndex + count) +
+                    "/Pages/Image/SearchImagesByTag.aspx" +
+                    "?tagId=" + tagId +
+                    "&startIndex=" + (startIndex + count) +
                     "&count=" + count;
 
                 this.lnkNext.NavigateUrl =
                     Response.ApplyAppPathModifier(url);
                 this.lnkNext.Visible = true;
             }
-
-            ITagService tagService = ioCManager.Resolve<ITagService>();
-
-            List<TagDto> tags = tagService.GetByPopularity();
-
-            lvTagCloud.DataSource = tags;
-            lvTagCloud.DataBind();
-
-
         }
 
         protected void grd_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -15,9 +15,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
         [Inject]
         public IImageEntityDao ImageEntityDao { private get; set; }
 
-        public List<Tag> GetByPopularity()
+        public List<TagDto> GetByPopularity()
         {
-            return TagDao.FindAllOrderByPopularity();
+            List<Tag> tags = TagDao.FindAllOrderByPopularity();
+
+            List<TagDto> tagDtos = new List<TagDto>();
+
+            foreach (Tag tag in tags)
+            {
+                tagDtos.Add(new TagDto(tag.tagId, tag.tagName, tag.taggedImagesNumber));
+            }
+
+            return tagDtos;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -71,6 +80,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
             }
 
             return tagDtos;
+        }
+
+        public void AddTagsToImage(List<string> tagNames, long imageId)
+        {
+            foreach (string tag in tagNames)
+            {
+                AddTagToImage(tag.Trim(), imageId);
+            }
+        }
+
+        public void RemoveTagsFromImage(List<string> tagNames, long imageId)
+        {
+            foreach (string tag in tagNames)
+            {
+                RemoveTagFromImage(tag.Trim(), imageId);
+            }
         }
     }
 }

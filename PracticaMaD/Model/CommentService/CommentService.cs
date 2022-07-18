@@ -39,6 +39,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
             return comment.commentId;
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         public void DeleteComment(long commentId)
         {
             CommentDao.Remove(commentId);

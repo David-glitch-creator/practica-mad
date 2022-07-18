@@ -29,15 +29,24 @@
                     DataNavigateUrlFormatString="/Pages/User/ViewUser.aspx?UserId={0}" meta:resourcekey="HyperLinkFieldResource2"/>
             </Columns>
         </asp:GridView>
-    <br />
-    <!-- "Previous" and "Next" links. -->
-    <div class="previousNextLinks">
-        <span class="previousLink">
-            <asp:HyperLink ID="lnkPrevious" runat="server" Visible="False" meta:resourcekey="lnkPreviousResource1"></asp:HyperLink>
-        </span>
-        <span class="nextLink">
-            <asp:HyperLink ID="lnkNext" runat="server" Visible="False" meta:resourcekey="lnkNextResource1"></asp:HyperLink>
-        </span>
-    </div>
+        <br />
+        <!-- "Previous" and "Next" links. -->
+        <div class="previousNextLinks">
+            <span class="previousLink">
+                <asp:HyperLink ID="lnkPrevious" runat="server" Visible="False" meta:resourcekey="lnkPreviousResource1"></asp:HyperLink>
+            </span>
+            <span class="nextLink">
+                <asp:HyperLink ID="lnkNext" runat="server" Visible="False" meta:resourcekey="lnkNextResource1"></asp:HyperLink>
+            </span>
+        </div>
+        <br />
+        <br />
+        <asp:ListView ID="lvTagCloud" runat="server">
+            <ItemTemplate>
+                <a href="Image/SearchImagesByTag.aspx?tagId=<%# Eval("TagId") %>">
+                    <%# Eval("TagName") %>
+                </a>
+            </ItemTemplate>
+        </asp:ListView>
     </form>
 </asp:Content>

@@ -1,4 +1,6 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.TagService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;

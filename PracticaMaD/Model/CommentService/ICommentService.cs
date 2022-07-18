@@ -12,6 +12,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.CommentService
         /// <exception cref="InstanceNotFoundException"/>
         long UpdateComment(long commentId, string newText);
 
+        /// <exception cref="InstanceNotFoundException"/>
         void DeleteComment(long commentId);
 
         /// <exception cref="InstanceNotFoundException"/>

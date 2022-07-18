@@ -23,6 +23,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lclTags.Visible = false;
             txtTags.Visible = false;
             btnAddTags.Visible = false;
+            btnRemoveTags.Visible = false;
 
             gvImageTags.Visible = false;
 
@@ -61,6 +62,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lclTags.Visible = true;
             txtTags.Visible = true;
             btnAddTags.Visible = true;
+            btnRemoveTags.Visible = true;
 
             gvImageTags.DataSource = tagService.GetTagsFromImage(imageId);
             gvImageTags.DataBind();
@@ -84,11 +86,34 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             ITagService tagService = ioCManager.Resolve<ITagService>();
 
-            long userId = SessionManager.GetUserInfo(Context).UserId;
+            String tags = txtTags.Text;
+
+            tagService.AddTagsToImage(tags.Split(';').ToList(), imageId);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));
+        }
+
+        protected void BtnRemoveTags_Click(object sender, EventArgs e)
+        {
+            long imageId;
+
+            try
+            {
+                imageId = Int32.Parse(Request.Params.Get("imageId"));
+            }
+            catch (ArgumentNullException)
+            {
+                return;
+            }
+
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            ITagService tagService = ioCManager.Resolve<ITagService>();
 
             String tags = txtTags.Text;
 
-            tagService.AddTagToImage(tags, imageId);
+            tagService.RemoveTagsFromImage(tags.Split(';').ToList(), imageId);
 
             Response.Redirect(Response.
                         ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));

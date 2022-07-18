@@ -117,37 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
-    <value>Autor</value>
+  <data name="btnAddTagsResource1.Text" xml:space="preserve">
+    <value>Añadir etiquetas</value>
+  </data>
+  <data name="btnRemoveTagsResource1.Text" xml:space="preserve">
+    <value>Eliminar etiquetas</value>
   </data>
   <data name="HyperLinkFieldResource1.HeaderText" xml:space="preserve">
-    <value>Título</value>
+    <value>Tags</value>
   </data>
-  <data name="lblNoImagesResource1.Text" xml:space="preserve">
-    <value>No se encontraron imágenes</value>
+  <data name="lblNoImageResource1.Text" xml:space="preserve">
+    <value>No se encontró imagen</value>
   </data>
-  <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Mi Perfil</value>
+  <data name="lblNoPermissionResource1.Text" xml:space="preserve">
+    <value>Usted no tiene permisos para editar esta imagen</value>
   </data>
-  <data name="lnkFindFolloweds.Text" xml:space="preserve">
-    <value>Seguir a usuario</value>
-  </data>
-  <data name="lnkFollowedUsers.Text" xml:space="preserve">
-    <value>Ver usuarios seguidos</value>
-  </data>
-  <data name="lnkFollowers.Text" xml:space="preserve">
-    <value>Ver seguidores</value>
-  </data>
-  <data name="lnkNextResource1.Text" xml:space="preserve">
-    <value>Siguiente</value>
-  </data>
-  <data name="lnkPreviousResource1.Text" xml:space="preserve">
-    <value>Anterior</value>
+  <data name="lclTagsResource1.Text" xml:space="preserve">
+    <value>Etiquetas (por favor, sepárelas con un punto y coma)</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Photogram</value>
   </data>
-  <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
-    <value>Imagen</value>
+  <data name="rfvTagsResource1.Text" xml:space="preserve">
+    <value>Indique, al menos, una etiqueta</value>
   </data>
 </root>

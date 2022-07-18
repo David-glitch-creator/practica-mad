@@ -41,9 +41,6 @@
                     DataNavigateUrlFields="ImageId"
                     DataNavigateUrlFormatString="/Pages/Image/ViewImage.aspx?ImageId={0}" meta:resourcekey="HyperLinkFieldResource1" />
                 <asp:BoundField DataField="AuthorLogin" meta:resourcekey="BoundFieldResource1" />
-                <asp:HyperLinkField
-                    DataNavigateUrlFields="ImageId" 
-                    DataNavigateUrlFormatString="/Pages/Image/AddTags.aspx?ImageId={0}" meta:resourcekey="HyperLinkFieldResource2" />
             </Columns>
         </asp:GridView>
 

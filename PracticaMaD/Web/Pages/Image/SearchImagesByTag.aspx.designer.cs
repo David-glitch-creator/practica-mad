@@ -11,97 +11,70 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 {
 
 
-    public partial class AddTags
+    public partial class SearchImagesByTag
     {
 
         /// <summary>
-        /// Control AddTagsForm.
+        /// Control lclMenuExplanation.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm AddTagsForm;
+        protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
 
         /// <summary>
-        /// Control lblNoImage.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoImage;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lblNoPermission.
+        /// Control lblNoTag.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoPermission;
+        protected global::System.Web.UI.WebControls.Label lblNoTag;
 
         /// <summary>
-        /// Control Image.
+        /// Control lblNoImages.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image;
+        protected global::System.Web.UI.WebControls.Label lblNoImages;
 
         /// <summary>
-        /// Control lclTags.
+        /// Control gvImages.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclTags;
+        protected global::System.Web.UI.WebControls.GridView gvImages;
 
         /// <summary>
-        /// Control txtTags.
+        /// Control lnkPrevious.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTags;
+        protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
 
         /// <summary>
-        /// Control rfvTags.
+        /// Control lnkNext.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTags;
-
-        /// <summary>
-        /// Control btnAddTags.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddTags;
-
-        /// <summary>
-        /// Control btnRemoveTags.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveTags;
-
-        /// <summary>
-        /// Control gvImageTags.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvImageTags;
+        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
     }
 }

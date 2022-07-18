@@ -18,21 +18,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public ImageEntity()
         {
             this.Comment = new HashSet<Comment>();
-            this.UserProfile1 = new HashSet<UserProfile>();
             this.Tag = new HashSet<Tag>();
+            this.UserProfile1 = new HashSet<UserProfile>();
         }
     
         public long imageId { get; set; }
         public string title { get; set; }
+        public string imageDescription { get; set; }
         public System.DateTime uploadDate { get; set; }
         public string aperture { get; set; }
         public string exposureTime { get; set; }
         public string iso { get; set; }
         public string whiteBalance { get; set; }
+        public byte[] imageFile { get; set; }
         public long author { get; set; }
         public long categoryId { get; set; }
-        public byte[] imageFile { get; set; }
-        public string imageDescription { get; set; }
     
         
         /// <summary>
@@ -51,14 +51,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public virtual UserProfile UserProfile { get; set; }
         
         /// <summary>
-        /// Relationship Name (Foreign Key in ER-Model): Likes
-        /// </summary>
-        public virtual ICollection<UserProfile> UserProfile1 { get; set; }
-        
-        /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): ImageTag
         /// </summary>
         public virtual ICollection<Tag> Tag { get; set; }
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): Likes
+        /// </summary>
+        public virtual ICollection<UserProfile> UserProfile1 { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -77,15 +77,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int hash = GetType().GetHashCode();
     
     			hash = hash * multiplier + (title == null ? 0 : title.GetHashCode());
+    			hash = hash * multiplier + (imageDescription == null ? 0 : imageDescription.GetHashCode());
     			hash = hash * multiplier + uploadDate.GetHashCode();
     			hash = hash * multiplier + (aperture == null ? 0 : aperture.GetHashCode());
     			hash = hash * multiplier + (exposureTime == null ? 0 : exposureTime.GetHashCode());
     			hash = hash * multiplier + (iso == null ? 0 : iso.GetHashCode());
     			hash = hash * multiplier + (whiteBalance == null ? 0 : whiteBalance.GetHashCode());
+    			hash = hash * multiplier + imageFile.GetHashCode();
     			hash = hash * multiplier + author.GetHashCode();
     			hash = hash * multiplier + categoryId.GetHashCode();
-    			hash = hash * multiplier + imageFile.GetHashCode();
-    			hash = hash * multiplier + (imageDescription == null ? 0 : imageDescription.GetHashCode());
     
     			return hash;
     	    }
@@ -108,15 +108,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		return true
                &&  (this.imageId == target.imageId )       
                &&  (this.title == target.title )       
+               &&  (this.imageDescription == target.imageDescription )       
                &&  (this.uploadDate == target.uploadDate )       
                &&  (this.aperture == target.aperture )       
                &&  (this.exposureTime == target.exposureTime )       
                &&  (this.iso == target.iso )       
                &&  (this.whiteBalance == target.whiteBalance )       
+               &&  (this.imageFile == target.imageFile )       
                &&  (this.author == target.author )       
                &&  (this.categoryId == target.categoryId )       
-               &&  (this.imageFile == target.imageFile )       
-               &&  (this.imageDescription == target.imageDescription )       
                ;
     
         }
@@ -153,15 +153,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		strImageEntity.Append("[ ");
            strImageEntity.Append(" imageId = " + imageId + " | " );       
            strImageEntity.Append(" title = " + title + " | " );       
+           strImageEntity.Append(" imageDescription = " + imageDescription + " | " );       
            strImageEntity.Append(" uploadDate = " + uploadDate + " | " );       
            strImageEntity.Append(" aperture = " + aperture + " | " );       
            strImageEntity.Append(" exposureTime = " + exposureTime + " | " );       
            strImageEntity.Append(" iso = " + iso + " | " );       
            strImageEntity.Append(" whiteBalance = " + whiteBalance + " | " );       
+           strImageEntity.Append(" imageFile = " + imageFile + " | " );       
            strImageEntity.Append(" author = " + author + " | " );       
            strImageEntity.Append(" categoryId = " + categoryId + " | " );       
-           strImageEntity.Append(" imageFile = " + imageFile + " | " );       
-           strImageEntity.Append(" imageDescription = " + imageDescription + " | " );       
             strImageEntity.Append("] ");    
     
     		return strImageEntity.ToString();
