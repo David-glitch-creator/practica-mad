@@ -123,12 +123,6 @@
   <data name="HyperLinkFieldResource1.HeaderText" xml:space="preserve">
     <value>Título</value>
   </data>
-  <data name="HyperLinkFieldResource2.HeaderText" xml:space="preserve">
-    <value>Añadir etiquetas</value>
-  </data>
-  <data name="HyperLinkFieldResource2.Text" xml:space="preserve">
-    <value>Añadir etiquetas</value>
-  </data>
   <data name="lblNoImagesResource1.Text" xml:space="preserve">
     <value>No se encontraron imágenes</value>
   </data>
