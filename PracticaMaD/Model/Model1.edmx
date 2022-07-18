@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="photogramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="photogramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -84,9 +84,7 @@
           <Property Name="country" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <Association Name="FK_CommentAuthor">
-          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserProfile">
@@ -98,7 +96,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CommentedImage">
-          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1" />
+          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageEntity">
@@ -164,7 +164,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ImageTagId">
-          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ImageTag" Type="Self.ImageTag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tag">
@@ -190,7 +192,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TagImageId">
-          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1" />
+          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ImageTag" Type="Self.ImageTag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageEntity">
@@ -263,7 +267,8 @@
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="photogramModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -283,9 +288,9 @@
           <Property Name="author" Type="Int64" Nullable="false" />
           <Property Name="imageId" Type="Int64" Nullable="false" />
           <Property Name="commentText" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postedDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_CommentAuthor" FromRole="Comment" ToRole="UserProfile" />
           <NavigationProperty Name="ImageEntity" Relationship="Self.FK_CommentedImage" FromRole="Comment" ToRole="ImageEntity" />
-          <Property Name="postedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="ImageEntity">
           <Key>
@@ -293,20 +298,29 @@
           </Key>
           <Property Name="imageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imageDescription" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uploadDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="aperture" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="exposureTime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="iso" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="whiteBalance" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="imageFile" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="author" Type="Int64" Nullable="false" />
           <Property Name="categoryId" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_ImageCategory" FromRole="ImageEntity" ToRole="Category" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_CommentedImage" FromRole="ImageEntity" ToRole="Comment" />
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_ImageAuthor" FromRole="ImageEntity" ToRole="UserProfile" />
+          <NavigationProperty Name="Tag" Relationship="Self.ImageTag" FromRole="ImageEntity" ToRole="Tag" />
           <NavigationProperty Name="UserProfile1" Relationship="Self.Likes" FromRole="ImageEntity" ToRole="UserProfile" />
-          <Property Name="imageFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="imageDescription" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tag" Relationship="photogramModel.ImageTag" FromRole="ImageEntity" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tagName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taggedImagesNumber" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ImageEntity" Relationship="Self.ImageTag" FromRole="Tag" ToRole="ImageEntity" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -341,9 +355,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CommentAuthor">
-          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserProfile">
@@ -355,7 +367,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CommentedImage">
-          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1" />
+          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageEntity">
@@ -384,6 +398,10 @@
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
           <End Role="UserProfile1" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
+        <Association Name="ImageTag">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="*" />
+        </Association>
         <Association Name="Likes">
           <End Role="ImageEntity" Type="Self.ImageEntity" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
@@ -392,6 +410,7 @@
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="ImageEntity" EntityType="Self.ImageEntity" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" />
           <AssociationSet Name="FK_ImageCategory" Association="Self.FK_ImageCategory">
             <End Role="Category" EntitySet="Category" />
@@ -413,29 +432,15 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="UserProfile1" EntitySet="UserProfile" />
           </AssociationSet>
+          <AssociationSet Name="ImageTag" Association="Self.ImageTag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="ImageEntity" EntitySet="ImageEntity" />
+          </AssociationSet>
           <AssociationSet Name="Likes" Association="Self.Likes">
             <End Role="ImageEntity" EntitySet="ImageEntity" />
             <End Role="UserProfile" EntitySet="UserProfile" />
           </AssociationSet>
-          <EntitySet Name="Tag" EntityType="photogramModel.Tag" />
-          <AssociationSet Name="ImageTag" Association="photogramModel.ImageTag">
-            <End Role="Tag" EntitySet="Tag" />
-            <End Role="ImageEntity" EntitySet="ImageEntity" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Tag">
-          <Key>
-            <PropertyRef Name="tagId" />
-          </Key>
-          <Property Name="tagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tagName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="taggedImagesNumber" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="ImageEntity" Relationship="photogramModel.ImageTag" FromRole="Tag" ToRole="ImageEntity" />
-        </EntityType>
-        <Association Name="ImageTag">
-          <End Type="photogramModel.Tag" Role="Tag" Multiplicity="*" />
-          <End Type="photogramModel.ImageEntity" Role="ImageEntity" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -453,28 +458,37 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="photogramModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
-                <ScalarProperty Name="postedDate" ColumnName="postedDate" />
                 <ScalarProperty Name="commentId" ColumnName="commentId" />
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="commentText" ColumnName="commentText" />
+                <ScalarProperty Name="postedDate" ColumnName="postedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ImageEntity">
             <EntityTypeMapping TypeName="photogramModel.ImageEntity">
               <MappingFragment StoreEntitySet="ImageEntity">
-                <ScalarProperty Name="imageDescription" ColumnName="imageDescription" />
-                <ScalarProperty Name="imageFile" ColumnName="imageFile" />
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="imageDescription" ColumnName="imageDescription" />
                 <ScalarProperty Name="uploadDate" ColumnName="uploadDate" />
                 <ScalarProperty Name="aperture" ColumnName="aperture" />
                 <ScalarProperty Name="exposureTime" ColumnName="exposureTime" />
                 <ScalarProperty Name="iso" ColumnName="iso" />
                 <ScalarProperty Name="whiteBalance" ColumnName="whiteBalance" />
+                <ScalarProperty Name="imageFile" ColumnName="imageFile" />
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="photogramModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+                <ScalarProperty Name="taggedImagesNumber" ColumnName="taggedImagesNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -500,29 +514,20 @@
               <ScalarProperty Name="userId" ColumnName="followerUserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <AssociationSetMapping Name="ImageTag" TypeName="photogramModel.ImageTag" StoreEntitySet="ImageTag">
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="tagId" ColumnName="tagId" />
+            </EndProperty>
+            <EndProperty Name="ImageEntity">
+              <ScalarProperty Name="imageId" ColumnName="imageId" />
+            </EndProperty>
+          </AssociationSetMapping>
           <AssociationSetMapping Name="Likes" TypeName="photogramModel.Likes" StoreEntitySet="Likes">
             <EndProperty Name="ImageEntity">
               <ScalarProperty Name="imageId" ColumnName="imageId" />
             </EndProperty>
             <EndProperty Name="UserProfile">
               <ScalarProperty Name="userId" ColumnName="userId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="Tag">
-            <EntityTypeMapping TypeName="photogramModel.Tag">
-              <MappingFragment StoreEntitySet="Tag">
-                <ScalarProperty Name="taggedImagesNumber" ColumnName="taggedImagesNumber" />
-                <ScalarProperty Name="tagName" ColumnName="tagName" />
-                <ScalarProperty Name="tagId" ColumnName="tagId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="ImageTag" TypeName="photogramModel.ImageTag" StoreEntitySet="ImageTag">
-            <EndProperty Name="ImageEntity">
-              <ScalarProperty Name="imageId" ColumnName="imageId" />
-            </EndProperty>
-            <EndProperty Name="Tag">
-              <ScalarProperty Name="tagId" ColumnName="tagId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
