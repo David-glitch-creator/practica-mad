@@ -125,18 +125,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 Assert.IsTrue(tagService.GetTagsFromImage(imageId).Count == 2);
                 Assert.IsTrue(tagService.GetTagsFromImage(image2Id).Count == 1);
 
-                List<Tag> actual = tagService.GetByPopularity();
-                List<Tag> expected = new List<Tag>();
+                List<TagDto> actual = tagService.GetByPopularity();
+                List<TagDto> expected = new List<TagDto>();
 
-                Tag expected1 = new Tag();
-                expected1.tagId = tagDao.FindByName(tagName).tagId;
-                expected1.tagName = tagName;
-                expected1.taggedImagesNumber = 2;
+                TagDto expected1 = new TagDto(tagDao.FindByName(tagName).tagId, tagName, 2);
 
-                Tag expected2 = new Tag();
-                expected2.tagId = tagDao.FindByName("etiqueta2").tagId;
-                expected2.tagName = "etiqueta2";
-                expected2.taggedImagesNumber = 1;
+                TagDto expected2 = new TagDto(tagDao.FindByName("etiqueta2").tagId, "etiqueta2", 1);
 
                 expected.Add(expected1);
                 expected.Add(expected2);
