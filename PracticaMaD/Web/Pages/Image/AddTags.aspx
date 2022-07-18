@@ -19,7 +19,7 @@
 
             <div class="field">
                 <span class="label">
-                    <asp:Localize ID="lclTags" runat="server" Text="Etiquetas (por favor, sepárelas con una coma seguida de un espacio)"></asp:Localize>
+                    <asp:Localize ID="lclTags" runat="server" Text="Etiquetas (por favor, sepárelas con un punto y coma)"></asp:Localize>
                 </span>
                 <span class="entry">
                     <asp:TextBox ID="txtTags" runat="server" Width="100px"
@@ -32,6 +32,12 @@
             <div class="button">
                 <asp:Button ID="btnAddTags" runat="server" OnClick="BtnAddTags_Click" Text="Añadir etiquetas" />
             </div>
+
+            <div class="button">
+                <asp:Button ID="btnRemoveTags" runat="server" OnClick="BtnRemoveTags_Click" Text="Eliminar etiquetas" />
+            </div>
+
+            <br />
 
             <asp:GridView ID="gvImageTags" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center">
                 <Columns>
