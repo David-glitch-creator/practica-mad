@@ -1,4 +1,6 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.TagService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         public static readonly String USER_SESSION_ATTRIBUTE = "userSession";
         protected void Page_Load(object sender, EventArgs e)
         {
+            IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
+
+            ITagService tagService = ioCManager.Resolve<ITagService>();
+
+            List<TagDto> tags = tagService.GetByPopularity();
+
+            lvTagCloud.DataSource = tags;
+            lvTagCloud.DataBind();
+
             if (!SessionManager.IsUserAuthenticated(Context))
             {
 

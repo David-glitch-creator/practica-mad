@@ -65,6 +65,14 @@
         </div>
         <!-- Footer. -->
         <div id="footer">
+            <asp:ListView ID="lvTagCloud" runat="server">
+                <ItemTemplate>
+                    <a href="Image/SearchImagesByTag.aspx?tagId=<%# Eval("TagId") %>">
+                        <%# Eval("TagName") %>
+                    </a>
+                </ItemTemplate>
+            </asp:ListView>
+            <br />
             <asp:Localize ID="lclFooter" runat="server" meta:resourcekey="lclFooter" />
         </div>
         <!-- End of Window. -->
