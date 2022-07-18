@@ -42,6 +42,18 @@
         <asp:HyperLink ID="lnkComments" runat="server" meta:resourcekey="lnkCommentsResource1" />
         <br />
         <br />
+        <asp:GridView ID="gvTags" runat="server" AutoGenerateColumns="False"
+                HorizontalAlign="Center"
+                meta:resourcekey="gvTagsResource1" >
+                <Columns>
+                    <asp:HyperLinkField DataTextField="TagName"
+                        DataNavigateUrlFields="TagId"
+                        DataNavigateUrlFormatString="/Pages/Image/SearchImageByTag.aspx?tagId={0}"
+                        meta:resourcekey="HyperLinkFieldResource1"/>
+                </Columns>
+            </asp:GridView>
+        <br />
+        <br />
         <asp:Button ID="btnDeleteImage" runat="server" OnClick="BtnDeleteImage_Click" meta:resourcekey="btnDeleteImageResource1" />
 
         <hr />

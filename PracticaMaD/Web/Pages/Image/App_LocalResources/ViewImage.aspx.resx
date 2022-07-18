@@ -126,6 +126,9 @@
   <data name="btnLikeImageResource1.Text" xml:space="preserve">
     <value>Like</value>
   </data>
+  <data name="HyperLinkFieldResource1.HeaderText" xml:space="preserve">
+    <value>Tags</value>
+  </data>
   <data name="lblApertureResource1.Text" xml:space="preserve">
     <value>Aperture: </value>
   </data>

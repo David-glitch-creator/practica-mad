@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Model.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
@@ -38,6 +39,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lnkAddComment.Visible = false;
             lnkComments.Visible = false;
 
+            gvTags.Visible = false;
+
             btnDeleteImage.Visible = false;
 
             IIoCManager ioCManager = (IIoCManager)Application["managerIoC"];
@@ -45,6 +48,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             IImageService imageService = ioCManager.Resolve<IImageService>();
 
             ICommentService commentService = ioCManager.Resolve<CommentService>();
+
+            ITagService tagService = ioCManager.Resolve<ITagService>();
 
             try
             {
@@ -138,6 +143,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
                 lnkComments.NavigateUrl =
                     Response.ApplyAppPathModifier(urlViewComments);
                 lnkComments.Visible = true;
+            }
+
+            List<TagDto> tags = tagService.GetTagsFromImage(imageId);
+            if (tags.Count > 0)
+            {
+                gvTags.DataSource = tags;
+                gvTags.DataBind();
+                gvTags.Visible = true;
             }
 
             if (SessionManager.IsUserAuthenticated(Context) &&
