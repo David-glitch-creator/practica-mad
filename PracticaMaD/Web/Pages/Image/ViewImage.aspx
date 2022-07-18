@@ -54,6 +54,9 @@
             </asp:GridView>
         <br />
         <br />
+        <asp:HyperLink ID="lnkAddTags" runat="server" meta:resourcekey="lnkAddTagsResource1" />
+        <br />
+        <br />
         <asp:Button ID="btnDeleteImage" runat="server" OnClick="BtnDeleteImage_Click" meta:resourcekey="btnDeleteImageResource1" />
 
         <hr />

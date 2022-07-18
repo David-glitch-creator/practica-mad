@@ -40,6 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             lnkComments.Visible = false;
 
             gvTags.Visible = false;
+            lnkAddTags.Visible = false;
 
             btnDeleteImage.Visible = false;
 
@@ -156,6 +157,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
             if (SessionManager.IsUserAuthenticated(Context) &&
                 (SessionManager.GetUserInfo(Context).UserId == image.AuthorId))
             {
+                lnkAddTags.NavigateUrl = Response.
+                    ApplyAppPathModifier("~/Pages/Image/AddTags.aspx?imageId=" + imageId);
+                lnkAddTags.Visible = true;
                 btnDeleteImage.Visible = true;
             }
         }

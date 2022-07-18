@@ -162,6 +162,9 @@
   <data name="lnkAddCommentResource1.Text" xml:space="preserve">
     <value>Añadir comentario</value>
   </data>
+  <data name="lnkAddTagsResource1.Text" xml:space="preserve">
+    <value>Añadir etiquetas</value>
+  </data>
   <data name="lnkCommentsResource1.Text" xml:space="preserve">
     <value>Ver comentarios</value>
   </data>
