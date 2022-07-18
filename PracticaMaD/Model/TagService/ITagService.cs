@@ -17,5 +17,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
 
         /// <exception cref="InstanceNotFoundException"/>
         List<TagDto> GetTagsFromImage(long imageId);
+
+        /// <exception cref="InstanceNotFoundException"/>
+        void AddTagsToImage(List<string> tagNames, long imageId);
+
+        /// <exception cref="InstanceNotFoundException"/>
+        void RemoveTagsFromImage(List<string> tagNames, long imageId);
     }
 }

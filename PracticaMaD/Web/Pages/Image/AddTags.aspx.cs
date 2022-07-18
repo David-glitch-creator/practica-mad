@@ -84,11 +84,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Image
 
             ITagService tagService = ioCManager.Resolve<ITagService>();
 
-            long userId = SessionManager.GetUserInfo(Context).UserId;
-
             String tags = txtTags.Text;
 
-            tagService.AddTagToImage(tags, imageId);
+            tagService.AddTagsToImage(tags.Split(';').ToList(), imageId);
 
             Response.Redirect(Response.
                         ApplyAppPathModifier("~/Pages/Image/ViewImage.aspx?ImageId=" + imageId));

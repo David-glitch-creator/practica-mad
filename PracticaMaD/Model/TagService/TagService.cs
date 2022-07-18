@@ -72,5 +72,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.TagService
 
             return tagDtos;
         }
+
+        public void AddTagsToImage(List<string> tagNames, long imageId)
+        {
+            foreach (string tag in tagNames)
+            {
+                AddTagToImage(tag.Trim(), imageId);
+            }
+        }
+
+        public void RemoveTagsFromImage(List<string> tagNames, long imageId)
+        {
+            foreach (string tag in tagNames)
+            {
+                RemoveTagFromImage(tag.Trim(), imageId);
+            }
+        }
     }
 }
