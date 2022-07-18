@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ImageService;
+using Es.Udc.DotNet.PracticaMaD.Model.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
@@ -83,6 +84,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
                     Response.ApplyAppPathModifier(url);
                 this.lnkNext.Visible = true;
             }
+
+            ITagService tagService = ioCManager.Resolve<ITagService>();
+
+            List<TagDto> tags = tagService.GetByPopularity();
+
+            lvTagCloud.DataSource = tags;
+            lvTagCloud.DataBind();
+
+
         }
 
         protected void grd_RowDataBound(object sender, GridViewRowEventArgs e)
