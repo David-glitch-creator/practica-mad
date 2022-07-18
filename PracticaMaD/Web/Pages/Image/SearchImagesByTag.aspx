@@ -11,7 +11,9 @@
             <asp:Label ID="lblNoImages" runat="server" Text="No se encontraron imágenes" ></asp:Label>
         </p>
 
-        <asp:GridView ID="gvImages" runat="server" AutoGenerateColumns="False" OnRowDataBound ="grd_RowDataBound" >
+        <asp:GridView ID="gvImages" runat="server" AutoGenerateColumns="False"
+            HorizontalAlign="Center"
+            OnRowDataBound ="grd_RowDataBound" >
             <Columns>
                 <asp:TemplateField HeaderText="Imagen">
                     <ItemTemplate>
